@@ -54,7 +54,7 @@ int main(void)
 {
 	init();
 	radio_unpause_tx();
-	start_timeout(PHASE_1_LENGTH);
+	start_timeout(PHASE_1_NORM);
 	while (true)
 	{
 		// check command_fifo if there are commands to be sent

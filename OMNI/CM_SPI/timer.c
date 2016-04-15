@@ -48,6 +48,7 @@ void TIMER0_IRQHandler(void)
 	uint8_t *receive_packet;
 	uint8_t *packet_ptr;
 	int timeout;
+    bool stream;
 
 	//uint32_t compare_0; 
 	//uint32_t interrupts;
@@ -150,6 +151,17 @@ void TIMER0_IRQHandler(void)
         			// got CRC match, receive was good
         			error = false;
         			finish_write_command();
+                    stream = false;
+                    // check the receive packet for stream info
+                    if ((receive_packet[0] & 0x7F) != 0)
+                    {
+                        // contains actual commands, so check for stream mode
+                        if ((receive_packet[0] & 0x80))
+                        {
+                            // go to stream mode
+                            stream = true;
+                        }
+                    }
         		}
         		else
         		{
@@ -210,7 +222,13 @@ void TIMER0_IRQHandler(void)
                 }
             }
         }
-
-        start_timeout(PHASE_1_LENGTH);
+        if (stream)
+        {
+            start_timeout(PHASE_1_STREAM);
+        }
+        else
+        {
+            start_timeout(PHASE_1_NORM);
+        }
     }
 }

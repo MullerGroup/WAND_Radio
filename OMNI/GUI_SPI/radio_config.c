@@ -147,6 +147,7 @@ void RADIO_IRQHandler(void)
 	uint8_t i;
 	uint8_t command_index;
 	uint8_t command_count;
+    bool stream;
 
     if ((NRF_RADIO->EVENTS_READY == 1) && (NRF_RADIO->INTENSET & RADIO_INTENSET_READY_Msk))
     {
@@ -234,6 +235,7 @@ void RADIO_IRQHandler(void)
     			// fill command_packet buffer with commands from command fifo
     			command_index = 1; // use 0th byte as number of commands
     			command_count = 0;
+                stream = false;
                 while (command_count < MAX_COMMANDS)
                 {
                     command = read_command();
@@ -247,12 +249,21 @@ void RADIO_IRQHandler(void)
                         {
                             command_packet[command_index + i] = command[i];
                         }
+                        if ((command[0] == 0xff) && (command[4] & 0x30))
+                        {
+                            // stream mode
+                            stream = true;
+                        }
                         command_index = command_index + COMMAND_SIZE;
                         finish_read_command();
                     }
                     command_count++;
                 }
     			command_packet[0] = command_count*COMMAND_SIZE;
+                if (stream)
+                {
+                    command_packet[0] = command_packet[0] | 0x80;
+                }
     		}
     		// if PHASE_2_ERROR, don't need to do anything, just resend the current command_packet
 
