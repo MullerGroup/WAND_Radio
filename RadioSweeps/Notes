@@ -1,0 +1,26 @@
+Side A and Side B both start at F0
+Side A is idle, Side B is listening
+
+Side A transmits Fnew on F0
+Side B listens for Fnew and acknowledges on F0
+repeat until CRCs match on both ends. 
+
+Both change to Fnew. 
+
+Side A then starts transmits 1000 packets without listening for Ack
+Side B should receive continuously, just checking CRC
+	Timeout once it doesn't receive anything in a while
+
+Side B then sends a packet with RSSI/Drops info
+Side A should be listening for this immediately after transmitting the 1000 packets
+
+If Side A gets the data, it outputs it through UART
+otherwise, it will ask for it again and repeat until CRC matches
+
+Then, repeat from top
+
+Transmit Fnew on F0 and keep doing it until something is received
+Change Frequency
+Transmits 1000 packets
+Listens until good CRC
+Transmit ack

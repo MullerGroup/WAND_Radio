@@ -1,0 +1,4 @@
+loadbin _build/SideB_xxaa.bin 00000000
+r
+g
+exit
