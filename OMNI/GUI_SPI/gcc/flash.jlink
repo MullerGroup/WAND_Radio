@@ -1,4 +1,0 @@
-loadbin _build/gui_radio_xxaa.bin 00000000
-r
-g
-exit

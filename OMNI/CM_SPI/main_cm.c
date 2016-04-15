@@ -62,7 +62,7 @@ int main(void)
 		if (commands != 0)
 		{
 			success = false;
-			length = commands[0]/5; // number of commands
+			length = (commands[0] & 0x7F)/5; // number of commands
 			
 			if (length != 0)
 			{
