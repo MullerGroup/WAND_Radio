@@ -13,14 +13,12 @@
 
 bool error;
 uint8_t empty_packet[PACKET_SIZE];
-bool stream;
 
 // Sets up the timer to interrupt on compare events
 void init_timer(void)
 {
 	error = false;			// initialize with no error
 	empty_packet[1] = 0;	// empty packet contains 0 bytes of data
-    stream = false;
 
 	NRF_TIMER0->MODE = TIMER_MODE_MODE_Timer << TIMER_MODE_MODE_Pos;							// use timer mode
 	NRF_TIMER0->BITMODE = TIMER_BITMODE_BITMODE_32Bit << TIMER_BITMODE_BITMODE_Pos;				// 32 bit counting
@@ -50,7 +48,6 @@ void TIMER0_IRQHandler(void)
 	uint8_t *receive_packet;
 	uint8_t *packet_ptr;
 	int timeout;
-
 
 	//uint32_t compare_0; 
 	//uint32_t interrupts;
@@ -153,20 +150,6 @@ void TIMER0_IRQHandler(void)
         			// got CRC match, receive was good
         			error = false;
         			finish_write_command();
-                    // check the receive packet for stream info
-                    if ((receive_packet[0] & 0x7F) != 0)
-                    {
-                        // contains actual commands, so check for stream mode
-                        if ((receive_packet[0] & 0x80))
-                        {
-                            // go to stream mode
-                            stream = true;
-                        }
-                        else
-                        {
-                            stream = false;
-                        }
-                    }
         		}
         		else
         		{
@@ -227,13 +210,7 @@ void TIMER0_IRQHandler(void)
                 }
             }
         }
-        if (stream)
-        {
-            start_timeout(PHASE_1_NORM);
-        }
-        else
-        {
-            start_timeout(PHASE_1_NORM);
-        }
+
+        start_timeout(PHASE_1_LENGTH);
     }
 }
