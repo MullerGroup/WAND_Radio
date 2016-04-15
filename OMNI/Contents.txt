@@ -1,0 +1,6 @@
+CM_SPI: Code for using the eval-kit with the SF
+CM_SPI_PCB: Code for using the new board with the SF
+GUI: Code for GUI Nordic with UART
+GUI_SPI: GUI Nordic with SPI (not finished yet)
+SPITestRead: Test with the FTDI chip; does read and write, but outputting to UART doesn’t work yet
+SPITestWrite: Write only

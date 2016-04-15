@@ -1,0 +1,226 @@
+CM Code Outline
+
+Files:
+- main_cm
+- radio_config
+- transmit_fifo
+- receive_fifo
+- uart
+- timer
+
+radio irq priority = 0
+uart and timer irq priority = 1
+
+--------------------------------------------------------------------------------
+
+main_cm:
+
+*** init ***
+
+start up the oscillators
+simple_uart_config
+radio_configure
+init_timer
+
+
+*** main ***
+
+init
+unpause_tx
+start_timeout(100)
+while(true)
+	// send commands over UART if there are any
+	commands = read_receive() // gets the buffer of commands if there is one
+	if (commands != 0)
+		// actually got a command
+		bytes = 5*commands[0] // Total number of bytes to send out (commands *5)
+		simple_uart_putbuf(commands + 1, bytes)
+		finish_read_receive
+
+
+--------------------------------------------------------------------------------
+
+radio_config:
+
+*** radio_configure ***
+
+same top half
+SHORTS = ready-start
+INTENSET = ready, end
+
+nrf_delay_ms(3)
+
+
+*** RADIO_IRQHandler ***
+
+if (ready event)
+	clear ready event
+	if (timer_irq != true)
+	newpacket = read_transmit
+	if (newpacket != 0)
+		SHORTS = ready-start, end-start
+		PacketPTR = newpacket
+	else
+		SHORTS = ready-start, end-disable
+if (end event)
+	clear end event
+	finish_tranmsit_read
+	if (timer_irq != true)
+	newpacket = read_transmit
+	if (newpacket != 0)
+		SHORTS = ready-start, end-start
+		PacketPTR = newpacket
+	else
+		SHORTS = ready-start, end-disable
+
+
+*** pause_tx ***
+timer_irq == true
+
+
+*** unpause_tx ***
+timer_irq == false
+
+
+--------------------------------------------------------------------------------
+
+transmit_fifo and receive_fifo are pretty similar to the data and command fifos
+
+
+--------------------------------------------------------------------------------
+
+uart:
+
+Same as before:
+
+variables:
+
+byte_counter
+writing
+packet_index
+packet
+
+simple_uart_put
+simple_uart_putbuf
+
+simple_uart_config
+	need to initialize byte_counter to 0
+	writing = false
+
+
+*** UART_IRQHandler ***
+
+clear the interrupt
+
+grab the byte
+if (byte_counter == 0)
+	if (byte == DATA)
+		byte_counter = DATA_LENGTH
+	else if (byte == REGISTER)
+		byte_counter = REG_LENGTH
+
+	packet = write_transmit()
+	packet_index = 2
+	if (packet == 0)
+		writing = false
+	else
+		writing = true
+		packet[0] = PHASE_1
+		packet[1] = byte_counter
+else
+	byte_counter--
+	if (writing == true)
+		packet[packet_index] = byte
+		packet_index++
+		if (byte_conter == 0)
+
+			finish_write_tansmit()
+			if radio is disabled
+				read_transmit
+				tx_en
+
+
+--------------------------------------------------------------------------------
+
+timer:
+
+error
+empty_packet
+packet_ptr
+
+init and timeout already written
+init needs to set error to 0, empty_packet[1] = 0
+
+
+*** TIMER0_IRQHandler ***
+
+pause_tx
+shorts = ready-start, end-disable
+while (radio state != disabled) {}	// wait for radio to finish whatever
+
+// at this point radio should be disabled
+
+clear radio interrupts
+
+packet_ptr = read_transmit()
+if (packet_ptr == 0)
+	packet_ptr == empty_packet
+if (error = true)
+	packet_ptr[0] = PHASE_2_ERROR
+else
+	packet_ptr[0] = PHASE_2
+
+set the radio packet pointer
+
+TX_EN
+while (not disabled)
+
+shorts = ready-start
+Do RX with timeout
+
+	while(radio not end)
+	{
+		if (x-- >= 0)
+		{
+			delay 1ms
+		}
+		else
+		{
+			break
+		}
+	}
+
+if (x >= 0)
+	//timeout did not occur
+	if (CRC error)
+		error = true
+	else
+		error = false
+else
+	error = true
+
+shorts = ready-start
+enable end and clear interrupts
+unpause_tx
+transmit_read
+if (not 0)
+	packetpointer = transmit read
+	tx_en
+start_timeout(100)
+
+clear timer interrupt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
