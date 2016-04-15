@@ -1,4 +1,0 @@
-loadbin _build/led_radio_gcc_xxaa.bin 00000000
-r
-g
-exit

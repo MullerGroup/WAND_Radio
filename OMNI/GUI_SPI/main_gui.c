@@ -41,10 +41,11 @@ int main(void)
 	{
 		// check data fifo for data to transmit over UART
 		
-		if (get_num_data() > 0)
-		{
+		
 			// there was data to be sent over UART
-			data = read_data();
+        data = read_data();
+        if (data != 0)
+        {
 			length = data[1];			// how many valid bytes in packet
 			if (length > 0)
 			{
