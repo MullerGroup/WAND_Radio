@@ -25,5 +25,6 @@ bool get_read_flag(void);
 void spi_write(uint8_t buffer[], uint8_t size);
 void spi_read(uint8_t buffer[], uint8_t size);
 bool spi_read_with_NAK(uint8_t buffer[], uint8_t size);
+void spi_write_with_NAK(uint8_t buffer[], uint8_t size);
 void spi_init(void);
 

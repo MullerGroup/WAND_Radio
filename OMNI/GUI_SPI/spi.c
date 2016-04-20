@@ -215,7 +215,7 @@ bool spi_read_with_NAK(uint8_t buffer[], uint8_t size)
 void spi_write_with_NAK(uint8_t buffer[], uint8_t size)
 {
 	uint8_t i;
-	// bool reset;
+	 bool reset = false;
 
 	if (size > 0)
 	{
@@ -232,7 +232,26 @@ void spi_write_with_NAK(uint8_t buffer[], uint8_t size)
 
 		for (i=0;i<size;i++)
 		{
-			// reset = false;
+            while(!nrf_gpio_pin_read(SPI_NAK_PIN))
+            {
+                nrf_gpio_pin_set(SPI_SS_PIN);
+                while(NRF_SPI0->EVENTS_READY == 0)
+                {
+                    ;
+                }
+                NRF_SPI0->EVENTS_READY = 0;
+                dummy = NRF_SPI0->RXD;
+                nrf_gpio_pin_clear(SPI_SS_PIN);
+                NRF_SPI0->TXD = SPI_WRITE_COMMAND;
+                reset = true;
+            }
+            if(reset) // if the last byte sent was not received (NAK)
+            {
+                i--; // resend it
+                reset = false; 
+            }
+            
+//			 reset = false;
 			// while(!nrf_gpio_pin_read(SPI_NAK_PIN))
 			// {
 			// 	nrf_gpio_pin_set(SPI_SS_PIN);
@@ -256,6 +275,28 @@ void spi_write_with_NAK(uint8_t buffer[], uint8_t size)
 			NRF_SPI0->EVENTS_READY = 0;
 			dummy = NRF_SPI0->RXD;
 		}
+        // check to see if the last byte in a packet was written correctly
+        while(!nrf_gpio_pin_read(SPI_NAK_PIN))
+        {
+            nrf_gpio_pin_set(SPI_SS_PIN);
+            while(NRF_SPI0->EVENTS_READY == 0)
+            {
+                ;
+            }
+            NRF_SPI0->EVENTS_READY = 0;
+            dummy = NRF_SPI0->RXD;
+            nrf_gpio_pin_clear(SPI_SS_PIN);
+            NRF_SPI0->TXD = SPI_WRITE_COMMAND;
+            
+            // try to write last byte again
+            NRF_SPI0->TXD = (uint32_t)buffer[size-1];
+            while (NRF_SPI0->EVENTS_READY == 0)
+            {
+            }
+            NRF_SPI0->EVENTS_READY = 0;
+            dummy = NRF_SPI0->RXD;
+        }
+
 
 		while (NRF_SPI0->EVENTS_READY == 0)
 		{
@@ -286,7 +327,7 @@ void spi_init(void)
 	//nrf_gpio_cfg_input(SPI_TX_STATUS_PIN, NRF_GPIO_PIN_NOPULL);
 
 	// Set SPI Frequency
-	NRF_SPI0->FREQUENCY = SPI_FREQUENCY_FREQUENCY_M2 << SPI_FREQUENCY_FREQUENCY_Pos;
+	NRF_SPI0->FREQUENCY = SPI_FREQUENCY_FREQUENCY_M1 << SPI_FREQUENCY_FREQUENCY_Pos;
 
 	// Configure SPI
 	NRF_SPI0->CONFIG = (SPI_CONFIG_ORDER_MsbFirst << SPI_CONFIG_ORDER_Pos) | 
