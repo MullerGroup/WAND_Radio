@@ -77,7 +77,8 @@ void TIMER0_IRQHandler(void)
         	}
             
             NRF_RADIO->INTENCLR = (RADIO_INTENCLR_END_Clear << RADIO_INTENCLR_END_Pos) |
-                                    (RADIO_INTENCLR_READY_Clear << RADIO_INTENCLR_READY_Pos);
+                                    (RADIO_INTENCLR_READY_Clear << RADIO_INTENCLR_READY_Pos) |
+                                    (RADIO_INTENCLR_DISABLED_Clear << RADIO_INTENCLR_DISABLED_Pos);
 
             NVIC_DisableIRQ(RADIO_IRQn);
 	   
@@ -180,7 +181,8 @@ void TIMER0_IRQHandler(void)
         	                    (RADIO_SHORTS_END_DISABLE_Enabled << RADIO_SHORTS_END_DISABLE_Pos);
 
         	NRF_RADIO->INTENSET = (RADIO_INTENSET_END_Enabled << RADIO_INTENSET_END_Pos) |
-                            	(RADIO_INTENSET_READY_Enabled << RADIO_INTENSET_READY_Pos);
+                            	(RADIO_INTENSET_READY_Enabled << RADIO_INTENSET_READY_Pos) |
+                                (RADIO_INTENSET_DISABLED_Enabled << RADIO_INTENSET_DISABLED_Pos);
 
             radio_unpause_tx();
             NVIC_ClearPendingIRQ(RADIO_IRQn);
