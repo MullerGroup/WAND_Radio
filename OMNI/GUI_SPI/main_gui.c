@@ -49,7 +49,7 @@ int main(void)
 			length = data[1];			// how many valid bytes in packet
 			if (length > 0)
 			{
-				spi_write_with_NAK(data + 2, length);
+				spi_write(data + 2, length);
 				uart_bytes = uart_bytes + length;
 			}	
 			finish_read_data();
