@@ -75,7 +75,7 @@ void radio_configure()
                             (RADIO_INTENSET_READY_Enabled << RADIO_INTENSET_READY_Pos) |
                             (RADIO_INTENSET_DISABLED_Enabled << RADIO_INTENSET_DISABLED_Pos);
 
-    NVIC_SetPriority(RADIO_IRQn, 1); //Highest priority
+    NVIC_SetPriority(RADIO_IRQn, 0); //Highest priority
     NVIC_EnableIRQ(RADIO_IRQn);
 
     nrf_delay_ms(3);
