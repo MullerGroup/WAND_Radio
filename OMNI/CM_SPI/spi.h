@@ -9,6 +9,8 @@
 #define SPI_DATA_LENGTH 128
 #define SPI_REGISTER_LENGTH 4
 
+#define SPI_PACKET_BYTES 135
+
 #define DEF_CHARACTER 0x00u
 #define ORC_CHARACTER 0x00u
 

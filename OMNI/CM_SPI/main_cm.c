@@ -77,10 +77,10 @@ int main(void)
 						spi_packet = write_spi_fifo();
 						if (spi_packet != 0)
 						{
-							spi_packet[129] = COMMAND_VALID;
+							spi_packet[0] = COMMAND_VALID;
 							for (j=0;j<5;j++)
 							{
-								spi_packet[j+130] = commands[c + j];
+								spi_packet[j+1] = commands[c + j];
 							}
 							finish_write_spi_fifo();
 							c = c + 5;

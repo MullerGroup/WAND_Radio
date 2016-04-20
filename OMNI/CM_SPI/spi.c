@@ -8,6 +8,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 
+uint8_t spi_out[SPI_PACKET_BYTES];
 uint8_t empty_write_buf[SPI_FIFO_BYTES];
 uint8_t full_read_buf[PACKET_SIZE];
 
@@ -20,6 +21,7 @@ uint32_t spi_data_total = 0;
 void spi_slave_event_handle(spi_slave_evt_t event)
 {
 	uint32_t err_code;
+	uint8_t i;
 
 	if (event.evt_type == SPI_SLAVE_XFER_DONE)
 	{
@@ -79,9 +81,14 @@ void spi_slave_event_handle(spi_slave_evt_t event)
 			writeptr = empty_write_buf;
 		}
 
+		for (i=0;i<SPI_FIFO_BYTES;i++)
+		{
+			spi_out[129+i] = writeptr[i];
+		}
+
 		// now set the buffers
 		readptr[0] = PHASE_1;
-		err_code = spi_slave_buffers_set(writeptr, readptr + 1, SPI_FIFO_BYTES, PACKET_SIZE-1);
+		err_code = spi_slave_buffers_set(spi_out, readptr + 1, SPI_PACKET_BYTES, PACKET_SIZE-1);
 		tx_buf = writeptr;
 		rx_buf = readptr;
 		APP_ERROR_CHECK(err_code);
@@ -131,6 +138,11 @@ uint32_t spi_init(void)
 		empty_write_buf[i] = 0;
 	}
 
+	for (i=0;i<SPI_PACKET_BYTES;i++)
+	{
+		spi_out[i] = 0;
+	}
+
 	// initialize with fake command
 	/*empty_write_buf[0] = 0xAA;
 	empty_write_buf[1] = 0xFF;
@@ -151,14 +163,14 @@ uint32_t spi_init(void)
 	dataptr = write_data();
 	if (dataptr != 0)
 	{
-		err_code = spi_slave_buffers_set(empty_write_buf, dataptr + 1, SPI_FIFO_BYTES, PACKET_SIZE-1);
+		err_code = spi_slave_buffers_set(spi_out, dataptr + 1, SPI_PACKET_BYTES, PACKET_SIZE-1);
 		tx_buf = empty_write_buf;
 		rx_buf = dataptr;
 		APP_ERROR_CHECK(err_code);
 	}
 	else
 	{
-		err_code = spi_slave_buffers_set(empty_write_buf, full_read_buf, SPI_FIFO_BYTES, PACKET_SIZE);
+		err_code = spi_slave_buffers_set(spi_out, full_read_buf, SPI_PACKET_BYTES, PACKET_SIZE);
 		tx_buf = empty_write_buf;
 		rx_buf = full_read_buf;
 		APP_ERROR_CHECK(err_code);
