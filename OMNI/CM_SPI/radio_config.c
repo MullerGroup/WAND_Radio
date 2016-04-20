@@ -143,23 +143,26 @@ void RADIO_IRQHandler(void)
 
         if (timer_irq != true)
         {
-            // not currently in a phase switch, so behave normally
-            newPacketPtr = read_data();
-            if (newPacketPtr != 0)
+            if (packet_queued)
             {
-                // have another packet to transmit
-                NRF_RADIO->SHORTS = (RADIO_SHORTS_READY_START_Enabled << RADIO_SHORTS_READY_START_Pos) | 
-                                    (RADIO_SHORTS_END_START_Enabled << RADIO_SHORTS_END_START_Pos);
-                NRF_RADIO->PACKETPTR = (uint32_t)newPacketPtr;
-                packet_queued = true;
-                radio_count();
-            }
-            else
-            {
-                // no more packets
-                NRF_RADIO->SHORTS = (RADIO_SHORTS_READY_START_Enabled << RADIO_SHORTS_READY_START_Pos) | 
-                                    (RADIO_SHORTS_END_DISABLE_Enabled << RADIO_SHORTS_END_DISABLE_Pos);
-                packet_queued = false;
+                // not currently in a phase switch, so behave normally
+                newPacketPtr = read_data();
+                if (newPacketPtr != 0)
+                {
+                    // have another packet to transmit
+                    NRF_RADIO->SHORTS = (RADIO_SHORTS_READY_START_Enabled << RADIO_SHORTS_READY_START_Pos) | 
+                                        (RADIO_SHORTS_END_START_Enabled << RADIO_SHORTS_END_START_Pos);
+                    NRF_RADIO->PACKETPTR = (uint32_t)newPacketPtr;
+                    packet_queued = true;
+                    radio_count();
+                }
+                else
+                {
+                    // no more packets
+                    NRF_RADIO->SHORTS = (RADIO_SHORTS_READY_START_Enabled << RADIO_SHORTS_READY_START_Pos) | 
+                                        (RADIO_SHORTS_END_DISABLE_Enabled << RADIO_SHORTS_END_DISABLE_Pos);
+                    packet_queued = false;
+                }
             }
         }
     }
