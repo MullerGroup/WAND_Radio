@@ -196,7 +196,7 @@ void RADIO_IRQHandler(void)
             // if we got a valid data packet, check that its contents are correct
             for (int j=2; j<66; j++)
             {
-                packet_error = (rec_packet1[j]!=prev_sample);
+                packet_error = (rec_packet1[j]!=(prev_sample+1));
                 if (packet_error)
                 {
                     // if there is an error, stop checking and clear variables

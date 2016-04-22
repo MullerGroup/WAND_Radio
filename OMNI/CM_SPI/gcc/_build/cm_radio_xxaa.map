@@ -411,7 +411,7 @@ LOAD /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/
 LOAD /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libnosys.a
 END GROUP
 
-.text           0x0000000000000000     0x20a0
+.text           0x0000000000000000     0x20a4
  *(.Vectors)
  .Vectors       0x0000000000000000       0xc0 _build/gcc_startup_nrf51.o
                 0x0000000000000000                __Vectors
@@ -425,7 +425,7 @@ END GROUP
                 0x0000000000000198                app_error_handler
                 0x00000000000001a8                init
                 0x0000000000000208                main
- .text          0x0000000000000330      0x458 _build/radio_config.o
+ .text          0x0000000000000330      0x45c _build/radio_config.o
                 0x0000000000000430                radio_configure
                 0x000000000000056c                radio_pause_tx
                 0x0000000000000580                radio_unpause_tx
@@ -433,129 +433,129 @@ END GROUP
                 0x00000000000005a8                set_radio_disabled
                 0x00000000000005c8                get_radio_disabled
                 0x00000000000005dc                RADIO_IRQHandler
-                0x0000000000000770                radio_count
- .text          0x0000000000000788       0x5c _build/nrf_delay.o
-                0x00000000000007bc                nrf_delay_ms
- .text          0x00000000000007e4      0x128 _build/data_fifo.o
-                0x00000000000007e4                write_data
-                0x0000000000000858                finish_write_data
-                0x0000000000000870                reset_write_data
-                0x0000000000000898                read_data
-                0x00000000000008f8                get_num_data
- .text          0x000000000000090c      0x13c _build/command_fifo.o
-                0x000000000000090c                write_command
-                0x0000000000000960                finish_write_command
-                0x0000000000000978                reset_write_command
-                0x00000000000009a0                read_command
-                0x00000000000009f4                finish_read_command
-                0x0000000000000a0c                reset_read_command
-                0x0000000000000a34                get_num_commands
- .text          0x0000000000000a48      0x460 _build/timer.o
-                0x0000000000000bdc                init_timer
-                0x0000000000000c44                start_timeout
-                0x0000000000000c78                TIMER0_IRQHandler
- .text          0x0000000000000ea8      0x330 _build/spi.o
-                0x0000000000000ea8                spi_slave_event_handle
-                0x0000000000001054                spi_init
- .text          0x00000000000011d8      0x118 _build/spi_fifo.o
-                0x00000000000011d8                write_spi_fifo
-                0x000000000000122c                finish_write_spi_fifo
-                0x0000000000001244                reset_write_spi_fifo
-                0x000000000000126c                read_spi_fifo
-                0x00000000000012c0                finish_read_spi_fifo
-                0x00000000000012d8                get_capacity_spi_fifo
- .text          0x00000000000012f0      0x594 _build/spi_slave.o
-                0x0000000000001420                spi_slave_evt_handler_register
-                0x0000000000001448                spi_slave_set_cs_pull_up_config
-                0x0000000000001464                spi_slave_set_drive_config
-                0x0000000000001480                spi_slave_init
-                0x0000000000001740                spi_slave_buffers_set
-                0x00000000000017d0                SPI1_TWI1_IRQHandler
- .text          0x0000000000001884      0x124 _build/system_nrf51.o
-                0x0000000000001884                SystemCoreClockUpdate
-                0x000000000000189c                SystemInit
- .text          0x00000000000019a8       0x54 _build/gcc_startup_nrf51.o
-                0x00000000000019a8                Reset_Handler
-                0x00000000000019f0                NMI_Handler
-                0x00000000000019f2                HardFault_Handler
-                0x00000000000019f4                SVC_Handler
-                0x00000000000019f6                PendSV_Handler
-                0x00000000000019f8                SysTick_Handler
-                0x00000000000019fa                SWI4_IRQHandler
-                0x00000000000019fa                TEMP_IRQHandler
-                0x00000000000019fa                QDEC_IRQHandler
-                0x00000000000019fa                UART0_IRQHandler
-                0x00000000000019fa                SWI5_IRQHandler
-                0x00000000000019fa                SWI0_IRQHandler
-                0x00000000000019fa                TIMER1_IRQHandler
-                0x00000000000019fa                ECB_IRQHandler
-                0x00000000000019fa                Default_Handler
-                0x00000000000019fa                ADC_IRQHandler
-                0x00000000000019fa                SWI3_IRQHandler
-                0x00000000000019fa                CCM_AAR_IRQHandler
-                0x00000000000019fa                WDT_IRQHandler
-                0x00000000000019fa                SWI2_IRQHandler
-                0x00000000000019fa                RNG_IRQHandler
-                0x00000000000019fa                RTC1_IRQHandler
-                0x00000000000019fa                TIMER2_IRQHandler
-                0x00000000000019fa                SWI1_IRQHandler
-                0x00000000000019fa                SPI0_TWI0_IRQHandler
-                0x00000000000019fa                RTC0_IRQHandler
-                0x00000000000019fa                GPIOTE_IRQHandler
-                0x00000000000019fa                POWER_CLOCK_IRQHandler
-                0x00000000000019fa                LPCOMP_IRQHandler
- .text          0x00000000000019fc      0x120 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/libgcc.a(_udivsi3.o)
-                0x00000000000019fc                __udivsi3
-                0x00000000000019fc                __aeabi_uidiv
-                0x0000000000001b08                __aeabi_uidivmod
- .text          0x0000000000001b1c      0x1e0 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/libgcc.a(_divsi3.o)
-                0x0000000000001b1c                __aeabi_idiv
-                0x0000000000001b1c                __divsi3
-                0x0000000000001ce8                __aeabi_idivmod
- .text          0x0000000000001cfc        0x4 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/libgcc.a(_dvmd_tls.o)
-                0x0000000000001cfc                __aeabi_ldiv0
-                0x0000000000001cfc                __aeabi_idiv0
- .text          0x0000000000001d00        0x0 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-exit.o)
- .text.exit     0x0000000000001d00       0x20 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-exit.o)
-                0x0000000000001d00                exit
- .text          0x0000000000001d20        0x0 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-impure.o)
- .text          0x0000000000001d20        0x0 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-init.o)
+                0x0000000000000774                radio_count
+ .text          0x000000000000078c       0x5c _build/nrf_delay.o
+                0x00000000000007c0                nrf_delay_ms
+ .text          0x00000000000007e8      0x128 _build/data_fifo.o
+                0x00000000000007e8                write_data
+                0x000000000000085c                finish_write_data
+                0x0000000000000874                reset_write_data
+                0x000000000000089c                read_data
+                0x00000000000008fc                get_num_data
+ .text          0x0000000000000910      0x13c _build/command_fifo.o
+                0x0000000000000910                write_command
+                0x0000000000000964                finish_write_command
+                0x000000000000097c                reset_write_command
+                0x00000000000009a4                read_command
+                0x00000000000009f8                finish_read_command
+                0x0000000000000a10                reset_read_command
+                0x0000000000000a38                get_num_commands
+ .text          0x0000000000000a4c      0x460 _build/timer.o
+                0x0000000000000be0                init_timer
+                0x0000000000000c48                start_timeout
+                0x0000000000000c7c                TIMER0_IRQHandler
+ .text          0x0000000000000eac      0x330 _build/spi.o
+                0x0000000000000eac                spi_slave_event_handle
+                0x0000000000001058                spi_init
+ .text          0x00000000000011dc      0x118 _build/spi_fifo.o
+                0x00000000000011dc                write_spi_fifo
+                0x0000000000001230                finish_write_spi_fifo
+                0x0000000000001248                reset_write_spi_fifo
+                0x0000000000001270                read_spi_fifo
+                0x00000000000012c4                finish_read_spi_fifo
+                0x00000000000012dc                get_capacity_spi_fifo
+ .text          0x00000000000012f4      0x594 _build/spi_slave.o
+                0x0000000000001424                spi_slave_evt_handler_register
+                0x000000000000144c                spi_slave_set_cs_pull_up_config
+                0x0000000000001468                spi_slave_set_drive_config
+                0x0000000000001484                spi_slave_init
+                0x0000000000001744                spi_slave_buffers_set
+                0x00000000000017d4                SPI1_TWI1_IRQHandler
+ .text          0x0000000000001888      0x124 _build/system_nrf51.o
+                0x0000000000001888                SystemCoreClockUpdate
+                0x00000000000018a0                SystemInit
+ .text          0x00000000000019ac       0x54 _build/gcc_startup_nrf51.o
+                0x00000000000019ac                Reset_Handler
+                0x00000000000019f4                NMI_Handler
+                0x00000000000019f6                HardFault_Handler
+                0x00000000000019f8                SVC_Handler
+                0x00000000000019fa                PendSV_Handler
+                0x00000000000019fc                SysTick_Handler
+                0x00000000000019fe                SWI4_IRQHandler
+                0x00000000000019fe                TEMP_IRQHandler
+                0x00000000000019fe                QDEC_IRQHandler
+                0x00000000000019fe                UART0_IRQHandler
+                0x00000000000019fe                SWI5_IRQHandler
+                0x00000000000019fe                SWI0_IRQHandler
+                0x00000000000019fe                TIMER1_IRQHandler
+                0x00000000000019fe                ECB_IRQHandler
+                0x00000000000019fe                Default_Handler
+                0x00000000000019fe                ADC_IRQHandler
+                0x00000000000019fe                SWI3_IRQHandler
+                0x00000000000019fe                CCM_AAR_IRQHandler
+                0x00000000000019fe                WDT_IRQHandler
+                0x00000000000019fe                SWI2_IRQHandler
+                0x00000000000019fe                RNG_IRQHandler
+                0x00000000000019fe                RTC1_IRQHandler
+                0x00000000000019fe                TIMER2_IRQHandler
+                0x00000000000019fe                SWI1_IRQHandler
+                0x00000000000019fe                SPI0_TWI0_IRQHandler
+                0x00000000000019fe                RTC0_IRQHandler
+                0x00000000000019fe                GPIOTE_IRQHandler
+                0x00000000000019fe                POWER_CLOCK_IRQHandler
+                0x00000000000019fe                LPCOMP_IRQHandler
+ .text          0x0000000000001a00      0x120 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/libgcc.a(_udivsi3.o)
+                0x0000000000001a00                __udivsi3
+                0x0000000000001a00                __aeabi_uidiv
+                0x0000000000001b0c                __aeabi_uidivmod
+ .text          0x0000000000001b20      0x1e0 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/libgcc.a(_divsi3.o)
+                0x0000000000001b20                __aeabi_idiv
+                0x0000000000001b20                __divsi3
+                0x0000000000001cec                __aeabi_idivmod
+ .text          0x0000000000001d00        0x4 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/libgcc.a(_dvmd_tls.o)
+                0x0000000000001d00                __aeabi_ldiv0
+                0x0000000000001d00                __aeabi_idiv0
+ .text          0x0000000000001d04        0x0 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-exit.o)
+ .text.exit     0x0000000000001d04       0x20 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-exit.o)
+                0x0000000000001d04                exit
+ .text          0x0000000000001d24        0x0 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-impure.o)
+ .text          0x0000000000001d24        0x0 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-init.o)
  .text.__libc_init_array
-                0x0000000000001d20       0x48 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-init.o)
-                0x0000000000001d20                __libc_init_array
- .text          0x0000000000001d68        0x0 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-memset.o)
- .text.memset   0x0000000000001d68       0x8c /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-memset.o)
-                0x0000000000001d68                memset
- .text          0x0000000000001df4        0x0 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__call_atexit.o)
+                0x0000000000001d24       0x48 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-init.o)
+                0x0000000000001d24                __libc_init_array
+ .text          0x0000000000001d6c        0x0 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-memset.o)
+ .text.memset   0x0000000000001d6c       0x8c /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-memset.o)
+                0x0000000000001d6c                memset
+ .text          0x0000000000001df8        0x0 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__call_atexit.o)
  .text.startup.register_fini
-                0x0000000000001df4       0x18 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__call_atexit.o)
+                0x0000000000001df8       0x18 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__call_atexit.o)
  .text.__call_exitprocs
-                0x0000000000001e0c      0x108 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__call_atexit.o)
-                0x0000000000001e0c                __call_exitprocs
- .text          0x0000000000001f14        0x0 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-atexit.o)
- .text.atexit   0x0000000000001f14       0x10 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-atexit.o)
-                0x0000000000001f14                atexit
- .text          0x0000000000001f24        0x0 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-fini.o)
+                0x0000000000001e10      0x108 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__call_atexit.o)
+                0x0000000000001e10                __call_exitprocs
+ .text          0x0000000000001f18        0x0 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-atexit.o)
+ .text.atexit   0x0000000000001f18       0x10 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-atexit.o)
+                0x0000000000001f18                atexit
+ .text          0x0000000000001f28        0x0 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-fini.o)
  .text.__libc_fini_array
-                0x0000000000001f24       0x34 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-fini.o)
-                0x0000000000001f24                __libc_fini_array
- .text          0x0000000000001f58        0x0 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__atexit.o)
+                0x0000000000001f28       0x34 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-fini.o)
+                0x0000000000001f28                __libc_fini_array
+ .text          0x0000000000001f5c        0x0 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__atexit.o)
  .text.__register_exitproc
-                0x0000000000001f58       0xd4 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__atexit.o)
-                0x0000000000001f58                __register_exitproc
- .text          0x000000000000202c        0x0 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtend.o
- .text          0x000000000000202c        0x0 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtn.o
- .text          0x000000000000202c        0x0 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libnosys.a(_exit.o)
- .text._exit    0x000000000000202c        0x4 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libnosys.a(_exit.o)
-                0x000000000000202c                _exit
+                0x0000000000001f5c       0xd4 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__atexit.o)
+                0x0000000000001f5c                __register_exitproc
+ .text          0x0000000000002030        0x0 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtend.o
+ .text          0x0000000000002030        0x0 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtn.o
+ .text          0x0000000000002030        0x0 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libnosys.a(_exit.o)
+ .text._exit    0x0000000000002030        0x4 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libnosys.a(_exit.o)
+                0x0000000000002030                _exit
  *(.init)
- .init          0x0000000000002030        0x4 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crti.o
-                0x0000000000002030                _init
- .init          0x0000000000002034        0x8 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtn.o
+ .init          0x0000000000002034        0x4 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crti.o
+                0x0000000000002034                _init
+ .init          0x0000000000002038        0x8 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtn.o
  *(.fini)
- .fini          0x000000000000203c        0x4 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crti.o
-                0x000000000000203c                _fini
- .fini          0x0000000000002040        0x8 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtn.o
+ .fini          0x0000000000002040        0x4 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crti.o
+                0x0000000000002040                _fini
+ .fini          0x0000000000002044        0x8 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtn.o
  *crtbegin.o(.ctors)
  *crtbegin?.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o *crtend?.o) .ctors)
@@ -567,55 +567,55 @@ END GROUP
  *(SORT(.dtors.*))
  *(.dtors)
  *(.rodata*)
- .rodata        0x0000000000002048        0xd _build/main_cm.o
- *fill*         0x0000000000002055        0x3 
- .rodata        0x0000000000002058        0x9 _build/spi.o
- *fill*         0x0000000000002061        0x3 
- .rodata        0x0000000000002064       0x2d _build/spi_slave.o
- *fill*         0x0000000000002091        0x3 
+ .rodata        0x000000000000204c        0xd _build/main_cm.o
+ *fill*         0x0000000000002059        0x3 
+ .rodata        0x000000000000205c        0x9 _build/spi.o
+ *fill*         0x0000000000002065        0x3 
+ .rodata        0x0000000000002068       0x2d _build/spi_slave.o
+ *fill*         0x0000000000002095        0x3 
  .rodata.str1.4
-                0x0000000000002094        0x4 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-impure.o)
+                0x0000000000002098        0x4 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-impure.o)
                                           0x2 (size before relaxing)
  .rodata._global_impure_ptr
-                0x0000000000002098        0x4 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-impure.o)
-                0x0000000000002098                _global_impure_ptr
+                0x000000000000209c        0x4 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-impure.o)
+                0x000000000000209c                _global_impure_ptr
  *(.eh_frame*)
- .eh_frame      0x000000000000209c        0x0 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
- .eh_frame      0x000000000000209c        0x4 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtend.o
+ .eh_frame      0x00000000000020a0        0x0 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
+ .eh_frame      0x00000000000020a0        0x4 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtend.o
 
-.glue_7         0x00000000000020a0        0x0
+.glue_7         0x00000000000020a4        0x0
  .glue_7        0x0000000000000000        0x0 linker stubs
 
-.glue_7t        0x00000000000020a0        0x0
+.glue_7t        0x00000000000020a4        0x0
  .glue_7t       0x0000000000000000        0x0 linker stubs
 
-.vfp11_veneer   0x00000000000020a0        0x0
+.vfp11_veneer   0x00000000000020a4        0x0
  .vfp11_veneer  0x0000000000000000        0x0 linker stubs
 
-.v4_bx          0x00000000000020a0        0x0
+.v4_bx          0x00000000000020a4        0x0
  .v4_bx         0x0000000000000000        0x0 linker stubs
 
-.iplt           0x00000000000020a0        0x0
+.iplt           0x00000000000020a4        0x0
  .iplt          0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
 
-.ARM.extab      0x00000000000020a0        0x0
+.ARM.extab      0x00000000000020a4        0x0
  *(.ARM.extab* .gnu.linkonce.armextab.*)
- .ARM.extab     0x00000000000020a0        0x0 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/crt0.o
- .ARM.extab     0x00000000000020a0        0x0 _build/gcc_startup_nrf51.o
-                0x00000000000020a0                __exidx_start = .
+ .ARM.extab     0x00000000000020a4        0x0 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+ .ARM.extab     0x00000000000020a4        0x0 _build/gcc_startup_nrf51.o
+                0x00000000000020a4                __exidx_start = .
 
-.ARM.exidx      0x00000000000020a0        0x8
+.ARM.exidx      0x00000000000020a4        0x8
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
- .ARM.exidx     0x00000000000020a0        0x8 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/crt0.o
- .ARM.exidx     0x00000000000020a8        0x0 _build/gcc_startup_nrf51.o
+ .ARM.exidx     0x00000000000020a4        0x8 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+ .ARM.exidx     0x00000000000020ac        0x0 _build/gcc_startup_nrf51.o
                                           0x8 (size before relaxing)
-                0x00000000000020a8                __exidx_end = .
-                0x00000000000020a8                __etext = .
+                0x00000000000020ac                __exidx_end = .
+                0x00000000000020ac                __etext = .
 
-.rel.dyn        0x00000000000020a8        0x0
+.rel.dyn        0x00000000000020ac        0x0
  .rel.iplt      0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
 
-.data           0x0000000020000000      0x444 load address 0x00000000000020a8
+.data           0x0000000020000000      0x444 load address 0x00000000000020ac
                 0x0000000020000000                __data_start__ = .
  *(vtable)
  *(.data*)
@@ -678,10 +678,10 @@ END GROUP
                 0x0000000020000444                . = ALIGN (0x4)
                 0x0000000020000444                __data_end__ = .
 
-.igot.plt       0x0000000020000444        0x0 load address 0x00000000000024ec
+.igot.plt       0x0000000020000444        0x0 load address 0x00000000000024f0
  .igot.plt      0x0000000000000000        0x0 /usr/local/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
 
-.bss            0x0000000020000444     0x2aec load address 0x00000000000024ec
+.bss            0x0000000020000444     0x2aec load address 0x00000000000024f0
                 0x0000000020000444                . = ALIGN (0x4)
                 0x0000000020000444                __bss_start__ = .
  *(.bss*)
