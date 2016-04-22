@@ -44,6 +44,9 @@ uint8_t debug_packet[PACKET_SIZE];
 uint32_t radio_bytes;
 uint32_t radio_bytes_total;
 
+// for debugging, checking if packet is correct
+uint8_t prev_sample = 0;
+bool packet_error = false;
 
 void radio_configure()
 {
@@ -186,6 +189,24 @@ void RADIO_IRQHandler(void)
     		finish_write_data();
             radio_bytes = radio_bytes + rec_packet1[1];
     	}
+        
+        // adding for debugging
+        if (rec_packet1[1] == 128)
+        {
+            // if we got a valid data packet, check that its contents are correct
+            for (int j=2; j<66; j++)
+            {
+                packet_error = (rec_packet1[j]!=prev_sample);
+                if (packet_error)
+                {
+                    // if there is an error, stop checking and clear variables
+                    // also can set a breakpoint here to see what the incorrect packet contains
+                    packet_error = false;
+                    prev_sample = rec_packet1[2];
+                    break;
+                }
+            }
+        }
 
         radio_bytes_total = radio_bytes_total + rec_packet1[1];
 

@@ -21,6 +21,10 @@ bool packet_queued;
 bool radio_disabled;
 uint32_t radio_bytes;
 
+// for debugging, checking if packet is correct
+uint8_t prev_sample = 0;
+bool packet_error = false;
+
 void radio_configure()
 {
     radio_bytes = 0;
@@ -126,6 +130,25 @@ void RADIO_IRQHandler(void)
                 NRF_RADIO->PACKETPTR = (uint32_t)newPacketPtr;
                 packet_queued = true;
                 radio_count();
+                
+                // adding for debugging
+                if ((newPacketPtr[0] == 0xAA) && (newPacketPtr[1] == 128))
+                {
+                    // if we got a valid data packet, check that its contents are correct
+                    for (int j=2; j<66; j++)
+                    {
+                        packet_error = (newPacketPtr[j]!=prev_sample);
+                        if (packet_error)
+                        {
+                            // if there is an error, stop checking and clear variables
+                            // also can set a breakpoint here to see what the incorrect packet contains
+                            packet_error = false;
+                            prev_sample = newPacketPtr[2];
+                            break;
+                        }
+                    }
+                }
+
             }
             else
             {
