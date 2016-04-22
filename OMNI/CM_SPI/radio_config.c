@@ -8,6 +8,7 @@
 #include "command_fifo.h"
 #include "data_fifo.h"
 #include <stdbool.h>
+#include <stdint.h>
 
 #define PACKET0_S1_SIZE             (0UL)  //!< S1 size in bits
 #define PACKET0_S0_SIZE             (0UL)  //!< S0 size in bits
@@ -83,6 +84,17 @@ void radio_configure()
     NVIC_EnableIRQ(RADIO_IRQn);
 
     nrf_delay_ms(3);
+}
+
+//for debug
+uint8_t get_prev_sample(void)
+{
+    return prev_sample;
+}
+
+void set_prev_sample(uint8_t sample)
+{
+    prev_sample = sample;
 }
 
 void radio_pause_tx(void)

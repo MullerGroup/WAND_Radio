@@ -18,10 +18,12 @@ uint8_t *rx_buf;
 uint32_t spi_data_bytes = 0;
 uint32_t spi_data_total = 0;
 
+
 void spi_slave_event_handle(spi_slave_evt_t event)
 {
 	uint32_t err_code;
 	uint8_t i;
+    bool packet_error = false;
 
 	if (event.evt_type == SPI_SLAVE_XFER_DONE)
 	{
@@ -103,6 +105,24 @@ void spi_slave_event_handle(spi_slave_evt_t event)
 				NRF_RADIO->PACKETPTR = (uint32_t)packetptr;
 				NRF_RADIO->TASKS_TXEN = 1;
 				radio_count();
+                
+                // adding for debugging
+                if (packetptr[1] == 128)
+                {
+                    // if we got a valid data packet, check that its contents are correct
+                    for (int j=2; j<66; j++)
+                    {
+                        packet_error = (packetptr[j]!=(get_prev_sample()+1));
+                        if (packet_error)
+                        {
+                            // if there is an error, stop checking and clear variables
+                            // also can set a breakpoint here to see what the incorrect packet contains
+                            packet_error = false;
+                            break;
+                        }
+                    }
+                    set_prev_sample(packetptr[2]);
+                }
 			}
 		}
 	}

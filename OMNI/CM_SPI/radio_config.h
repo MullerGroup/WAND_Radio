@@ -4,6 +4,7 @@
  */
 
  #include <stdbool.h>
+#include <stdint.h>
 
  #ifndef RADIO_CONFIG_H
  #define RADIO_CONFIG_H
@@ -15,6 +16,10 @@
  #define PHASE_2_ERROR 	2
 
  #define PHASE_2_TIMEOUT 10
+
+ // for debug
+ uint8_t get_prev_sample(void);
+ void set_prev_sample(uint8_t sample);
 
  void radio_configure(void);
 
