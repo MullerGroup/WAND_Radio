@@ -132,7 +132,7 @@ void RADIO_IRQHandler(void)
                 radio_count();
                 
                 // adding for debugging
-                if ((newPacketPtr[0] == 0xAA) && (newPacketPtr[1] == 128))
+                if (newPacketPtr[1] == 128)
                 {
                     // if we got a valid data packet, check that its contents are correct
                     for (int j=2; j<66; j++)
