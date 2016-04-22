@@ -143,10 +143,10 @@ void RADIO_IRQHandler(void)
                             // if there is an error, stop checking and clear variables
                             // also can set a breakpoint here to see what the incorrect packet contains
                             packet_error = false;
-                            prev_sample = newPacketPtr[2];
                             break;
                         }
                     }
+                    prev_sample = newPacketPtr[2];
                 }
 
             }
@@ -191,10 +191,10 @@ void RADIO_IRQHandler(void)
                                 // if there is an error, stop checking and clear variables
                                 // also can set a breakpoint here to see what the incorrect packet contains
                                 packet_error = false;
-                                prev_sample = newPacketPtr[2];
                                 break;
                             }
                         }
+                        prev_sample = newPacketPtr[2];
                     }
                     
                 }

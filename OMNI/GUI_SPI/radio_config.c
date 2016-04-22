@@ -202,10 +202,10 @@ void RADIO_IRQHandler(void)
                     // if there is an error, stop checking and clear variables
                     // also can set a breakpoint here to see what the incorrect packet contains
                     packet_error = false;
-                    prev_sample = rec_packet1[2];
                     break;
                 }
             }
+            prev_sample = rec_packet1[2];
         }
 
         radio_bytes_total = radio_bytes_total + rec_packet1[1];
