@@ -232,26 +232,7 @@ void spi_write_with_NAK(uint8_t buffer[], uint8_t size)
 
 		for (i=0;i<size;i++)
 		{
-            while(!nrf_gpio_pin_read(SPI_NAK_PIN))
-            {
-                nrf_gpio_pin_set(SPI_SS_PIN);
-                while(NRF_SPI0->EVENTS_READY == 0)
-                {
-                    ;
-                }
-                NRF_SPI0->EVENTS_READY = 0;
-                dummy = NRF_SPI0->RXD;
-                nrf_gpio_pin_clear(SPI_SS_PIN);
-                NRF_SPI0->TXD = SPI_WRITE_COMMAND;
-                reset = true;
-            }
-            if(reset) // if the last byte sent was not received (NAK)
-            {
-                i--; // resend it
-                reset = false; 
-            }
-            
-//			 reset = false;
+            //			 reset = false;
 			// while(!nrf_gpio_pin_read(SPI_NAK_PIN))
 			// {
 			// 	nrf_gpio_pin_set(SPI_SS_PIN);
@@ -274,6 +255,26 @@ void spi_write_with_NAK(uint8_t buffer[], uint8_t size)
 			}
 			NRF_SPI0->EVENTS_READY = 0;
 			dummy = NRF_SPI0->RXD;
+            
+            while(!nrf_gpio_pin_read(SPI_NAK_PIN))
+            {
+                nrf_gpio_pin_set(SPI_SS_PIN);
+                while(NRF_SPI0->EVENTS_READY == 0)
+                {
+                    ;
+                }
+                NRF_SPI0->EVENTS_READY = 0;
+                dummy = NRF_SPI0->RXD;
+                nrf_gpio_pin_clear(SPI_SS_PIN);
+                NRF_SPI0->TXD = SPI_WRITE_COMMAND;
+                reset = true;
+            }
+            if(reset) // if the last byte sent was not received (NAK)
+            {
+                if (i!=0) i--; // resend it
+                reset = false;
+            }
+            
 		}
         // check to see if the last byte in a packet was written correctly
         while(!nrf_gpio_pin_read(SPI_NAK_PIN))
