@@ -18,6 +18,4 @@ uint8_t *read_data(void);			// used to read data from the fifo
 
 uint8_t get_num_data(void);			// used to read how many data elements are in fifo 
 
-void init_debug(void);
-
 #endif

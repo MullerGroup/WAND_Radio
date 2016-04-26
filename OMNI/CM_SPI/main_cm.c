@@ -53,7 +53,6 @@ void init(void)
 int main(void)
 {
 	init();
-    init_debug();
 	radio_unpause_tx();
 	start_timeout(PHASE_1_LENGTH);
 	while (true)

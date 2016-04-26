@@ -13,19 +13,6 @@ uint8_t d_write_ptr = 0;								// tail of fifo
 uint8_t d_size = 0;									// number of data elements in fifo
 int data_full_count = 0;
 
-//added for debugging
-uint8_t debug_packet[PACKET_SIZE];
-void init_debug(void)
-{
-    debug_packet[0] = 0;
-    debug_packet[1] = 128;
-    for (int i=2; i<66; i++)
-    {
-        debug_packet[i] = 0;
-    }
-}
-
-
 // gets pointer of element to write data into
 uint8_t *write_data(void)
 {
@@ -76,11 +63,8 @@ uint8_t *read_data(void)
 
 	if (d_size > 0)
 	{
-        
-        //added for debug
-        read_pointer = debug_packet;
-		// fifo is not empty
-//		read_pointer = data_fifo[d_read_ptr];
+        // fifo is not empty
+		read_pointer = data_fifo[d_read_ptr];
 		d_read_ptr = (d_read_ptr + 1)%DATA_FIFO_SIZE;
 		d_size--;
 		return read_pointer;
