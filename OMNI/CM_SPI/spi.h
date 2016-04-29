@@ -14,7 +14,7 @@
 #define DEF_CHARACTER 0x00u
 #define ORC_CHARACTER 0x00u
 
-#define RADIO_THRESHOLD 19
+#define RADIO_THRESHOLD 0
 
 /*
 Radio Threshold Values Notes

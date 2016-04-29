@@ -89,7 +89,10 @@ int main(void)
             
 			if (length > 0)
 			{
-				spi_write_with_NAK(data + 2, length);
+//                data[1] = 0xAA;
+//                spi_write_with_NAK(data + 1, length+1);
+//				spi_write_with_NAK(data + 2, length);
+                spi_write(data + 2, length);
 				uart_bytes = uart_bytes + length;
 			}	
 			finish_read_data();
