@@ -150,6 +150,8 @@ void RADIO_IRQHandler(void)
 	uint8_t i;
 	uint8_t command_index;
 	uint8_t command_count;
+    
+    uint32_t crc_check;
 
     if ((NRF_RADIO->EVENTS_READY == 1) && (NRF_RADIO->INTENSET & RADIO_INTENSET_READY_Msk))
     {
@@ -181,7 +183,9 @@ void RADIO_IRQHandler(void)
 
 	if ((NRF_RADIO->EVENTS_END == 1) && (NRF_RADIO->INTENSET & RADIO_INTENSET_END_Msk))
     {
-    	
+
+        crc_check = NRF_RADIO->CRCSTATUS;
+        if(crc_check){}
 
     	// finish fifo write if necessary
     	if (overflow1 != true)
@@ -191,22 +195,22 @@ void RADIO_IRQHandler(void)
     	}
         
         // adding for debugging
-//        if (rec_packet1[1] == 128)
-//        {
-//            // if we got a valid data packet, check that its contents are correct
-//            for (int j=2; j<66; j++)
-//            {
-//                packet_error = (rec_packet1[j]!=(prev_sample+1));
-//                if (packet_error)
-//                {
-//                    // if there is an error, stop checking and clear variables
-//                    // also can set a breakpoint here to see what the incorrect packet contains
-//                    packet_error = false;
-//                    break;
-//                }
-//            }
-//            prev_sample = rec_packet1[2];
-//        }
+        if (rec_packet1[1] == 128)
+        {
+            // if we got a valid data packet, check that its contents are correct
+            for (int j=2; j<66; j++)
+            {
+                packet_error = (rec_packet1[j]!=(prev_sample+1)%256);
+                if (packet_error)
+                {
+                    // if there is an error, stop checking and clear variables
+                    // also can set a breakpoint here to see what the incorrect packet contains
+                    packet_error = false;
+                    break;
+                }
+            }
+            prev_sample = rec_packet1[2];
+        }
 
         radio_bytes_total = radio_bytes_total + rec_packet1[1];
 

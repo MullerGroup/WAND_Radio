@@ -87,14 +87,18 @@ int main(void)
                 prev_sample = data[2];
             }
             
-			if (length > 0)
+			if ((length == 128)||(length==4))
 			{
 //                data[1] = 0xAA;
 //                spi_write_with_NAK(data + 1, length+1);
-//				spi_write_with_NAK(data + 2, length);
-                spi_write(data + 2, length);
+				spi_write_with_NAK(data + 2, length);
+//                spi_write(data + 2, length);
 				uart_bytes = uart_bytes + length;
-			}	
+			}
+            else if (length!=0)
+            {
+                length++;
+            }
 			finish_read_data();
 		}
 		if (get_read_flag())
