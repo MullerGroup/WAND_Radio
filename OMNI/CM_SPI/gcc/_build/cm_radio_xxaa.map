@@ -976,26 +976,26 @@ OUTPUT(_build/cm_radio_xxaa.out elf32-littlearm)
  .debug_line    0x0000000000001ca9      0x2e5 _build/system_nrf51.o
  .debug_line    0x0000000000001f8e       0x98 _build/gcc_startup_nrf51.o
 
-.debug_str      0x0000000000000000    0x33864
- .debug_str     0x0000000000000000    0x2f5b0 _build/main_cm.o
-                                      0x2f778 (size before relaxing)
- .debug_str     0x000000000002f5b0      0x5c3 _build/radio_config.o
+.debug_str      0x0000000000000000    0x33863
+ .debug_str     0x0000000000000000    0x2f5af _build/main_cm.o
+                                      0x2f777 (size before relaxing)
+ .debug_str     0x000000000002f5af      0x5c3 _build/radio_config.o
                                       0x2f1a2 (size before relaxing)
- .debug_str     0x000000000002fb73     0x3087 _build/nrf_delay.o
+ .debug_str     0x000000000002fb72     0x3087 _build/nrf_delay.o
                                       0x31b48 (size before relaxing)
- .debug_str     0x0000000000032bfa       0x9c _build/data_fifo.o
+ .debug_str     0x0000000000032bf9       0x9c _build/data_fifo.o
                                        0x30cd (size before relaxing)
- .debug_str     0x0000000000032c96       0x9e _build/command_fifo.o
+ .debug_str     0x0000000000032c95       0x9e _build/command_fifo.o
                                        0x311f (size before relaxing)
- .debug_str     0x0000000000032d34       0xf6 _build/timer.o
+ .debug_str     0x0000000000032d33       0xf6 _build/timer.o
                                       0x2f11c (size before relaxing)
- .debug_str     0x0000000000032e2a      0x1f2 _build/spi.o
-                                      0x2c7bd (size before relaxing)
- .debug_str     0x000000000003301c       0x82 _build/spi_fifo.o
+ .debug_str     0x0000000000032e29      0x1f2 _build/spi.o
+                                      0x2c7bc (size before relaxing)
+ .debug_str     0x000000000003301b       0x82 _build/spi_fifo.o
                                        0x306e (size before relaxing)
- .debug_str     0x000000000003309e      0x6be _build/spi_slave.o
+ .debug_str     0x000000000003309d      0x6be _build/spi_slave.o
                                       0x2f9c9 (size before relaxing)
- .debug_str     0x000000000003375c      0x108 _build/system_nrf51.o
+ .debug_str     0x000000000003375b      0x108 _build/system_nrf51.o
                                       0x2eb9b (size before relaxing)
 
 .debug_frame    0x0000000000000000      0x988
