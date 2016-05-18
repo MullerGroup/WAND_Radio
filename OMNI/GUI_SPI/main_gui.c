@@ -38,8 +38,12 @@ int main(void)
 {
 	init();
     
-    bool packet_error = false;
-    uint8_t prev_sample = 0;
+//    bool packet_error = false;
+//    uint8_t prev_sample = 0;
+//    int num_dropped = 0;
+//    int drop_count = 0;
+//    int success_count = 0;
+//    int diff = 0;
 //    uint8_t debug_packet[PACKET_SIZE];
 //    debug_packet[0] = 0;
 //    debug_packet[1] = 128;
@@ -69,34 +73,46 @@ int main(void)
         {
 			length = data[1];			// how many valid bytes in packet
             
-            // adding for debugging
-            if (length == 128)
-            {
-                // if we got a valid data packet, check that its contents are correct
-                for (int j=2; j<66; j++)
-                {
-                    packet_error = (data[j]!=(prev_sample+1));
-                    if (packet_error)
-                    {
-                        // if there is an error, stop checking and clear variables
-                        // also can set a breakpoint here to see what the incorrect packet contains
-                        packet_error = false;
-                        break;
-                    }
-                }
-                prev_sample = data[2];
-            }
+//            // adding for debugging
+//            if (length == 128)
+//            {
+//                // if we got a valid data packet, check that its contents are correct
+//                for (int j=2; j<66; j++)
+//                {
+//                    packet_error = (data[j]!=(prev_sample+1)%256);
+//                    if (packet_error)
+//                    {
+//                        // if there is an error, stop checking and clear variables
+//                        // also can set a breakpoint here to see what the incorrect packet contains
+//                        packet_error = false;
+//                        num_dropped++;
+//                        diff = data[j] - (prev_sample+1);
+//                        if (diff<0) diff+=255;
+//                        drop_count += diff;
+//                        break;
+//                    }
+//                }
+//                success_count++;
+//                prev_sample = data[2];
+//            }
             
-			if ((length == 128)||(length==4))
+			if (length == 128)
 			{
-//                data[1] = 0xAA;
-//                spi_write_with_NAK(data + 1, length+1);
-				spi_write_with_NAK(data + 2, length);
-//                spi_write(data + 2, length);
-				uart_bytes = uart_bytes + length;
+                // if data, put start- and end-of-packet headers
+                data[1] = 0xAA; // start of packet
+                data[130] = 0x55; // end of packet
+                spi_write_with_NAK(data + 1, length+2);
+				uart_bytes = uart_bytes + length + 2;
 			}
+            else if (length==4)
+            {
+                // if register, just send the 4 bytes
+                spi_write_with_NAK(data + 2, length);
+                uart_bytes = uart_bytes + length;
+            }
             else if (length!=0)
             {
+                // meaningless command for breakpoint setting
                 length++;
             }
 			finish_read_data();

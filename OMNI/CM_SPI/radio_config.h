@@ -15,7 +15,7 @@
  #define PHASE_2 		1
  #define PHASE_2_ERROR 	2
 
- #define PHASE_2_TIMEOUT 10
+ #define PHASE_2_TIMEOUT 50
 
  // for debug
  uint8_t get_prev_sample(void);

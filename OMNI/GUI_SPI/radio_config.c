@@ -152,6 +152,7 @@ void RADIO_IRQHandler(void)
 	uint8_t command_count;
     
     uint32_t crc_check;
+    int crc_count = 0;
 
     if ((NRF_RADIO->EVENTS_READY == 1) && (NRF_RADIO->INTENSET & RADIO_INTENSET_READY_Msk))
     {
@@ -185,7 +186,11 @@ void RADIO_IRQHandler(void)
     {
 
         crc_check = NRF_RADIO->CRCSTATUS;
-        if(crc_check){}
+        if(!crc_check)
+        {
+            crc_count++;
+            crc_check = false;
+        }
 
     	// finish fifo write if necessary
     	if (overflow1 != true)
