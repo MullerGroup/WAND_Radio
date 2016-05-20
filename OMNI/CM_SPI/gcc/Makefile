@@ -12,7 +12,7 @@ C_SOURCE_FILES += spi_fifo.c
 C_SOURCE_FILES += spi_slave.c
 
 OUTPUT_FILENAME := cm_radio
-SDK_PATH = ../../../../../
+SDK_PATH = ../../../../
 
 
 #Uncomment correct line if you have s110 programmed on the chip.
