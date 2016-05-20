@@ -35,6 +35,10 @@ void spi_slave_event_handle(spi_slave_evt_t event)
 		{
 			spi_data_total = spi_data_total + SPI_DATA_LENGTH;
 		}
+		if (rx_buf[1] == SPI_REGISTER)
+		{
+			spi_data_total = spi_data_total + SPI_REGISTER_LENGTH;
+		}
 
 		// SPI has completed, so we need to check if we actually wrote any valid data to the rx buffer
 		// Only need to do this if the fifo was actually involved
@@ -50,6 +54,7 @@ void spi_slave_event_handle(spi_slave_evt_t event)
 				else
 				{
 					rx_buf[1] = SPI_REGISTER_LENGTH;
+					spi_data_bytes = spi_data_bytes + SPI_REGISTER_LENGTH;
 				}
 				// smartfusion was transmitting data, so we do need to keep it in the fifo
 				finish_write_data();
