@@ -44,9 +44,12 @@ uint8_t debug_packet[PACKET_SIZE];
 uint32_t radio_bytes;
 uint32_t radio_bytes_total;
 
+int crc_count = 0;
+
 // for debugging, checking if packet is correct
 uint8_t prev_sample = 0;
 bool packet_error = false;
+uint32_t packets_received = 0;
 
 void radio_configure()
 {
@@ -151,8 +154,7 @@ void RADIO_IRQHandler(void)
 	uint8_t command_index;
 	uint8_t command_count;
     
-    uint32_t crc_check;
-    int crc_count = 0;
+
 
     if ((NRF_RADIO->EVENTS_READY == 1) && (NRF_RADIO->INTENSET & RADIO_INTENSET_READY_Msk))
     {
@@ -185,11 +187,9 @@ void RADIO_IRQHandler(void)
 	if ((NRF_RADIO->EVENTS_END == 1) && (NRF_RADIO->INTENSET & RADIO_INTENSET_END_Msk))
     {
 
-        crc_check = NRF_RADIO->CRCSTATUS;
-        if(!crc_check)
+        if(NRF_RADIO->CRCSTATUS != 1)
         {
             crc_count++;
-            crc_check = false;
         }
 
     	// finish fifo write if necessary
@@ -218,6 +218,7 @@ void RADIO_IRQHandler(void)
         }
 
         radio_bytes_total = radio_bytes_total + rec_packet1[1];
+        packets_received = packets_received + 1;
 
         overflow1 = overflow2;
 

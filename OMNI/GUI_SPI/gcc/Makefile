@@ -9,11 +9,7 @@ C_SOURCE_FILES += data_fifo.c
 C_SOURCE_FILES += command_fifo.c
 
 OUTPUT_FILENAME := gui_radio
-<<<<<<< HEAD
-SDK_PATH = ../../../../../
-=======
 SDK_PATH = ../../../../
->>>>>>> a259999c7a4f9ab26c34ea22f445b5d858ce36ef
 
 
 #Uncomment correct line if you have s110 programmed on the chip.
