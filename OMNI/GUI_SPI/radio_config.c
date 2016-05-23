@@ -36,6 +36,7 @@ bool 	overflow1 = false;
 bool    overflow2 = false;
 uint8_t *rec_packet1;
 uint8_t *rec_packet2;
+uint32_t aa_count_radio = 0;
 
 uint32_t radio_bytes;
 uint32_t radio_bytes_total;
@@ -171,6 +172,10 @@ void RADIO_IRQHandler(void)
     	{
     		finish_write_data();
             radio_bytes = radio_bytes + rec_packet1[1];
+            if (rec_packet1[1] == 0xAA)
+            {
+                aa_count_radio++;
+            }
     	}
         
         // // adding for debugging

@@ -16,6 +16,7 @@ uint8_t command[COMMAND_SIZE];
 uint8_t *write_pointer;
 uint8_t i;
 uint32_t bad_lengths = 0;
+uint32_t aa_count = 0;
 
 void init(void)
 {
@@ -102,8 +103,8 @@ int main(void)
                 // if data, put start- and end-of-packet headers
                 data[1] = 0xAA; // start of packet
                 data[130] = 0x55; // end of packet
-                spi_write(data + 1, length + 2);
-                //spi_write_with_NAK(data + 1, length+2);
+                //spi_write(data + 1, length + 2);
+                spi_write_with_NAK(data + 1, length+2);
 				uart_bytes = uart_bytes + length;
 			}
             else if (length==4)
@@ -112,6 +113,10 @@ int main(void)
                 //spi_write(data + 2, length);
                 spi_write_with_NAK(data + 2, length);
                 uart_bytes = uart_bytes + length;
+            }
+            else if (length==0xAA)
+            {
+            	aa_count++;
             }
             else if (length!=0)
             {
