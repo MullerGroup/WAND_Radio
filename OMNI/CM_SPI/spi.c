@@ -23,7 +23,7 @@ void spi_slave_event_handle(spi_slave_evt_t event)
 {
 	uint32_t err_code;
 	uint8_t i;
-    bool packet_error = false;
+    // bool packet_error = false;
 
 	if (event.evt_type == SPI_SLAVE_XFER_DONE)
 	{
@@ -111,23 +111,23 @@ void spi_slave_event_handle(spi_slave_evt_t event)
 				NRF_RADIO->TASKS_TXEN = 1;
 				radio_count();
                 
-                // adding for debugging
-                if (packetptr[1] == 128)
-                {
-                    // if we got a valid data packet, check that its contents are correct
-                    for (int j=2; j<66; j++)
-                    {
-                        packet_error = (packetptr[j]!=(get_prev_sample()+1));
-                        if (packet_error)
-                        {
-                            // if there is an error, stop checking and clear variables
-                            // also can set a breakpoint here to see what the incorrect packet contains
-                            packet_error = false;
-                            break;
-                        }
-                    }
-                    set_prev_sample(packetptr[2]);
-                }
+                // // adding for debugging
+                // if (packetptr[1] == 128)
+                // {
+                //     // if we got a valid data packet, check that its contents are correct
+                //     for (int j=2; j<66; j++)
+                //     {
+                //         packet_error = (packetptr[j]!=(get_prev_sample()+1));
+                //         if (packet_error)
+                //         {
+                //             // if there is an error, stop checking and clear variables
+                //             // also can set a breakpoint here to see what the incorrect packet contains
+                //             packet_error = false;
+                //             break;
+                //         }
+                //     }
+                //     set_prev_sample(packetptr[2]);
+                // }
 			}
 		}
 	}
@@ -145,10 +145,18 @@ uint32_t spi_init(void)
     err_code = spi_slave_evt_handler_register(spi_slave_event_handle);
     APP_ERROR_CHECK(err_code);
 
-    spi_slave_config.pin_miso         = 25;//4;
-    spi_slave_config.pin_mosi         = 24;//6;
-    spi_slave_config.pin_sck          = 28;//0;
-    spi_slave_config.pin_csn          = 29;//2;
+    // Mario pins
+    spi_slave_config.pin_miso         = 25;
+    spi_slave_config.pin_mosi         = 24;
+    spi_slave_config.pin_sck          = 28;
+    spi_slave_config.pin_csn          = 29;
+
+    // // Eval pins
+    // spi_slave_config.pin_miso         = 4;
+    // spi_slave_config.pin_mosi         = 6;
+    // spi_slave_config.pin_sck          = 0;
+    // spi_slave_config.pin_csn          = 2;
+
     spi_slave_config.mode             = SPI_MODE_0;
     spi_slave_config.bit_order        = SPIM_MSB_FIRST;
     spi_slave_config.def_tx_character = DEF_CHARACTER;
@@ -195,7 +203,7 @@ uint32_t spi_init(void)
 	}
 	else
 	{
-		err_code = spi_slave_buffers_set(spi_out, full_read_buf, SPI_PACKET_BYTES, PACKET_SIZE);
+		err_code = spi_slave_buffers_set(spi_out, full_read_buf + 1, SPI_PACKET_BYTES, PACKET_SIZE-1);
 		tx_buf = empty_write_buf;
 		rx_buf = full_read_buf;
 		APP_ERROR_CHECK(err_code);

@@ -15,6 +15,7 @@ uint32_t uart_bytes;	// cumulative number of bytes transmitted over UART
 uint8_t command[COMMAND_SIZE];
 uint8_t *write_pointer;
 uint8_t i;
+uint32_t bad_lengths = 0;
 
 void init(void)
 {
@@ -108,15 +109,15 @@ int main(void)
             else if (length==4)
             {
                 // if register, just send the 4 bytes
-                spi_write(data + 2, length);
-                //spi_write_with_NAK(data + 2, length);
+                //spi_write(data + 2, length);
+                spi_write_with_NAK(data + 2, length);
                 uart_bytes = uart_bytes + length;
             }
             else if (length!=0)
             {
                 // meaningless command for breakpoint setting
                 //uart_bytes = uart_bytes + length;
-                length++;
+                bad_lengths++;
             }
 			finish_read_data();
 		}
@@ -133,8 +134,8 @@ int main(void)
 					}
 					finish_write_command();
 				}
-				clear_read_flag();
 			}
+			clear_read_flag();
 		}
 	}
 }

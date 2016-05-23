@@ -49,7 +49,7 @@ void TIMER0_IRQHandler(void)
 	uint8_t *receive_packet;
 	uint8_t *packet_ptr;
 	int timeout;
-    bool packet_error = false;
+    // bool packet_error = false;
 
 	//uint32_t compare_0; 
 	//uint32_t interrupts;
@@ -102,23 +102,23 @@ void TIMER0_IRQHandler(void)
                 {
                     radio_count();
                     
-                    // adding for debugging
-                    if (packet_ptr[1] == 128)
-                    {
-                        // if we got a valid data packet, check that its contents are correct
-                        for (int j=2; j<66; j++)
-                        {
-                            packet_error = (packet_ptr[j]!=(get_prev_sample()+1));
-                            if (packet_error)
-                            {
-                                // if there is an error, stop checking and clear variables
-                                // also can set a breakpoint here to see what the incorrect packet contains
-                                packet_error = false;
-                                break;
-                            }
-                        }
-                        set_prev_sample(packet_ptr[2]);
-                    }
+                    // // adding for debugging
+                    // if (packet_ptr[1] == 128)
+                    // {
+                    //     // if we got a valid data packet, check that its contents are correct
+                    //     for (int j=2; j<66; j++)
+                    //     {
+                    //         packet_error = (packet_ptr[j]!=(get_prev_sample()+1));
+                    //         if (packet_error)
+                    //         {
+                    //             // if there is an error, stop checking and clear variables
+                    //             // also can set a breakpoint here to see what the incorrect packet contains
+                    //             packet_error = false;
+                    //             break;
+                    //         }
+                    //     }
+                    //     set_prev_sample(packet_ptr[2]);
+                    // }
 
                     
                 }
@@ -218,23 +218,23 @@ void TIMER0_IRQHandler(void)
                 NRF_RADIO->TASKS_TXEN = 1;
                 radio_count();
                 
-                // adding for debugging
-                if (packet_ptr[1] == 128)
-                {
-                    // if we got a valid data packet, check that its contents are correct
-                    for (int j=2; j<66; j++)
-                    {
-                        packet_error = (packet_ptr[j]!=(get_prev_sample()+1));
-                        if (packet_error)
-                        {
-                            // if there is an error, stop checking and clear variables
-                            // also can set a breakpoint here to see what the incorrect packet contains
-                            packet_error = false;
-                            break;
-                        }
-                    }
-                    set_prev_sample(packet_ptr[2]);
-                }
+                // // adding for debugging
+                // if (packet_ptr[1] == 128)
+                // {
+                //     // if we got a valid data packet, check that its contents are correct
+                //     for (int j=2; j<66; j++)
+                //     {
+                //         packet_error = (packet_ptr[j]!=(get_prev_sample()+1));
+                //         if (packet_error)
+                //         {
+                //             // if there is an error, stop checking and clear variables
+                //             // also can set a breakpoint here to see what the incorrect packet contains
+                //             packet_error = false;
+                //             break;
+                //         }
+                //     }
+                //     set_prev_sample(packet_ptr[2]);
+                // }
             }
         }
         else
@@ -250,23 +250,23 @@ void TIMER0_IRQHandler(void)
                     NRF_RADIO->TASKS_TXEN = 1;
                     radio_count();
                     
-                    // adding for debugging
-                    if (packet_ptr[1] == 128)
-                    {
-                        // if we got a valid data packet, check that its contents are correct
-                        for (int j=2; j<66; j++)
-                        {
-                            packet_error = (packet_ptr[j]!=(get_prev_sample()+1));
-                            if (packet_error)
-                            {
-                                // if there is an error, stop checking and clear variables
-                                // also can set a breakpoint here to see what the incorrect packet contains
-                                packet_error = false;
-                                break;
-                            }
-                        }
-                        set_prev_sample(packet_ptr[2]);
-                    }
+                    // // adding for debugging
+                    // if (packet_ptr[1] == 128)
+                    // {
+                    //     // if we got a valid data packet, check that its contents are correct
+                    //     for (int j=2; j<66; j++)
+                    //     {
+                    //         packet_error = (packet_ptr[j]!=(get_prev_sample()+1));
+                    //         if (packet_error)
+                    //         {
+                    //             // if there is an error, stop checking and clear variables
+                    //             // also can set a breakpoint here to see what the incorrect packet contains
+                    //             packet_error = false;
+                    //             break;
+                    //         }
+                    //     }
+                    //     set_prev_sample(packet_ptr[2]);
+                    // }
                     
                 }
             }

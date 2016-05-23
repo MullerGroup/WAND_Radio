@@ -37,10 +37,6 @@ bool    overflow2 = false;
 uint8_t *rec_packet1;
 uint8_t *rec_packet2;
 
-// for debugging purposes, hard coding a command
-uint8_t count = 0;
-uint8_t debug_packet[PACKET_SIZE];
-
 uint32_t radio_bytes;
 uint32_t radio_bytes_total;
 
@@ -53,28 +49,6 @@ uint32_t packets_received = 0;
 
 void radio_configure()
 {
-    debug_packet[0] = 20;
-    debug_packet[1] = 0x10;
-    debug_packet[2] = 0x00;
-    debug_packet[3] = 0x00;
-    debug_packet[4] = 0x00;
-    debug_packet[5] = 0x00;
-    debug_packet[6] = 0x14;
-    debug_packet[7] = 0x00;
-    debug_packet[8] = 0x0F;
-    debug_packet[9] = 0x00;
-    debug_packet[10] = 0x00;
-    debug_packet[11] = 0x00;
-    debug_packet[12] = 0x00;
-    debug_packet[13] = 0x00;
-    debug_packet[14] = 0x10;
-    debug_packet[15] = 0x00;
-    debug_packet[16] = 0xFF;
-    debug_packet[17] = 0x00;
-    debug_packet[18] = 0x00;
-    debug_packet[19] = 0x01;
-    debug_packet[20] = 0x00;
-
     radio_bytes = 0;
     radio_bytes_total = 0;
 
@@ -199,23 +173,23 @@ void RADIO_IRQHandler(void)
             radio_bytes = radio_bytes + rec_packet1[1];
     	}
         
-        // adding for debugging
-        if (rec_packet1[1] == 128)
-        {
-            // if we got a valid data packet, check that its contents are correct
-            for (int j=2; j<66; j++)
-            {
-                packet_error = (rec_packet1[j]!=(prev_sample+1)%256);
-                if (packet_error)
-                {
-                    // if there is an error, stop checking and clear variables
-                    // also can set a breakpoint here to see what the incorrect packet contains
-                    packet_error = false;
-                    break;
-                }
-            }
-            prev_sample = rec_packet1[2];
-        }
+        // // adding for debugging
+        // if (rec_packet1[1] == 128)
+        // {
+        //     // if we got a valid data packet, check that its contents are correct
+        //     for (int j=2; j<66; j++)
+        //     {
+        //         packet_error = (rec_packet1[j]!=(prev_sample+1)%256);
+        //         if (packet_error)
+        //         {
+        //             // if there is an error, stop checking and clear variables
+        //             // also can set a breakpoint here to see what the incorrect packet contains
+        //             packet_error = false;
+        //             break;
+        //         }
+        //     }
+        //     prev_sample = rec_packet1[2];
+        // }
 
         radio_bytes_total = radio_bytes_total + rec_packet1[1];
         packets_received = packets_received + 1;
@@ -245,14 +219,6 @@ void RADIO_IRQHandler(void)
             {
             }
 
-            count++;
-            if (count == 30)
-            {
-                count = 0;
-                //NRF_RADIO->PACKETPTR = (uint32_t)debug_packet;
-            }
-            
-            
 
     		if (rec_packet1[0] == PHASE_2)
     		{

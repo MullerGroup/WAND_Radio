@@ -22,9 +22,9 @@ bool packet_queued;
 bool radio_disabled;
 uint32_t radio_bytes;
 
-// for debugging, checking if packet is correct
-uint8_t prev_sample = 0;
-bool packet_error = false;
+// // for debugging, checking if packet is correct
+// uint8_t prev_sample = 0;
+// bool packet_error = false;
 
 void radio_configure()
 {
@@ -86,16 +86,16 @@ void radio_configure()
     nrf_delay_ms(3);
 }
 
-//for debug
-uint8_t get_prev_sample(void)
-{
-    return prev_sample;
-}
+// //for debug
+// uint8_t get_prev_sample(void)
+// {
+//     return prev_sample;
+// }
 
-void set_prev_sample(uint8_t sample)
-{
-    prev_sample = sample;
-}
+// void set_prev_sample(uint8_t sample)
+// {
+//     prev_sample = sample;
+// }
 
 void radio_pause_tx(void)
 {
@@ -143,23 +143,23 @@ void RADIO_IRQHandler(void)
                 packet_queued = true;
                 radio_count();
                 
-                // adding for debugging
-                if (newPacketPtr[1] == 128)
-                {
-                    // if we got a valid data packet, check that its contents are correct
-                    for (int j=2; j<66; j++)
-                    {
-                        packet_error = (newPacketPtr[j]!=(prev_sample+1));
-                        if (packet_error)
-                        {
-                            // if there is an error, stop checking and clear variables
-                            // also can set a breakpoint here to see what the incorrect packet contains
-                            packet_error = false;
-                            break;
-                        }
-                    }
-                    prev_sample = newPacketPtr[2];
-                }
+                // // adding for debugging
+                // if (newPacketPtr[1] == 128)
+                // {
+                //     // if we got a valid data packet, check that its contents are correct
+                //     for (int j=2; j<66; j++)
+                //     {
+                //         packet_error = (newPacketPtr[j]!=(prev_sample+1));
+                //         if (packet_error)
+                //         {
+                //             // if there is an error, stop checking and clear variables
+                //             // also can set a breakpoint here to see what the incorrect packet contains
+                //             packet_error = false;
+                //             break;
+                //         }
+                //     }
+                //     prev_sample = newPacketPtr[2];
+                // }
 
             }
             else
@@ -191,23 +191,23 @@ void RADIO_IRQHandler(void)
                     packet_queued = true;
                     radio_count();
                     
-                    // adding for debugging
-                    if (newPacketPtr[1] == 128)
-                    {
-                        // if we got a valid data packet, check that its contents are correct
-                        for (int j=2; j<66; j++)
-                        {
-                            packet_error = (newPacketPtr[j]!=(prev_sample+1));
-                            if (packet_error)
-                            {
-                                // if there is an error, stop checking and clear variables
-                                // also can set a breakpoint here to see what the incorrect packet contains
-                                packet_error = false;
-                                break;
-                            }
-                        }
-                        prev_sample = newPacketPtr[2];
-                    }
+                    // // adding for debugging
+                    // if (newPacketPtr[1] == 128)
+                    // {
+                    //     // if we got a valid data packet, check that its contents are correct
+                    //     for (int j=2; j<66; j++)
+                    //     {
+                    //         packet_error = (newPacketPtr[j]!=(prev_sample+1));
+                    //         if (packet_error)
+                    //         {
+                    //             // if there is an error, stop checking and clear variables
+                    //             // also can set a breakpoint here to see what the incorrect packet contains
+                    //             packet_error = false;
+                    //             break;
+                    //         }
+                    //     }
+                    //     prev_sample = newPacketPtr[2];
+                    // }
                     
                 }
                 else

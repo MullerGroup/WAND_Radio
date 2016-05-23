@@ -61,7 +61,12 @@ int main(void)
 		commands = read_command();
 		if (commands != 0)
 		{
+			// we have recently received a command packet
+			// try to write command into SPI fifo
+			// success is only true if all commands from the command packet are
+			//	written to the spi fifo, or there were no commands in the packet
 			success = false;
+			// first byte contains # of bytes in command packet
 			length = commands[0]/5; // number of commands
 			
 			if (length != 0)

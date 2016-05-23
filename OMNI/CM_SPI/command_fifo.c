@@ -9,7 +9,7 @@
 
 uint8_t command_fifo[COMMAND_FIFO_SIZE][PACKET_SIZE];	// command fifo
 uint8_t c_read_ptr = 0;									// head of fifo
-uint8_t c_write_ptr = 0;									// tail of fifo
+uint8_t c_write_ptr = 0;								// tail of fifo
 uint8_t c_size = 0;										// number of commands in fifo
 
 // gets pointer of element to write command into
@@ -78,13 +78,13 @@ void finish_read_command(void)
 
 void reset_read_command(void)
 {
-	if (c_read_ptr == COMMAND_FIFO_SIZE - 1)
+	if (c_read_ptr == 0)
 	{
-		c_read_ptr = 0;
+		c_read_ptr =  COMMAND_FIFO_SIZE - 1;
 	}
 	else
 	{
-		c_read_ptr++;
+		c_read_ptr--;
 	}
 }
 
