@@ -101,18 +101,21 @@ int main(void)
                 // if data, put start- and end-of-packet headers
                 data[1] = 0xAA; // start of packet
                 data[130] = 0x55; // end of packet
-                spi_write_with_NAK(data + 1, length+2);
-				uart_bytes = uart_bytes + length + 2;
+                spi_write(data + 1, length + 2);
+                //spi_write_with_NAK(data + 1, length+2);
+				uart_bytes = uart_bytes + length;
 			}
             else if (length==4)
             {
                 // if register, just send the 4 bytes
-                spi_write_with_NAK(data + 2, length);
+                spi_write(data + 2, length);
+                //spi_write_with_NAK(data + 2, length);
                 uart_bytes = uart_bytes + length;
             }
             else if (length!=0)
             {
                 // meaningless command for breakpoint setting
+                //uart_bytes = uart_bytes + length;
                 length++;
             }
 			finish_read_data();
