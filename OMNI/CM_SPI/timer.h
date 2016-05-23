@@ -6,7 +6,7 @@
 #ifndef TIMER_H
 #define TIMER_H
 
-#define PHASE_1_LENGTH 100
+#define PHASE_1_LENGTH 50
 
 
 #include "timer.h"

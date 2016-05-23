@@ -18,6 +18,8 @@ uint8_t *rx_buf;
 uint32_t spi_data_bytes = 0;
 uint32_t spi_data_total = 0;
 
+uint32_t aa_count = 0;
+
 
 void spi_slave_event_handle(spi_slave_evt_t event)
 {
@@ -58,6 +60,10 @@ void spi_slave_event_handle(spi_slave_evt_t event)
 				}
 				// smartfusion was transmitting data, so we do need to keep it in the fifo
 				finish_write_data();
+                if (rx_buf[1] == 0xAA)
+                {
+                    aa_count++;
+                }
 			}
 			else
 			{
@@ -106,6 +112,10 @@ void spi_slave_event_handle(spi_slave_evt_t event)
 			packetptr = read_data();
 			if (packetptr != 0)
 			{
+				if (packetptr[1] == 0xAA)
+				{
+					aa();
+				}	
 				set_radio_disabled(false);
 				NRF_RADIO->PACKETPTR = (uint32_t)packetptr;
 				NRF_RADIO->TASKS_TXEN = 1;

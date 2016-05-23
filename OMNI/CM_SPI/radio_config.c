@@ -21,10 +21,16 @@ bool timer_irq;
 bool packet_queued;
 bool radio_disabled;
 uint32_t radio_bytes;
+uint32_t aa_count_radio;
 
 // // for debugging, checking if packet is correct
 // uint8_t prev_sample = 0;
 // bool packet_error = false;
+
+void aa()
+{
+    aa_count_radio++;
+}
 
 void radio_configure()
 {
@@ -136,6 +142,10 @@ void RADIO_IRQHandler(void)
             newPacketPtr = read_data();
             if (newPacketPtr != 0)
             {
+                if (newPacketPtr[1]==0xAA)
+                {
+                    aa();
+                }
                 // have another packet to transmit
                 NRF_RADIO->SHORTS = (RADIO_SHORTS_READY_START_Enabled << RADIO_SHORTS_READY_START_Pos) | 
                                     (RADIO_SHORTS_END_START_Enabled << RADIO_SHORTS_END_START_Pos);
@@ -184,6 +194,10 @@ void RADIO_IRQHandler(void)
                 newPacketPtr = read_data();
                 if (newPacketPtr != 0)
                 {
+                    if (newPacketPtr[1]==0xAA)
+                    {
+                        aa();
+                    }
                     // have another packet to transmit
                     NRF_RADIO->SHORTS = (RADIO_SHORTS_READY_START_Enabled << RADIO_SHORTS_READY_START_Pos) | 
                                         (RADIO_SHORTS_END_START_Enabled << RADIO_SHORTS_END_START_Pos);

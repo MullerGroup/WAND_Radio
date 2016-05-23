@@ -100,6 +100,10 @@ void TIMER0_IRQHandler(void)
         	    }
                 else
                 {
+                    if (packet_ptr[1] == 0xAA)
+                    {
+                        aa();
+                    }
                     radio_count();
                     
                     // // adding for debugging
@@ -213,6 +217,10 @@ void TIMER0_IRQHandler(void)
             packet_ptr = read_data();
             if (packet_ptr != 0)
             {
+                if (packet_ptr[1] == 0xAA)
+                {
+                    aa();
+                }
                 set_radio_disabled(false);
                 NRF_RADIO->PACKETPTR = (uint32_t)packet_ptr;
                 NRF_RADIO->TASKS_TXEN = 1;
@@ -245,6 +253,10 @@ void TIMER0_IRQHandler(void)
                 packet_ptr = read_data();
                 if (packet_ptr != 0)
                 {
+                    if (packet_ptr[1] == 0xAA)
+                    {
+                        aa();
+                    }
                     set_radio_disabled(false);
                     NRF_RADIO->PACKETPTR = (uint32_t)packet_ptr;
                     NRF_RADIO->TASKS_TXEN = 1;

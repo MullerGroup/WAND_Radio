@@ -1,11 +1,11 @@
 _build/radio_config.o: ../radio_config.c ../radio_config.h \
- /Users/Andy/Desktop/Mario_Radio/gcc-arm-none-eabi-4_9-2015q2/lib/gcc/arm-none-eabi/4.9.3/include/stdbool.h \
- /Users/Andy/Desktop/Mario_Radio/gcc-arm-none-eabi-4_9-2015q2/lib/gcc/arm-none-eabi/4.9.3/include/stdint.h \
- /Users/Andy/Desktop/Mario_Radio/gcc-arm-none-eabi-4_9-2015q2/arm-none-eabi/include/stdint.h \
- /Users/Andy/Desktop/Mario_Radio/gcc-arm-none-eabi-4_9-2015q2/arm-none-eabi/include/machine/_default_types.h \
- /Users/Andy/Desktop/Mario_Radio/gcc-arm-none-eabi-4_9-2015q2/arm-none-eabi/include/sys/features.h \
- /Users/Andy/Desktop/Mario_Radio/gcc-arm-none-eabi-4_9-2015q2/arm-none-eabi/include/sys/_intsup.h \
- /Users/Andy/Desktop/Mario_Radio/gcc-arm-none-eabi-4_9-2015q2/arm-none-eabi/include/sys/_stdint.h \
+ /Users/bwrc/OMNI/radio/gcc-arm-none-eabi-4_9-2015q2/lib/gcc/arm-none-eabi/4.9.3/include/stdbool.h \
+ /Users/bwrc/OMNI/radio/gcc-arm-none-eabi-4_9-2015q2/lib/gcc/arm-none-eabi/4.9.3/include/stdint.h \
+ /Users/bwrc/OMNI/radio/gcc-arm-none-eabi-4_9-2015q2/arm-none-eabi/include/stdint.h \
+ /Users/bwrc/OMNI/radio/gcc-arm-none-eabi-4_9-2015q2/arm-none-eabi/include/machine/_default_types.h \
+ /Users/bwrc/OMNI/radio/gcc-arm-none-eabi-4_9-2015q2/arm-none-eabi/include/sys/features.h \
+ /Users/bwrc/OMNI/radio/gcc-arm-none-eabi-4_9-2015q2/arm-none-eabi/include/sys/_intsup.h \
+ /Users/bwrc/OMNI/radio/gcc-arm-none-eabi-4_9-2015q2/arm-none-eabi/include/sys/_stdint.h \
  ../../../../Include/nrf_delay.h ../../../../Include/nrf.h \
  ../../../../Include/nrf51.h ../../../../Include/gcc/core_cm0.h \
  ../../../../Include/gcc/core_cmInstr.h \
