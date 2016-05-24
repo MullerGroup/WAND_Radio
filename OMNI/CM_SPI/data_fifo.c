@@ -5,29 +5,40 @@
 
 #include "data_fifo.h"
 #include "radio_config.h"
+#include "nrf.h"
 #include <stdint.h>
 
 uint8_t data_fifo[DATA_FIFO_SIZE][PACKET_SIZE];		// data fifo
 uint8_t d_read_ptr = 0;								// head of fifo
 uint8_t d_write_ptr = 0;							// tail of fifo
 uint8_t d_size = 0;									// number of data elements in fifo
+uint8_t d_full_count = 0;
 
 // gets pointer of element to write data into
 uint8_t *write_data(void)
 {
 	uint8_t *write_pointer;
 
-	if (d_size < (DATA_FIFO_SIZE - 1))
+	if (NRF_RADIO->PACKETPTR == (uint32_t)data_fifo[d_write_ptr])
 	{
-		// fifo is not full
-		write_pointer = data_fifo[d_write_ptr];
-		d_write_ptr = (d_write_ptr + 1)%DATA_FIFO_SIZE;
-		return write_pointer;
+		// that element is being read out of, can't write yet
+		d_full_count++;
+		return 0;
 	}
 	else
 	{
-		// fifo is full, return 0
-		return 0;
+		if (d_size < (DATA_FIFO_SIZE - 1))
+		{
+			// fifo is not full
+			write_pointer = data_fifo[d_write_ptr];
+			d_write_ptr = (d_write_ptr + 1)%DATA_FIFO_SIZE;
+			return write_pointer;
+		}
+		else
+		{
+			// fifo is full, return 0
+			return 0;
+		}
 	}
 }
 
