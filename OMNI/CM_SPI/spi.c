@@ -149,7 +149,6 @@ void spi_slave_event_handle(spi_slave_evt_t event)
 			}
 		}
 	}
-
 }
 
 uint32_t spi_init(void)
