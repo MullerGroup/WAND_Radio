@@ -33,46 +33,46 @@ void spi_slave_event_handle(spi_slave_evt_t event)
 		uint8_t *readptr;
 		uint8_t *packetptr;
 
-		// if (rx_buf[1] == SPI_DATA)
-		// {
-		// 	spi_data_total = spi_data_total + SPI_DATA_LENGTH;
-		// }
-		// if (rx_buf[1] == SPI_REGISTER)
-		// {
-		// 	spi_data_total = spi_data_total + SPI_REGISTER_LENGTH;
-		// }
+		if (rx_buf[1] == SPI_DATA)
+		{
+			spi_data_total = spi_data_total + SPI_DATA_LENGTH;
+		}
+		if (rx_buf[1] == SPI_REGISTER)
+		{
+			spi_data_total = spi_data_total + SPI_REGISTER_LENGTH;
+		}
 
-		spi_data_total = spi_data_total + rx_buf[1];
+		// spi_data_total = spi_data_total + rx_buf[1];
 
 		// SPI has completed, so we need to check if we actually wrote any valid data to the rx buffer
 		// Only need to do this if the fifo was actually involved
 		if (rx_buf != full_read_buf)
 		{
-			// if ((rx_buf[1] == SPI_DATA) || (rx_buf[1] == SPI_REGISTER))
-			// {
-			// 	if (rx_buf[1] == SPI_DATA)
-			// 	{
-			// 		rx_buf[1] = SPI_DATA_LENGTH;
-			// 		spi_data_bytes = spi_data_bytes + SPI_DATA_LENGTH;
-			// 	}
-			// 	else
-			// 	{
-			// 		rx_buf[1] = SPI_REGISTER_LENGTH;
-			// 		spi_data_bytes = spi_data_bytes + SPI_REGISTER_LENGTH;
-			// 	}
-			// 	// smartfusion was transmitting data, so we do need to keep it in the fifo
-			// 	finish_write_data();
-   //              if (rx_buf[1] == 0xAA)
-   //              {
-   //                  aa_count++;
-   //              }
-			// }
-			if ((rx_buf[1] == SPI_DATA_LENGTH) || (rx_buf[1] == SPI_REGISTER_LENGTH))
+			if ((rx_buf[1] == SPI_DATA) || (rx_buf[1] == SPI_REGISTER))
 			{
-				spi_data_bytes = spi_data_bytes + rx_buf[1];
+				if (rx_buf[1] == SPI_DATA)
+				{
+					rx_buf[1] = SPI_DATA_LENGTH;
+					spi_data_bytes = spi_data_bytes + SPI_DATA_LENGTH;
+				}
+				else
+				{
+					rx_buf[1] = SPI_REGISTER_LENGTH;
+					spi_data_bytes = spi_data_bytes + SPI_REGISTER_LENGTH;
+				}
 				// smartfusion was transmitting data, so we do need to keep it in the fifo
 				finish_write_data();
+                if (rx_buf[1] == 0xAA)
+                {
+                    aa_count++;
+                }
 			}
+			// if ((rx_buf[1] == SPI_DATA_LENGTH) || (rx_buf[1] == SPI_REGISTER_LENGTH))
+			// {
+			// 	spi_data_bytes = spi_data_bytes + rx_buf[1];
+			// 	// smartfusion was transmitting data, so we do need to keep it in the fifo
+			// 	finish_write_data();
+			// }
 			else
 			{
 				// smartfusion had nothing to transmit, just polling, reset the fifo
