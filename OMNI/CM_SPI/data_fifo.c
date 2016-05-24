@@ -19,27 +19,28 @@ uint8_t *write_data(void)
 {
 	uint8_t *write_pointer;
 
-	if (NRF_RADIO->PACKETPTR == (uint32_t)data_fifo[d_write_ptr])
-	{
-		// that element is being read out of, can't write yet
-		d_full_count++;
-		return 0;
-	}
-	else
-	{
-		if (d_size < (DATA_FIFO_SIZE - 1))
+
+		if (d_size < (DATA_FIFO_SIZE - 2))
 		{
 			// fifo is not full
 			write_pointer = data_fifo[d_write_ptr];
-			d_write_ptr = (d_write_ptr + 1)%DATA_FIFO_SIZE;
-			return write_pointer;
+			if ((uint32_t)write_pointer == NRF_RADIO->PACKETPTR)
+			{
+				d_full_count++;
+				return 0;
+			}
+			else
+			{
+				d_write_ptr = (d_write_ptr + 1)%DATA_FIFO_SIZE;
+				return write_pointer;
+			}	
 		}
 		else
 		{
 			// fifo is full, return 0
 			return 0;
 		}
-	}
+	
 }
 
 // updates pointers and size for writing into fifo
