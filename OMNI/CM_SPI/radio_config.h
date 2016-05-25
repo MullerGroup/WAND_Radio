@@ -17,10 +17,6 @@
 
  #define PHASE_2_TIMEOUT 50
 
- // // for debug
- // uint8_t get_prev_sample(void);
- // void set_prev_sample(uint8_t sample);
-
  void aa(void);
 
  void radio_configure(void);

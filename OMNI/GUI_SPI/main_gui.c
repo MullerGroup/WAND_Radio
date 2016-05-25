@@ -11,7 +11,7 @@
 uint8_t *data;		// pointer to buffer with data to be transmitted over UART
 uint8_t length;		// number of bytes of data to be transmitted in buffer
 
-uint32_t uart_bytes;	// cumulative number of bytes transmitted over UART
+uint32_t spi_bytes;	// cumulative number of bytes transmitted over SPI
 uint8_t command[COMMAND_SIZE];
 uint8_t *write_pointer;
 uint8_t i;
@@ -29,7 +29,7 @@ void init(void)
     {
     }
 
-    uart_bytes = 0;
+    spi_bytes = 0;
 
 	spi_init();
 	radio_configure();
@@ -39,64 +39,15 @@ void init(void)
 int main(void)
 {
 	init();
-    
-//    bool packet_error = false;
-//    uint8_t prev_sample = 0;
-//    int num_dropped = 0;
-//    int drop_count = 0;
-//    int success_count = 0;
-//    int diff = 0;
-//    uint8_t debug_packet[PACKET_SIZE];
-//    debug_packet[0] = 0;
-//    debug_packet[1] = 128;
-//    for (int i=2; i<66; i++)
-//    {
-//        debug_packet[i] = 0;
-//    }
-    
-    
+
 	while (true)
 	{
-		// check data fifo for data to transmit over UART
-		
-		
-			// there was data to be sent over UART
+		// check data fifo for data to transmit over SPI
         data = read_data();
-        
-        // added for debugging dropped bytes
-//        nrf_delay_ms(1);
-//        for (int i=2; i<66; i++)
-//        {
-//            debug_packet[i]+=1; // increment by 1
-//        }
-//        data = debug_packet;
-        
+
         if (data != 0)
         {
 			length = data[1];			// how many valid bytes in packet
-            
-//            // adding for debugging
-//            if (length == 128)
-//            {
-//                // if we got a valid data packet, check that its contents are correct
-//                for (int j=2; j<66; j++)
-//                {
-//                    packet_error = (data[j]!=(prev_sample+1)%256);
-//                    if (packet_error)
-//                    {
-//                        // if there is an error, stop checking and clear variables
-//                        // also can set a breakpoint here to see what the incorrect packet contains
-//                        packet_error = false;
-//                        num_dropped++;
-//                        diff = data[j] - (prev_sample+1);
-//                        if (diff<0) diff+=255;
-//                        drop_count += diff;
-//                        break;
-//                    }
-//                }
-//                success_count++;
-//                prev_sample = data[2];
-//            }
             
 			if (length == 128)
 			{
@@ -105,27 +56,28 @@ int main(void)
                 data[130] = 0x55; // end of packet
                 //spi_write(data + 1, length + 2);
                 spi_write_with_NAK(data + 1, length+2);
-				uart_bytes = uart_bytes + length;
+				spi_bytes = spi_bytes + length;
 			}
-            else if (length==4)
+            else if (length == 4)
             {
                 // if register, just send the 4 bytes
                 //spi_write(data + 2, length);
                 spi_write_with_NAK(data + 2, length);
-                uart_bytes = uart_bytes + length;
+                spi_bytes = spi_bytes + length;
             }
             else if (length==0xAA)
             {
+                // for some reason, we received a packet with the SPI_DATA_TYPE still attached
             	aa_count++;
             }
             else if (length!=0)
             {
-                // meaningless command for breakpoint setting
-                //uart_bytes = uart_bytes + length;
+                // Some error occurred (perhaps CRC) and the length field is garbage
                 bad_lengths++;
             }
 			finish_read_data();
 		}
+        
 		if (get_read_flag())
 		{
 			while (spi_read_with_NAK(command, COMMAND_SIZE))

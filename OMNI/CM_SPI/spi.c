@@ -129,23 +129,6 @@ void spi_slave_event_handle(spi_slave_evt_t event)
 				NRF_RADIO->TASKS_TXEN = 1;
 				radio_count();
                 
-                // // adding for debugging
-                // if (packetptr[1] == 128)
-                // {
-                //     // if we got a valid data packet, check that its contents are correct
-                //     for (int j=2; j<66; j++)
-                //     {
-                //         packet_error = (packetptr[j]!=(get_prev_sample()+1));
-                //         if (packet_error)
-                //         {
-                //             // if there is an error, stop checking and clear variables
-                //             // also can set a breakpoint here to see what the incorrect packet contains
-                //             packet_error = false;
-                //             break;
-                //         }
-                //     }
-                //     set_prev_sample(packetptr[2]);
-                // }
 			}
 		}
 	}
@@ -193,21 +176,6 @@ uint32_t spi_init(void)
 		spi_out[i] = 0;
 	}
 
-	// initialize with fake command
-	/*empty_write_buf[0] = 0xAA;
-	empty_write_buf[1] = 0xFF;
-	empty_write_buf[2] = 0xAA;
-	empty_write_buf[3] = 0xFF;
-	empty_write_buf[4] = 0xAA;
-	empty_write_buf[5] = 0xFF;
-
-	empty_write_buf[129] = 0xF0;
-	empty_write_buf[130] = 0xF0;
-	empty_write_buf[131] = 0xF0;
-	empty_write_buf[132] = 0xF0;
-	empty_write_buf[133] = 0xF0;
-	empty_write_buf[134] = 0xF0;*/
-	
 
 	// set up first set of buffers
 	dataptr = write_data();

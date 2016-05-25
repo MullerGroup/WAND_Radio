@@ -232,22 +232,6 @@ void spi_write_with_NAK(uint8_t buffer[], uint8_t size)
 
 		for (i=0;i<size;i++)
 		{
-            //			 reset = false;
-			// while(!nrf_gpio_pin_read(SPI_NAK_PIN))
-			// {
-			// 	nrf_gpio_pin_set(SPI_SS_PIN);
-			// 	reset = true;
-			// }
-			// if (reset)
-			// {
-			// 	while(NRF_SPI0->EVENTS_READY == 0)
-			// 	{
-			// 	}
-			// 	NRF_SPI0->EVENTS_READY = 0;
-			// 	dummy = NRF_SPI0->RXD;
-			// 	nrf_gpio_pin_clear(SPI_SS_PIN);
-			// 	NRF_SPI0->TXD = SPI_WRITE_COMMAND;
-			// }
 
 			NRF_SPI0->TXD = (uint32_t)buffer[i];
 			while (NRF_SPI0->EVENTS_READY == 0)

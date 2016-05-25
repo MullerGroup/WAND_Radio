@@ -12,7 +12,7 @@ uint8_t data_fifo[DATA_FIFO_SIZE][PACKET_SIZE];		// data fifo
 uint8_t d_read_ptr = 0;								// head of fifo
 uint8_t d_write_ptr = 0;							// tail of fifo
 uint8_t d_size = 0;									// number of data elements in fifo
-uint8_t d_full_count = 0;
+uint32_t d_full_count = 0;
 
 // gets pointer of element to write data into
 uint8_t *write_data(void)
@@ -20,7 +20,7 @@ uint8_t *write_data(void)
 	uint8_t *write_pointer;
 
 
-		if (d_size < (DATA_FIFO_SIZE - 2))
+		if (d_size < (DATA_FIFO_SIZE - 5))
 		{
 			// fifo is not full
 			write_pointer = data_fifo[d_write_ptr];
