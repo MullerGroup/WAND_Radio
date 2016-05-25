@@ -24,10 +24,6 @@ bool 	overflow1 = false;
 bool    overflow2 = false;
 uint8_t *rec_packet1;
 uint8_t *rec_packet2;
-uint32_t aa_count_radio = 0;
-
-uint32_t radio_bytes;
-uint32_t radio_bytes_total;
 
 int crc_count = 0;
 
@@ -35,11 +31,10 @@ int crc_count = 0;
 uint8_t prev_sample = 0;
 bool packet_error = false;
 uint32_t packets_received = 0;
+uint32_t data_fifo_bytes_write = 0;
 
 void radio_configure()
 {
-    radio_bytes = 0;
-    radio_bytes_total = 0;
 
     // Radio config
     NRF_RADIO->TXPOWER = (RADIO_TXPOWER_TXPOWER_Pos4dBm << RADIO_TXPOWER_TXPOWER_Pos);
@@ -153,10 +148,9 @@ void RADIO_IRQHandler(void)
     	if (overflow1 != true)
     	{
     		finish_write_data();
-            radio_bytes = radio_bytes + rec_packet1[1];
+            data_fifo_bytes_write = data_fifo_bytes_write + rec_packet1[1];
     	}
         
-        radio_bytes_total = radio_bytes_total + rec_packet1[1];
         packets_received = packets_received + 1;
 
         overflow1 = overflow2;

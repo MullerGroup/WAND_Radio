@@ -11,12 +11,13 @@
 uint8_t *data;		// pointer to buffer with data to be transmitted over UART
 uint8_t length;		// number of bytes of data to be transmitted in buffer
 
-uint32_t spi_bytes;	// cumulative number of bytes transmitted over SPI
 uint8_t command[COMMAND_SIZE];
 uint8_t *write_pointer;
 uint8_t i;
 uint32_t bad_lengths = 0;
 uint32_t aa_count = 0;
+uint32_t spi_bytes = 0;
+uint32_t data_fifo_bytes_read = 0;
 
 void init(void)
 {
@@ -28,8 +29,6 @@ void init(void)
     while (NRF_CLOCK->EVENTS_HFCLKSTARTED == 0) 
     {
     }
-
-    spi_bytes = 0;
 
 	spi_init();
 	radio_configure();
@@ -48,6 +47,7 @@ int main(void)
         if (data != 0)
         {
 			length = data[1];			// how many valid bytes in packet
+            data_fifo_bytes_read = data_fifo_bytes_read + length;
             
 			if (length == 128)
 			{
@@ -56,7 +56,7 @@ int main(void)
                 data[130] = 0x55; // end of packet
                 //spi_write(data + 1, length + 2);
                 spi_write_with_NAK(data + 1, length+2);
-				spi_bytes = spi_bytes + length;
+                spi_bytes = spi_bytes + length;
 			}
             else if (length == 4)
             {
