@@ -10,7 +10,14 @@
 uint8_t data_fifo[DATA_FIFO_SIZE][PACKET_SIZE+1];		// data fifo
 uint8_t d_read_ptr = 0;								// head of fifo
 uint8_t d_write_ptr = 0;								// tail of fifo
-uint8_t d_size = 0;									// number of data elements in fifo
+int 	d_size = 0;									// number of data elements in fifo
+
+uint32_t debug_wd_count = 0;
+uint32_t debug_fwd_count = 0;
+uint32_t debug_rd_count = 0;
+uint32_t debug_frd_count = 0;
+int debug_size = 0;
+uint32_t debug_full_count = 0;
 
 // gets pointer of element to write data into
 uint8_t *write_data(void)
@@ -19,6 +26,7 @@ uint8_t *write_data(void)
 
 	if (d_size < DATA_FIFO_SIZE)
 	{
+		debug_wd_count++;
 		// fifo is not full
 		write_pointer = data_fifo[d_write_ptr];
 		d_write_ptr = (d_write_ptr + 1)%DATA_FIFO_SIZE;
@@ -26,6 +34,7 @@ uint8_t *write_data(void)
 	}
 	else
 	{
+		debug_full_count++;
 		// fifo is full, return 0
 		return 0;
 	}
@@ -36,6 +45,8 @@ void finish_write_data(void)
 {
 	// successfully written into fifo, increase size
 	d_size++;
+	debug_fwd_count++;
+	debug_size++;
 }
 
 // gets pointer of element to read data from
@@ -45,6 +56,7 @@ uint8_t *read_data(void)
 
 	if (d_size > 0)
 	{
+		debug_rd_count++;
 		// fifo is not empty
 		read_pointer = data_fifo[d_read_ptr];
 		d_read_ptr = (d_read_ptr + 1)%DATA_FIFO_SIZE;
@@ -62,6 +74,8 @@ void finish_read_data(void)
 {
 	// successfully read from fifo, decrease size
 	d_size--;
+	debug_frd_count++;
+	debug_size--;
 }
 
 // updates pointers and size for reading from fifo

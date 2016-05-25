@@ -153,7 +153,6 @@ void RADIO_IRQHandler(void)
         
         packets_received = packets_received + 1;
 
-        overflow1 = overflow2;
 
     	// check what type of packet it is
     	if ((rec_packet1[0] == PHASE_2) || (rec_packet1[0] == PHASE_2_ERROR))
@@ -233,6 +232,7 @@ void RADIO_IRQHandler(void)
 
             NRF_RADIO->PACKETPTR = (uint32_t)rec_packet2;
             rec_packet1 = rec_packet2;
+            overflow1 = overflow2;
             NVIC_ClearPendingIRQ(RADIO_IRQn);
             NVIC_EnableIRQ(RADIO_IRQn);
 
@@ -245,6 +245,8 @@ void RADIO_IRQHandler(void)
     		// Phase 1: CM will continue sending packets, so try to get a new packet pointer and continue in Rx
 
             rec_packet1 = rec_packet2;
+            overflow1 = overflow2;
+
 
     		newPacketPtr = write_data();
     		if (newPacketPtr == 0)
