@@ -42,7 +42,9 @@ int main(void)
 	while (true)
 	{
 		// check data fifo for data to transmit over SPI
+        __disable_irq();         
         data = read_data();
+        __enable_irq(); 
 
         if (data != 0)
         {
@@ -75,7 +77,7 @@ int main(void)
                 // Some error occurred (perhaps CRC) and the length field is garbage
                 bad_lengths++;
             }
-			finish_read_data();
+			//finish_read_data();
 		}
         
 		if (get_read_flag())

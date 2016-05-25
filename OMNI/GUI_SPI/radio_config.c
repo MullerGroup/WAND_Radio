@@ -147,7 +147,7 @@ void RADIO_IRQHandler(void)
     	// finish fifo write if necessary
     	if (overflow1 != true)
     	{
-    		finish_write_data();
+    		//finish_write_data();
             data_fifo_bytes_write = data_fifo_bytes_write + rec_packet1[1];
     	}
         

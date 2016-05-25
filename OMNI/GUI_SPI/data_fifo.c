@@ -23,13 +23,13 @@ uint32_t debug_full_count = 0;
 uint8_t *write_data(void)
 {
 	uint8_t *write_pointer;
-
-	if (d_size < DATA_FIFO_SIZE)
+	if (d_size < DATA_FIFO_SIZE-1)
 	{
 		debug_wd_count++;
 		// fifo is not full
 		write_pointer = data_fifo[d_write_ptr];
 		d_write_ptr = (d_write_ptr + 1)%DATA_FIFO_SIZE;
+		d_size++;
 		return write_pointer;
 	}
 	else
@@ -54,12 +54,13 @@ uint8_t *read_data(void)
 {
 	uint8_t *read_pointer;
 
-	if (d_size > 0)
+	if (d_size > 2)
 	{
 		debug_rd_count++;
 		// fifo is not empty
 		read_pointer = data_fifo[d_read_ptr];
 		d_read_ptr = (d_read_ptr + 1)%DATA_FIFO_SIZE;
+		d_size--;
 		return read_pointer;
 	}
 	else
