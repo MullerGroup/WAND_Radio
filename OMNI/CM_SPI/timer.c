@@ -89,14 +89,6 @@ void TIMER0_IRQHandler(void)
         	    {
         	        packet_ptr = empty_packet;
         	    }
-                else
-                {
-                    if (packet_ptr[1] == 0xAA)
-                    {
-                        aa();
-                    }
-                    radio_count();   
-                }
             }
 
         	// send either PHASE_2 or PHASE_2_ERROR signal
@@ -188,15 +180,9 @@ void TIMER0_IRQHandler(void)
             packet_ptr = read_data();
             if (packet_ptr != 0)
             {
-                if (packet_ptr[1] == 0xAA)
-                {
-                    aa();
-                }
                 set_radio_disabled(false);
                 NRF_RADIO->PACKETPTR = (uint32_t)packet_ptr;
                 NRF_RADIO->TASKS_TXEN = 1;
-                radio_count();
-
             }
         }
         else
@@ -207,15 +193,9 @@ void TIMER0_IRQHandler(void)
                 packet_ptr = read_data();
                 if (packet_ptr != 0)
                 {
-                    if (packet_ptr[1] == 0xAA)
-                    {
-                        aa();
-                    }
                     set_radio_disabled(false);
                     NRF_RADIO->PACKETPTR = (uint32_t)packet_ptr;
                     NRF_RADIO->TASKS_TXEN = 1;
-                    radio_count();
-
                 }
             }
         }

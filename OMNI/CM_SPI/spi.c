@@ -15,34 +15,16 @@ uint8_t full_read_buf[PACKET_SIZE];
 uint8_t *tx_buf;
 uint8_t *rx_buf;
 
-uint32_t spi_data_bytes = 0;
-uint32_t spi_data_total = 0;
-
-uint32_t aa_count = 0;
-
-
 void spi_slave_event_handle(spi_slave_evt_t event)
 {
 	uint32_t err_code;
 	uint8_t i;
-    // bool packet_error = false;
 
 	if (event.evt_type == SPI_SLAVE_XFER_DONE)
 	{
 		uint8_t *writeptr;
 		uint8_t *readptr;
 		uint8_t *packetptr;
-
-		if (rx_buf[1] == SPI_DATA)
-		{
-			spi_data_total = spi_data_total + SPI_DATA_LENGTH;
-		}
-		if (rx_buf[1] == SPI_REGISTER)
-		{
-			spi_data_total = spi_data_total + SPI_REGISTER_LENGTH;
-		}
-
-		// spi_data_total = spi_data_total + rx_buf[1];
 
 		// SPI has completed, so we need to check if we actually wrote any valid data to the rx buffer
 		// Only need to do this if the fifo was actually involved
@@ -53,26 +35,14 @@ void spi_slave_event_handle(spi_slave_evt_t event)
 				if (rx_buf[1] == SPI_DATA)
 				{
 					rx_buf[1] = SPI_DATA_LENGTH;
-					spi_data_bytes = spi_data_bytes + SPI_DATA_LENGTH;
 				}
 				else
 				{
 					rx_buf[1] = SPI_REGISTER_LENGTH;
-					spi_data_bytes = spi_data_bytes + SPI_REGISTER_LENGTH;
 				}
 				// smartfusion was transmitting data, so we do need to keep it in the fifo
 				finish_write_data();
-                if (rx_buf[1] == 0xAA)
-                {
-                    aa_count++;
-                }
 			}
-			// if ((rx_buf[1] == SPI_DATA_LENGTH) || (rx_buf[1] == SPI_REGISTER_LENGTH))
-			// {
-			// 	spi_data_bytes = spi_data_bytes + rx_buf[1];
-			// 	// smartfusion was transmitting data, so we do need to keep it in the fifo
-			// 	finish_write_data();
-			// }
 			else
 			{
 				// smartfusion had nothing to transmit, just polling, reset the fifo
@@ -120,15 +90,9 @@ void spi_slave_event_handle(spi_slave_evt_t event)
 			packetptr = read_data();
 			if (packetptr != 0)
 			{
-				if (packetptr[1] == 0xAA)
-				{
-					aa();
-				}	
 				set_radio_disabled(false);
 				NRF_RADIO->PACKETPTR = (uint32_t)packetptr;
 				NRF_RADIO->TASKS_TXEN = 1;
-				radio_count();
-                
 			}
 		}
 	}

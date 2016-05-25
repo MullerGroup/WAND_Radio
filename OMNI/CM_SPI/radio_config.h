@@ -17,8 +17,6 @@
 
  #define PHASE_2_TIMEOUT 50
 
- void aa(void);
-
  void radio_configure(void);
 
  void radio_pause_tx(void);
@@ -30,7 +28,5 @@
  void set_radio_disabled(bool status);
 
  bool get_radio_disabled(void);
-
- void radio_count(void);
 
  #endif

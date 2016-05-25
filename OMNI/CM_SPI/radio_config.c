@@ -20,21 +20,9 @@
 bool timer_irq;
 bool packet_queued;
 bool radio_disabled;
-uint32_t radio_bytes;
-uint32_t aa_count_radio;
-
-// // for debugging, checking if packet is correct
-// uint8_t prev_sample = 0;
-// bool packet_error = false;
-
-void aa()
-{
-    aa_count_radio++;
-}
 
 void radio_configure()
 {
-    radio_bytes = 0;
     packet_queued = false;
     radio_disabled = true;
 
@@ -142,17 +130,11 @@ void RADIO_IRQHandler(void)
             newPacketPtr = read_data();
             if (newPacketPtr != 0)
             {
-                if (newPacketPtr[1]==0xAA)
-                {
-                    aa();
-                }
                 // have another packet to transmit
                 NRF_RADIO->SHORTS = (RADIO_SHORTS_READY_START_Enabled << RADIO_SHORTS_READY_START_Pos) | 
                                     (RADIO_SHORTS_END_START_Enabled << RADIO_SHORTS_END_START_Pos);
                 NRF_RADIO->PACKETPTR = (uint32_t)newPacketPtr;
-                packet_queued = true;
-                radio_count();
-                
+                packet_queued = true;                
             }
             else
             {
@@ -176,35 +158,11 @@ void RADIO_IRQHandler(void)
                 newPacketPtr = read_data();
                 if (newPacketPtr != 0)
                 {
-                    if (newPacketPtr[1]==0xAA)
-                    {
-                        aa();
-                    }
                     // have another packet to transmit
                     NRF_RADIO->SHORTS = (RADIO_SHORTS_READY_START_Enabled << RADIO_SHORTS_READY_START_Pos) | 
                                         (RADIO_SHORTS_END_START_Enabled << RADIO_SHORTS_END_START_Pos);
                     NRF_RADIO->PACKETPTR = (uint32_t)newPacketPtr;
                     packet_queued = true;
-                    radio_count();
-                    
-                    // // adding for debugging
-                    // if (newPacketPtr[1] == 128)
-                    // {
-                    //     // if we got a valid data packet, check that its contents are correct
-                    //     for (int j=2; j<66; j++)
-                    //     {
-                    //         packet_error = (newPacketPtr[j]!=(prev_sample+1));
-                    //         if (packet_error)
-                    //         {
-                    //             // if there is an error, stop checking and clear variables
-                    //             // also can set a breakpoint here to see what the incorrect packet contains
-                    //             packet_error = false;
-                    //             break;
-                    //         }
-                    //     }
-                    //     prev_sample = newPacketPtr[2];
-                    // }
-                    
                 }
                 else
                 {
@@ -229,11 +187,6 @@ void RADIO_IRQHandler(void)
     }
 
 
-}
-
-void radio_count(void)
-{
-    radio_bytes = radio_bytes + 128;
 }
 
 
