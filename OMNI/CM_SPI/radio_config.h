@@ -9,7 +9,7 @@
  #ifndef RADIO_CONFIG_H
  #define RADIO_CONFIG_H
 
- #define PACKET_SIZE 	130
+ #define PACKET_SIZE 	200
 
  #define PHASE_1 		0
  #define PHASE_2 		1
