@@ -51,16 +51,16 @@ int main(void)
 			length = data[1];			// how many valid bytes in packet
             data_fifo_bytes_read = data_fifo_bytes_read + length;
             
-			if (length == 128)
+			if (length == DATA_LENGTH)
 			{
                 // if data, put start- and end-of-packet headers
                 data[1] = 0xAA; // start of packet
-                data[130] = 0x55; // end of packet
+                data[200] = 0x55; // end of packet
                 spi_write(data + 1, length + 2);
                 //spi_write_with_NAK(data + 1, length+2);
                 spi_bytes = spi_bytes + length;
 			}
-            else if (length == 4)
+            else if (length == REG_LENGTH)
             {
                 // if register, just send the 4 bytes
                 //spi_write(data + 2, length);

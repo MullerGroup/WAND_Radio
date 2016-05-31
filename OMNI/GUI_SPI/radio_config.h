@@ -6,7 +6,9 @@
  #ifndef RADIO_CONFIG_H
  #define RADIO_CONFIG_H
 
- #define PACKET_SIZE 130
+ #define PACKET_SIZE 200
+ #define DATA_LENGTH 198
+ #define REG_LENGTH 4
 
  #define PHASE_1 		0 // keep listening for data
  #define PHASE_2 		1 // turn around and send new packets (commands)
