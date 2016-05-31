@@ -19,6 +19,9 @@
 // #define SPI_READ_COMMAND	0x40
 #define SPI_READ_COMMAND	0x02
 
+#define SPI_FREQUENCY_FREQUENCY_M3 0x30000000
+#define SPI_FREQUENCY_FREQUENCY_M2_5 0x28000000
+
 void set_read_flag(void);
 void clear_read_flag(void);
 bool get_read_flag(void);

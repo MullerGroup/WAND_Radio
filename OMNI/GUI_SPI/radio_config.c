@@ -32,6 +32,7 @@ uint8_t prev_sample = 0;
 bool packet_error = false;
 uint32_t packets_received = 0;
 uint32_t data_fifo_bytes_write = 0;
+uint32_t debug_radio_bytes = 0;
 
 void radio_configure()
 {
@@ -150,6 +151,8 @@ void RADIO_IRQHandler(void)
     		//finish_write_data();
             data_fifo_bytes_write = data_fifo_bytes_write + rec_packet1[1];
     	}
+
+        debug_radio_bytes = debug_radio_bytes + rec_packet1[1];
         
         packets_received = packets_received + 1;
 
