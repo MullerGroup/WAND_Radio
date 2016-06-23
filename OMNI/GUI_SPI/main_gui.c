@@ -18,6 +18,7 @@ uint32_t bad_lengths = 0;
 uint32_t aa_count = 0;
 uint32_t spi_bytes = 0;
 uint32_t data_fifo_bytes_read = 0;
+int command_count = 0;
 
 void init(void)
 {
@@ -92,6 +93,7 @@ int main(void)
 						write_pointer[i] = command[i];
 					}
 					finish_write_command();
+                    command_count++;
 				}
 			}
 			clear_read_flag();

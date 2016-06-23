@@ -179,7 +179,8 @@ void RADIO_IRQHandler(void)
             }
 
 
-    		if (rec_packet1[0] == PHASE_2)
+    		//if (rec_packet1[0] == PHASE_2)
+            if (true)
     		{
     			// CM received last set of commands, so clear to send new set now
     			// clear command_packet buffer
