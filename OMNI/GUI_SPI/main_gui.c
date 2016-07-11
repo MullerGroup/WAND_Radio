@@ -61,6 +61,15 @@ int main(void)
                 //spi_write_with_NAK(data + 1, length+2);
                 spi_bytes = spi_bytes + length;
 			}
+            else if (length == DATA_CRC)
+            {
+                // if data, put start- and end-of-packet headers
+                data[1] = 0xFF; // start of packet
+                data[200] = 0x55; // end of packet
+                spi_write(data + 1, DATA_LENGTH + 2);
+                //spi_write_with_NAK(data + 1, length+2);
+                spi_bytes = spi_bytes + DATA_LENGTH;
+            }
             else if (length == REG_LENGTH)
             {
                 // if register, just send the 4 bytes

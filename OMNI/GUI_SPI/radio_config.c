@@ -141,6 +141,10 @@ void RADIO_IRQHandler(void)
         if(NRF_RADIO->CRCSTATUS != 1)
         {
             crc_count++;
+            if (rec_packet1[1] == DATA_LENGTH)
+            {
+                rec_packet1[1] = DATA_CRC;
+            }
         }
 
     	// finish fifo write if necessary

@@ -9,6 +9,7 @@
  #define PACKET_SIZE 200
  #define DATA_LENGTH 198
  #define REG_LENGTH 4
+ #define DATA_CRC 197
 
  #define PHASE_1 		0 // keep listening for data
  #define PHASE_2 		1 // turn around and send new packets (commands)
