@@ -9,7 +9,7 @@
 #include <stdint.h>
 
 #define SPI_FIFO_BYTES 6
-#define SPI_FIFO_SIZE 10
+#define SPI_FIFO_SIZE 43
 
 #define COMMAND_VALID 0xAA
 

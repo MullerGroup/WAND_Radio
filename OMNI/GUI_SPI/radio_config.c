@@ -28,8 +28,6 @@ uint8_t *rec_packet2;
 int crc_count = 0;
 
 // for debugging, checking if packet is correct
-uint8_t prev_sample = 0;
-bool packet_error = false;
 uint32_t packets_received = 0;
 uint32_t data_fifo_bytes_write = 0;
 uint32_t debug_radio_bytes = 0;
@@ -40,7 +38,7 @@ void radio_configure()
     // Radio config
     NRF_RADIO->TXPOWER = (RADIO_TXPOWER_TXPOWER_Pos4dBm << RADIO_TXPOWER_TXPOWER_Pos);
     //NRF_RADIO->TXPOWER = (RADIO_TXPOWER_TXPOWER_0dBm << RADIO_TXPOWER_TXPOWER_Pos);
-    NRF_RADIO->FREQUENCY = 7UL;  // Frequency bin 7, 2407MHz
+    NRF_RADIO->FREQUENCY = 0UL;  // Frequency bin 7, 2407MHz
     NRF_RADIO->MODE = (RADIO_MODE_MODE_Nrf_2Mbit << RADIO_MODE_MODE_Pos);
 
     // Radio address config
@@ -143,6 +141,10 @@ void RADIO_IRQHandler(void)
         if(NRF_RADIO->CRCSTATUS != 1)
         {
             crc_count++;
+            if (rec_packet1[1] == DATA_LENGTH)
+            {
+                rec_packet1[1] = DATA_CRC;
+            }
         }
 
     	// finish fifo write if necessary
@@ -181,7 +183,8 @@ void RADIO_IRQHandler(void)
             }
 
 
-    		if (rec_packet1[0] == PHASE_2)
+    		//if (rec_packet1[0] == PHASE_2)
+            if (true)
     		{
     			// CM received last set of commands, so clear to send new set now
     			// clear command_packet buffer

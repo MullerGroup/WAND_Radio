@@ -18,6 +18,7 @@ uint32_t bad_lengths = 0;
 uint32_t aa_count = 0;
 uint32_t spi_bytes = 0;
 uint32_t data_fifo_bytes_read = 0;
+int command_count = 0;
 
 void init(void)
 {
@@ -51,16 +52,25 @@ int main(void)
 			length = data[1];			// how many valid bytes in packet
             data_fifo_bytes_read = data_fifo_bytes_read + length;
             
-			if (length == 128)
+			if (length == DATA_LENGTH)
 			{
                 // if data, put start- and end-of-packet headers
                 data[1] = 0xAA; // start of packet
-                data[130] = 0x55; // end of packet
+                data[200] = 0x55; // end of packet
                 spi_write(data + 1, length + 2);
                 //spi_write_with_NAK(data + 1, length+2);
                 spi_bytes = spi_bytes + length;
 			}
-            else if (length == 4)
+            else if (length == DATA_CRC)
+            {
+                // if data, put start- and end-of-packet headers
+                data[1] = 0xFF; // start of packet
+                data[200] = 0x55; // end of packet
+                spi_write(data + 1, DATA_LENGTH + 2);
+                //spi_write_with_NAK(data + 1, length+2);
+                spi_bytes = spi_bytes + DATA_LENGTH;
+            }
+            else if (length == REG_LENGTH)
             {
                 // if register, just send the 4 bytes
                 //spi_write(data + 2, length);
@@ -92,6 +102,7 @@ int main(void)
 						write_pointer[i] = command[i];
 					}
 					finish_write_command();
+                    command_count++;
 				}
 			}
 			clear_read_flag();
