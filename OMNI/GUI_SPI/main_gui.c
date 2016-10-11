@@ -19,6 +19,7 @@ uint32_t aa_count = 0;
 uint32_t spi_bytes = 0;
 uint32_t data_fifo_bytes_read = 0;
 int command_count = 0;
+bool ecg;
 
 void init(void)
 {
@@ -33,6 +34,8 @@ void init(void)
 
 	spi_init();
 	radio_configure();
+
+    ecg = false;
 }
 
 
@@ -54,21 +57,40 @@ int main(void)
             
 			if (length == DATA_LENGTH)
 			{
-                // if data, put start- and end-of-packet headers
-                data[1] = 0xAA; // start of packet
-                data[200] = 0x55; // end of packet
-                spi_write(data + 1, length + 2);
-                //spi_write_with_NAK(data + 1, length+2);
-                spi_bytes = spi_bytes + length;
+                if (ecg)
+                {
+                    data[1] = 0xAA; // start of packet
+                    data[6] = 0x55; // end of packet
+                    spi_write(data+1, ECG_LENGTH);
+                }
+                else
+                {
+                    // if data, put start- and end-of-packet headers
+                    data[1] = 0xAA; // start of packet
+                    data[200] = 0x55; // end of packet
+                    spi_write(data + 1, length + 2);
+                    //spi_write_with_NAK(data + 1, length+2);
+                    spi_bytes = spi_bytes + length;
+                }
+                
 			}
             else if (length == DATA_CRC)
             {
-                // if data, put start- and end-of-packet headers
-                data[1] = 0xFF; // start of packet
-                data[200] = 0x55; // end of packet
-                spi_write(data + 1, DATA_LENGTH + 2);
-                //spi_write_with_NAK(data + 1, length+2);
-                spi_bytes = spi_bytes + DATA_LENGTH;
+                if (ecg)
+                {
+                    data[1] = 0xAA; // start of packet
+                    data[6] = 0x55; // end of packet
+                    spi_write(data+1, ECG_LENGTH);
+                }
+                else
+                {
+                    // if data, put start- and end-of-packet headers
+                    data[1] = 0xFF; // start of packet
+                    data[200] = 0x55; // end of packet
+                    spi_write(data + 1, DATA_LENGTH + 2);
+                    //spi_write_with_NAK(data + 1, length+2);
+                    spi_bytes = spi_bytes + DATA_LENGTH;
+                }
             }
             else if (length == REG_LENGTH)
             {
@@ -103,6 +125,12 @@ int main(void)
 					}
 					finish_write_command();
                     command_count++;
+
+                    if (command[0] == 0xFF)
+                    {
+                        if (command[2] == 0x01) ecg = true;
+                        else if (command[2] == 0x00) ecg = false;
+                    }
 				}
 			}
 			clear_read_flag();
