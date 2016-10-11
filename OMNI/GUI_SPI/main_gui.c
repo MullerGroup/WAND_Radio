@@ -59,9 +59,9 @@ int main(void)
 			{
                 if (ecg)
                 {
-                    data[1] = 0xAA; // start of packet
-                    data[6] = 0x55; // end of packet
-                    spi_write(data+1, ECG_LENGTH);
+                    data[61] = 0xAA; // start of packet
+                    data[66] = 0x55; // end of packet
+                    spi_write(data+61, ECG_LENGTH);
                 }
                 else
                 {
@@ -78,9 +78,9 @@ int main(void)
             {
                 if (ecg)
                 {
-                    data[1] = 0xAA; // start of packet
-                    data[6] = 0x55; // end of packet
-                    spi_write(data+1, ECG_LENGTH);
+                    data[61] = 0xAA; // start of packet
+                    data[66] = 0x55; // end of packet
+                    spi_write(data+61, ECG_LENGTH);
                 }
                 else
                 {
