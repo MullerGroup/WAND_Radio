@@ -47,6 +47,7 @@ uint8_t *read_command(void)
 		// fifo is not empty
 		read_pointer = command_fifo[c_read_ptr];
 		c_read_ptr = (c_read_ptr + 1)%COMMAND_FIFO_SIZE;
+		c_size--;
 		return read_pointer;
 	}
 	else
@@ -54,17 +55,4 @@ uint8_t *read_command(void)
 		// fifo is empty, return 0
 		return 0;
 	}
-}
-
-// updates pointers and size for reading from fifo
-void finish_read_command(void)
-{
-	// successfully read from fifo, decrease size
-	c_size--;
-}
-
-// returns number of elements in fifo
-uint8_t get_num_commands(void)
-{
-	return c_size;
 }

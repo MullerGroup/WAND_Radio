@@ -7,6 +7,7 @@ C_SOURCE_FILES += nrf_delay.c
 C_SOURCE_FILES += spi.c
 C_SOURCE_FILES += data_fifo.c
 C_SOURCE_FILES += command_fifo.c
+C_SOURCE_FILES += spi_slave.c
 
 OUTPUT_FILENAME := gui_radio
 SDK_PATH = ../../../../
@@ -20,3 +21,7 @@ DEVICE_VARIANT := xxaa
 #USE_SOFTDEVICE := s210
 
 include $(SDK_PATH)Source/templates/gcc/Makefile.common
+
+INCLUDEPATHS += -I"$(SDK_PATH)Include/app_common"
+INCLUDEPATHS += -I"$(SDK_PATH)Include/sd_common"
+INCLUDEPATHS += -I"$(SDK_PATH)Include/s110"

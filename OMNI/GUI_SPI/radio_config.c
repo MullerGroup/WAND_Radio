@@ -150,7 +150,6 @@ void RADIO_IRQHandler(void)
     	// finish fifo write if necessary
     	if (overflow1 != true)
     	{
-    		//finish_write_data();
             data_fifo_bytes_write = data_fifo_bytes_write + rec_packet1[1];
     	}
 
@@ -163,9 +162,6 @@ void RADIO_IRQHandler(void)
     	if ((rec_packet1[0] == PHASE_2) || (rec_packet1[0] == PHASE_2_ERROR))
     	{
             NVIC_DisableIRQ(RADIO_IRQn);
-            set_read_flag();
-
-
 
     		// Packet is some sort of PHASE 2 packet requesting commands
 
@@ -209,7 +205,6 @@ void RADIO_IRQHandler(void)
                             command_packet[command_index + i] = command[i];
                         }
                         command_index = command_index + COMMAND_SIZE;
-                        finish_read_command();
                     }
                     command_count++;
                 }
@@ -270,6 +265,11 @@ void RADIO_IRQHandler(void)
     			overflow2 = false;
     		}
     	}
+
+        if (get_num_data() > SPI_THRESHOLD)
+        {
+            radio_spi_start();
+        }
 
         // clear the event
         NRF_RADIO->EVENTS_END = 0;

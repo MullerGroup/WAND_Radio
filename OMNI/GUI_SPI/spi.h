@@ -12,17 +12,17 @@
 #define SPI_SCK_PIN			0
 #define SPI_MOSI_PIN		2
 #define SPI_MISO_PIN		3
-#define SPI_SS_PIN			1
+#define SPI_CSN_PIN			1
 #define SPI_RTR_PIN			4
 
+#define DEF_CHARACTER		0x00
+#define ORC_CHARACTER		0x00
 
-void set_read_flag(void);
-void clear_read_flag(void);
-bool get_read_flag(void);
-void spi_write(uint8_t buffer[], uint8_t size);
-void spi_read(uint8_t buffer[], uint8_t size);
-bool spi_read_with_NAK(uint8_t buffer[], uint8_t size);
-void spi_write_with_NAK(uint8_t buffer[], uint8_t size);
-void spi_init(void);
+#define SPI_WRITE_LENGTH	198
+#define SPI_THRESHOLD		5
+
+
+uint32_t spi_init(void);
+void radio_spi_start(void);
 
 #endif

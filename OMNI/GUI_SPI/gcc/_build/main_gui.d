@@ -14,4 +14,6 @@ _build/main_gui.o: ../main_gui.c \
  ../../../../Include/nrf51_bitfields.h ../../../../Include/boards.h \
  ../../../../Include/boards/pca10001.h ../../../../Include/nrf_delay.h \
  ../../../../Include/nrf.h ../../../../Include/nrf51_deprecated.h \
- ../../../../Include/compiler_abstraction.h
+ ../../../../Include/compiler_abstraction.h \
+ ../../../../Include/app_common/app_error.h \
+ ../../../../Include/s110/nrf_error.h
