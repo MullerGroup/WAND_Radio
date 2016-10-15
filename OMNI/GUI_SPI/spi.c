@@ -128,20 +128,23 @@ void radio_spi_start(void)
 	if (!spi_running)
 	{
 		tx_try = read_data();
-		err_code = spi_slave_buffers_set(tx_try+2, rx_buf, SPI_WRITE_LENGTH, COMMAND_SIZE);
-		if (err_code == NRF_SUCCESS)
+		if (tx_try != 0)
 		{
-			// we successfully set buffers, ready to start SPI.
-			spi_running = true;
-			nrf_gpio_pin_clear(SPI_RTR_PIN);
-			tx_buf = tx_try;
-		}
-		else
-		{
-			// need to un-read that data point...
-			unread_data();
-			spi_running = false;
-			nrf_gpio_pin_set(SPI_RTR_PIN);
+			err_code = spi_slave_buffers_set(tx_try+2, rx_buf, SPI_WRITE_LENGTH, COMMAND_SIZE);
+			if (err_code == NRF_SUCCESS)
+			{
+				// we successfully set buffers, ready to start SPI.
+				spi_running = true;
+				nrf_gpio_pin_clear(SPI_RTR_PIN);
+				tx_buf = tx_try;
+			}
+			else
+			{
+				// need to un-read that data point...
+				unread_data();
+				spi_running = false;
+				nrf_gpio_pin_set(SPI_RTR_PIN);
+			}
 		}
 	}
 }

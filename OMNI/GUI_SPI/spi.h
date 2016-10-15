@@ -9,11 +9,11 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-#define SPI_SCK_PIN			0
-#define SPI_MOSI_PIN		2
-#define SPI_MISO_PIN		3
-#define SPI_CSN_PIN			1
-#define SPI_RTR_PIN			4
+#define SPI_SCK_PIN			20
+#define SPI_MOSI_PIN		21
+#define SPI_MISO_PIN		22
+#define SPI_CSN_PIN			23
+#define SPI_RTR_PIN			24
 
 #define DEF_CHARACTER		0x00
 #define ORC_CHARACTER		0x00

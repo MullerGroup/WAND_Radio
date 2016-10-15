@@ -47,10 +47,10 @@ uint32_t spi_init(void)
 	err_code = spi_slave_evt_handler_register(spi_slave_event_handle);
 	APP_ERROR_CHECK(err_code);
 
-	spi_slave_config.pin_miso         = 0;
-    spi_slave_config.pin_mosi         = 1;
-    spi_slave_config.pin_sck          = 2;
-    spi_slave_config.pin_csn          = 3;
+	spi_slave_config.pin_miso         = 22;
+    spi_slave_config.pin_mosi         = 21;
+    spi_slave_config.pin_sck          = 20;
+    spi_slave_config.pin_csn          = 23;
     spi_slave_config.mode             = SPI_MODE_0;
     spi_slave_config.bit_order        = SPIM_MSB_FIRST;
     spi_slave_config.def_tx_character = 0xFF;
