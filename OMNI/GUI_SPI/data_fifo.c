@@ -7,7 +7,7 @@
 #include "radio_config.h"
 #include <stdint.h>
 
-uint8_t data_fifo[DATA_FIFO_SIZE][PACKET_SIZE];		// data fifo
+uint8_t data_fifo[DATA_FIFO_SIZE][PACKET_SIZE+1];		// data fifo
 uint8_t d_read_ptr = 0;								// head of fifo
 uint8_t d_write_ptr = 0;								// tail of fifo
 int 	d_size = 0;									// number of data elements in fifo
