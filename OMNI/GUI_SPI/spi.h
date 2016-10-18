@@ -15,10 +15,10 @@
 #define SPI_CSN_PIN			23
 #define SPI_RTR_PIN			24
 
-#define DEF_CHARACTER		0x00
-#define ORC_CHARACTER		0x00
+#define DEF_CHARACTER		0xAA
+#define ORC_CHARACTER		0x55
 
-#define SPI_WRITE_LENGTH	198
+#define SPI_WRITE_LENGTH	200
 #define SPI_THRESHOLD		5
 
 

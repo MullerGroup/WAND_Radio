@@ -266,10 +266,12 @@ void RADIO_IRQHandler(void)
     		}
     	}
 
-        if (get_num_data() > SPI_THRESHOLD)
-        {
-            radio_spi_start();
-        }
+        // if (get_num_data() > 40)
+        // {
+        //     radio_spi_start();
+        // }
+
+        // radio_spi_start();
 
         // clear the event
         NRF_RADIO->EVENTS_END = 0;

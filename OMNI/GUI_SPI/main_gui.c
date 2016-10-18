@@ -4,12 +4,14 @@
 #include "spi.h"
 #include "command_fifo.h"
 #include "data_fifo.h"
+#include "radio_fifo.h"
 #include "nrf_gpio.h"
 #include "boards.h"
 #include "nrf_delay.h"
 #include "app_error.h"
 
 uint8_t *data;		// pointer to buffer with data to be transmitted over UART
+uint8_t *spi_data;
 uint8_t length;		// number of bytes of data to be transmitted in buffer
 
 uint8_t command[COMMAND_SIZE];
@@ -52,5 +54,24 @@ int main(void)
 {
 	init();
 
-	while (true) {}
+	while (true) 
+    {
+        // data = read_data();
+        // if (data != 0)
+        // {
+        //     spi_data = write_radio();
+        //     if (spi_data != 0)
+        //     {
+        //         for(i=0;i<PACKET_SIZE+1;i++)
+        //         {
+        //             spi_data[i] = data[i];
+        //         }
+        //         finish_write_radio();
+        //     }
+        //     else
+        //     {
+        //         unread_data();
+        //     }
+        // }
+    }
 }

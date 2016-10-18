@@ -36,278 +36,12 @@ length              0x1               _build/main_gui.o
 command             0x5               _build/main_gui.o
 i                   0x1               _build/main_gui.o
 rec_packet2         0x4               _build/radio_config.o
+spi_data            0x4               _build/main_gui.o
 command_fifo        0x32              _build/command_fifo.o
 overflow_packet     0xc8              _build/radio_config.o
 rx_buf              0x4               _build/spi.o
 data                0x4               _build/main_gui.o
 tx_buf              0x4               _build/spi.o
-
-Discarded input sections
-
- .group         0x0000000000000000        0x8 _build/main_gui.o
- .group         0x0000000000000000        0x8 _build/main_gui.o
- .group         0x0000000000000000        0x8 _build/main_gui.o
- .group         0x0000000000000000        0x8 _build/main_gui.o
- .group         0x0000000000000000        0x8 _build/main_gui.o
- .group         0x0000000000000000        0x8 _build/main_gui.o
- .group         0x0000000000000000        0x8 _build/main_gui.o
- .group         0x0000000000000000        0x8 _build/main_gui.o
- .group         0x0000000000000000        0x8 _build/main_gui.o
- .group         0x0000000000000000        0x8 _build/main_gui.o
- .group         0x0000000000000000        0x8 _build/main_gui.o
- .group         0x0000000000000000        0x8 _build/main_gui.o
- .group         0x0000000000000000        0x8 _build/main_gui.o
- .group         0x0000000000000000        0x8 _build/main_gui.o
- .group         0x0000000000000000        0x8 _build/main_gui.o
- .group         0x0000000000000000        0x8 _build/main_gui.o
- .group         0x0000000000000000        0x8 _build/main_gui.o
- .group         0x0000000000000000        0x8 _build/main_gui.o
- .group         0x0000000000000000        0x8 _build/main_gui.o
- .group         0x0000000000000000        0x8 _build/main_gui.o
- .group         0x0000000000000000        0x8 _build/main_gui.o
- .group         0x0000000000000000        0x8 _build/main_gui.o
- .group         0x0000000000000000        0x8 _build/radio_config.o
- .group         0x0000000000000000        0x8 _build/radio_config.o
- .group         0x0000000000000000        0x8 _build/radio_config.o
- .group         0x0000000000000000        0x8 _build/radio_config.o
- .group         0x0000000000000000        0x8 _build/radio_config.o
- .group         0x0000000000000000        0x8 _build/radio_config.o
- .group         0x0000000000000000        0x8 _build/radio_config.o
- .group         0x0000000000000000        0x8 _build/radio_config.o
- .group         0x0000000000000000        0x8 _build/radio_config.o
- .group         0x0000000000000000        0x8 _build/radio_config.o
- .group         0x0000000000000000        0x8 _build/radio_config.o
- .group         0x0000000000000000        0x8 _build/radio_config.o
- .group         0x0000000000000000        0x8 _build/radio_config.o
- .group         0x0000000000000000        0x8 _build/radio_config.o
- .group         0x0000000000000000        0x8 _build/radio_config.o
- .group         0x0000000000000000        0x8 _build/radio_config.o
- .group         0x0000000000000000        0x8 _build/radio_config.o
- .group         0x0000000000000000        0x8 _build/radio_config.o
- .group         0x0000000000000000        0x8 _build/radio_config.o
- .debug_macro   0x0000000000000000      0x83e _build/radio_config.o
- .debug_macro   0x0000000000000000       0x34 _build/radio_config.o
- .debug_macro   0x0000000000000000       0x22 _build/radio_config.o
- .debug_macro   0x0000000000000000       0x3a _build/radio_config.o
- .debug_macro   0x0000000000000000       0x22 _build/radio_config.o
- .debug_macro   0x0000000000000000       0x44 _build/radio_config.o
- .debug_macro   0x0000000000000000       0x58 _build/radio_config.o
- .debug_macro   0x0000000000000000       0x22 _build/radio_config.o
- .debug_macro   0x0000000000000000      0x1df _build/radio_config.o
- .debug_macro   0x0000000000000000       0x1f _build/radio_config.o
- .debug_macro   0x0000000000000000      0x242 _build/radio_config.o
- .debug_macro   0x0000000000000000      0x1d2 _build/radio_config.o
- .debug_macro   0x0000000000000000     0x746b _build/radio_config.o
- .debug_macro   0x0000000000000000      0x976 _build/radio_config.o
- .debug_macro   0x0000000000000000       0x10 _build/radio_config.o
- .debug_macro   0x0000000000000000       0x10 _build/radio_config.o
- .debug_macro   0x0000000000000000       0x1c _build/radio_config.o
- .debug_macro   0x0000000000000000       0x22 _build/radio_config.o
- .group         0x0000000000000000        0x8 _build/nrf_delay.o
- .group         0x0000000000000000        0x8 _build/nrf_delay.o
- .group         0x0000000000000000        0x8 _build/nrf_delay.o
- .group         0x0000000000000000        0x8 _build/nrf_delay.o
- .group         0x0000000000000000        0x8 _build/nrf_delay.o
- .group         0x0000000000000000        0x8 _build/nrf_delay.o
- .group         0x0000000000000000        0x8 _build/nrf_delay.o
- .group         0x0000000000000000        0x8 _build/nrf_delay.o
- .group         0x0000000000000000        0x8 _build/nrf_delay.o
- .group         0x0000000000000000        0x8 _build/nrf_delay.o
- .group         0x0000000000000000        0x8 _build/nrf_delay.o
- .group         0x0000000000000000        0x8 _build/nrf_delay.o
- .group         0x0000000000000000        0x8 _build/nrf_delay.o
- .group         0x0000000000000000        0x8 _build/nrf_delay.o
- .group         0x0000000000000000        0x8 _build/nrf_delay.o
- .group         0x0000000000000000        0x8 _build/nrf_delay.o
- .group         0x0000000000000000        0x8 _build/nrf_delay.o
- .group         0x0000000000000000        0x8 _build/nrf_delay.o
- .group         0x0000000000000000        0x8 _build/nrf_delay.o
- .group         0x0000000000000000        0x8 _build/nrf_delay.o
- .group         0x0000000000000000        0x8 _build/nrf_delay.o
- .group         0x0000000000000000        0x8 _build/nrf_delay.o
- .group         0x0000000000000000        0x8 _build/nrf_delay.o
- .group         0x0000000000000000        0x8 _build/nrf_delay.o
- .group         0x0000000000000000        0x8 _build/nrf_delay.o
- .group         0x0000000000000000        0x8 _build/nrf_delay.o
- .group         0x0000000000000000        0x8 _build/nrf_delay.o
- .group         0x0000000000000000        0x8 _build/nrf_delay.o
- .group         0x0000000000000000        0x8 _build/nrf_delay.o
- .group         0x0000000000000000        0x8 _build/nrf_delay.o
- .group         0x0000000000000000        0x8 _build/nrf_delay.o
- .debug_macro   0x0000000000000000      0x83e _build/nrf_delay.o
- .debug_macro   0x0000000000000000       0x22 _build/nrf_delay.o
- .debug_macro   0x0000000000000000       0x22 _build/nrf_delay.o
- .debug_macro   0x0000000000000000       0x22 _build/nrf_delay.o
- .debug_macro   0x0000000000000000       0x3a _build/nrf_delay.o
- .debug_macro   0x0000000000000000       0x58 _build/nrf_delay.o
- .debug_macro   0x0000000000000000      0x1df _build/nrf_delay.o
- .debug_macro   0x0000000000000000       0x1f _build/nrf_delay.o
- .debug_macro   0x0000000000000000      0x242 _build/nrf_delay.o
- .debug_macro   0x0000000000000000      0x1d2 _build/nrf_delay.o
- .debug_macro   0x0000000000000000     0x746b _build/nrf_delay.o
- .debug_macro   0x0000000000000000      0x976 _build/nrf_delay.o
- .group         0x0000000000000000        0x8 _build/spi.o
- .group         0x0000000000000000        0x8 _build/spi.o
- .group         0x0000000000000000        0x8 _build/spi.o
- .group         0x0000000000000000        0x8 _build/spi.o
- .group         0x0000000000000000        0x8 _build/spi.o
- .group         0x0000000000000000        0x8 _build/spi.o
- .group         0x0000000000000000        0x8 _build/spi.o
- .group         0x0000000000000000        0x8 _build/spi.o
- .group         0x0000000000000000        0x8 _build/spi.o
- .group         0x0000000000000000        0x8 _build/spi.o
- .group         0x0000000000000000        0x8 _build/spi.o
- .group         0x0000000000000000        0x8 _build/spi.o
- .group         0x0000000000000000        0x8 _build/spi.o
- .group         0x0000000000000000        0x8 _build/spi.o
- .group         0x0000000000000000        0x8 _build/spi.o
- .group         0x0000000000000000        0x8 _build/spi.o
- .group         0x0000000000000000        0x8 _build/spi.o
- .group         0x0000000000000000        0x8 _build/spi.o
- .group         0x0000000000000000        0x8 _build/spi.o
- .group         0x0000000000000000        0x8 _build/spi.o
- .debug_macro   0x0000000000000000      0x83e _build/spi.o
- .debug_macro   0x0000000000000000       0x22 _build/spi.o
- .debug_macro   0x0000000000000000       0x44 _build/spi.o
- .debug_macro   0x0000000000000000       0x58 _build/spi.o
- .debug_macro   0x0000000000000000       0x22 _build/spi.o
- .debug_macro   0x0000000000000000      0x1df _build/spi.o
- .debug_macro   0x0000000000000000       0x22 _build/spi.o
- .debug_macro   0x0000000000000000       0x3a _build/spi.o
- .debug_macro   0x0000000000000000       0x8e _build/spi.o
- .debug_macro   0x0000000000000000       0x1c _build/spi.o
- .debug_macro   0x0000000000000000       0x10 _build/spi.o
- .debug_macro   0x0000000000000000       0x22 _build/spi.o
- .debug_macro   0x0000000000000000       0x3a _build/spi.o
- .debug_macro   0x0000000000000000       0x1f _build/spi.o
- .debug_macro   0x0000000000000000      0x242 _build/spi.o
- .debug_macro   0x0000000000000000      0x1d2 _build/spi.o
- .debug_macro   0x0000000000000000     0x746b _build/spi.o
- .debug_macro   0x0000000000000000       0x34 _build/spi.o
- .group         0x0000000000000000        0x8 _build/data_fifo.o
- .group         0x0000000000000000        0x8 _build/data_fifo.o
- .group         0x0000000000000000        0x8 _build/data_fifo.o
- .group         0x0000000000000000        0x8 _build/data_fifo.o
- .group         0x0000000000000000        0x8 _build/data_fifo.o
- .group         0x0000000000000000        0x8 _build/data_fifo.o
- .group         0x0000000000000000        0x8 _build/data_fifo.o
- .debug_macro   0x0000000000000000      0x83e _build/data_fifo.o
- .debug_macro   0x0000000000000000       0x22 _build/data_fifo.o
- .debug_macro   0x0000000000000000       0x44 _build/data_fifo.o
- .debug_macro   0x0000000000000000       0x58 _build/data_fifo.o
- .debug_macro   0x0000000000000000       0x22 _build/data_fifo.o
- .debug_macro   0x0000000000000000      0x1df _build/data_fifo.o
- .debug_macro   0x0000000000000000       0x34 _build/data_fifo.o
- .group         0x0000000000000000        0x8 _build/command_fifo.o
- .group         0x0000000000000000        0x8 _build/command_fifo.o
- .group         0x0000000000000000        0x8 _build/command_fifo.o
- .group         0x0000000000000000        0x8 _build/command_fifo.o
- .group         0x0000000000000000        0x8 _build/command_fifo.o
- .group         0x0000000000000000        0x8 _build/command_fifo.o
- .group         0x0000000000000000        0x8 _build/command_fifo.o
- .debug_macro   0x0000000000000000      0x83e _build/command_fifo.o
- .debug_macro   0x0000000000000000       0x22 _build/command_fifo.o
- .debug_macro   0x0000000000000000       0x44 _build/command_fifo.o
- .debug_macro   0x0000000000000000       0x58 _build/command_fifo.o
- .debug_macro   0x0000000000000000       0x22 _build/command_fifo.o
- .debug_macro   0x0000000000000000      0x1df _build/command_fifo.o
- .group         0x0000000000000000        0x8 _build/spi_slave.o
- .group         0x0000000000000000        0x8 _build/spi_slave.o
- .group         0x0000000000000000        0x8 _build/spi_slave.o
- .group         0x0000000000000000        0x8 _build/spi_slave.o
- .group         0x0000000000000000        0x8 _build/spi_slave.o
- .group         0x0000000000000000        0x8 _build/spi_slave.o
- .group         0x0000000000000000        0x8 _build/spi_slave.o
- .group         0x0000000000000000        0x8 _build/spi_slave.o
- .group         0x0000000000000000        0x8 _build/spi_slave.o
- .group         0x0000000000000000        0x8 _build/spi_slave.o
- .group         0x0000000000000000        0x8 _build/spi_slave.o
- .group         0x0000000000000000        0x8 _build/spi_slave.o
- .group         0x0000000000000000        0x8 _build/spi_slave.o
- .group         0x0000000000000000        0x8 _build/spi_slave.o
- .group         0x0000000000000000        0x8 _build/spi_slave.o
- .group         0x0000000000000000        0x8 _build/spi_slave.o
- .group         0x0000000000000000        0x8 _build/spi_slave.o
- .group         0x0000000000000000        0x8 _build/spi_slave.o
- .group         0x0000000000000000        0x8 _build/spi_slave.o
- .group         0x0000000000000000        0x8 _build/spi_slave.o
- .group         0x0000000000000000        0x8 _build/spi_slave.o
- .group         0x0000000000000000        0x8 _build/spi_slave.o
- .group         0x0000000000000000        0x8 _build/spi_slave.o
- .group         0x0000000000000000        0x8 _build/spi_slave.o
- .group         0x0000000000000000        0x8 _build/spi_slave.o
- .group         0x0000000000000000        0x8 _build/spi_slave.o
- .group         0x0000000000000000        0x8 _build/spi_slave.o
- .group         0x0000000000000000        0x8 _build/spi_slave.o
- .group         0x0000000000000000        0x8 _build/spi_slave.o
- .group         0x0000000000000000        0x8 _build/spi_slave.o
- .group         0x0000000000000000        0x8 _build/spi_slave.o
- .group         0x0000000000000000        0x8 _build/spi_slave.o
- .group         0x0000000000000000        0x8 _build/spi_slave.o
- .group         0x0000000000000000        0x8 _build/spi_slave.o
- .debug_macro   0x0000000000000000      0x83e _build/spi_slave.o
- .debug_macro   0x0000000000000000       0x22 _build/spi_slave.o
- .debug_macro   0x0000000000000000       0x44 _build/spi_slave.o
- .debug_macro   0x0000000000000000       0x58 _build/spi_slave.o
- .debug_macro   0x0000000000000000       0x22 _build/spi_slave.o
- .debug_macro   0x0000000000000000      0x1df _build/spi_slave.o
- .debug_macro   0x0000000000000000       0x8e _build/spi_slave.o
- .debug_macro   0x0000000000000000       0x22 _build/spi_slave.o
- .debug_macro   0x0000000000000000       0x58 _build/spi_slave.o
- .debug_macro   0x0000000000000000       0x35 _build/spi_slave.o
- .debug_macro   0x0000000000000000       0x9c _build/spi_slave.o
- .debug_macro   0x0000000000000000       0x16 _build/spi_slave.o
- .debug_macro   0x0000000000000000       0x97 _build/spi_slave.o
- .debug_macro   0x0000000000000000      0x29d _build/spi_slave.o
- .debug_macro   0x0000000000000000       0xef _build/spi_slave.o
- .debug_macro   0x0000000000000000       0x10 _build/spi_slave.o
- .debug_macro   0x0000000000000000       0x52 _build/spi_slave.o
- .debug_macro   0x0000000000000000       0x16 _build/spi_slave.o
- .debug_macro   0x0000000000000000       0x43 _build/spi_slave.o
- .debug_macro   0x0000000000000000      0x180 _build/spi_slave.o
- .debug_macro   0x0000000000000000       0x10 _build/spi_slave.o
- .debug_macro   0x0000000000000000       0x22 _build/spi_slave.o
- .debug_macro   0x0000000000000000       0xbe _build/spi_slave.o
- .debug_macro   0x0000000000000000       0x16 _build/spi_slave.o
- .debug_macro   0x0000000000000000      0x197 _build/spi_slave.o
- .debug_macro   0x0000000000000000       0x22 _build/spi_slave.o
- .debug_macro   0x0000000000000000       0x3a _build/spi_slave.o
- .debug_macro   0x0000000000000000       0x1f _build/spi_slave.o
- .debug_macro   0x0000000000000000      0x242 _build/spi_slave.o
- .debug_macro   0x0000000000000000      0x1d2 _build/spi_slave.o
- .debug_macro   0x0000000000000000     0x746b _build/spi_slave.o
- .debug_macro   0x0000000000000000       0x1c _build/spi_slave.o
- .debug_macro   0x0000000000000000       0x10 _build/spi_slave.o
- .group         0x0000000000000000        0x8 _build/system_nrf51.o
- .group         0x0000000000000000        0x8 _build/system_nrf51.o
- .group         0x0000000000000000        0x8 _build/system_nrf51.o
- .group         0x0000000000000000        0x8 _build/system_nrf51.o
- .group         0x0000000000000000        0x8 _build/system_nrf51.o
- .group         0x0000000000000000        0x8 _build/system_nrf51.o
- .group         0x0000000000000000        0x8 _build/system_nrf51.o
- .group         0x0000000000000000        0x8 _build/system_nrf51.o
- .group         0x0000000000000000        0x8 _build/system_nrf51.o
- .group         0x0000000000000000        0x8 _build/system_nrf51.o
- .group         0x0000000000000000        0x8 _build/system_nrf51.o
- .group         0x0000000000000000        0x8 _build/system_nrf51.o
- .group         0x0000000000000000        0x8 _build/system_nrf51.o
- .group         0x0000000000000000        0x8 _build/system_nrf51.o
- .group         0x0000000000000000        0x8 _build/system_nrf51.o
- .debug_macro   0x0000000000000000      0x83e _build/system_nrf51.o
- .debug_macro   0x0000000000000000       0x22 _build/system_nrf51.o
- .debug_macro   0x0000000000000000       0x44 _build/system_nrf51.o
- .debug_macro   0x0000000000000000       0x58 _build/system_nrf51.o
- .debug_macro   0x0000000000000000       0x22 _build/system_nrf51.o
- .debug_macro   0x0000000000000000      0x1df _build/system_nrf51.o
- .debug_macro   0x0000000000000000       0x22 _build/system_nrf51.o
- .debug_macro   0x0000000000000000       0x22 _build/system_nrf51.o
- .debug_macro   0x0000000000000000       0x3a _build/system_nrf51.o
- .debug_macro   0x0000000000000000       0x1f _build/system_nrf51.o
- .debug_macro   0x0000000000000000      0x242 _build/system_nrf51.o
- .debug_macro   0x0000000000000000      0x1d2 _build/system_nrf51.o
- .debug_macro   0x0000000000000000     0x746b _build/system_nrf51.o
- .debug_macro   0x0000000000000000      0x976 _build/system_nrf51.o
- .debug_macro   0x0000000000000000       0x10 _build/system_nrf51.o
 
 Memory Configuration
 
@@ -342,7 +76,7 @@ LOAD /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../l
 LOAD /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libnosys.a
 END GROUP
 
-.text           0x0000000000000000     0x19ac
+.text           0x0000000000000000     0x1968
  *(.Vectors)
  .Vectors       0x0000000000000000       0xc0 _build/gcc_startup_nrf51.o
                 0x0000000000000000                __Vectors
@@ -356,113 +90,113 @@ END GROUP
                 0x0000000000000198                app_error_handler
                 0x00000000000001a8                init
                 0x0000000000000204                main
- .text          0x0000000000000210      0x5e0 _build/radio_config.o
+ .text          0x0000000000000210      0x5d0 _build/radio_config.o
                 0x0000000000000370                radio_configure
                 0x00000000000004e8                RADIO_IRQHandler
- .text          0x00000000000007f0       0x5c _build/nrf_delay.o
-                0x0000000000000824                nrf_delay_ms
- .text          0x000000000000084c      0x2f8 _build/spi.o
-                0x00000000000008b0                spi_slave_event_handle
-                0x000000000000098c                spi_init
-                0x0000000000000acc                radio_spi_start
- .text          0x0000000000000b44      0x118 _build/data_fifo.o
-                0x0000000000000b44                write_data
-                0x0000000000000b9c                read_data
-                0x0000000000000c10                unread_data
-                0x0000000000000c48                get_num_data
- .text          0x0000000000000c5c       0xc4 _build/command_fifo.o
-                0x0000000000000c5c                write_command
-                0x0000000000000cac                finish_write_command
-                0x0000000000000cc4                read_command
- .text          0x0000000000000d20      0x594 _build/spi_slave.o
-                0x0000000000000e50                spi_slave_evt_handler_register
-                0x0000000000000e78                spi_slave_set_cs_pull_up_config
-                0x0000000000000e94                spi_slave_set_drive_config
-                0x0000000000000eb0                spi_slave_init
-                0x0000000000001170                spi_slave_buffers_set
-                0x0000000000001200                SPI1_TWI1_IRQHandler
- .text          0x00000000000012b4      0x124 _build/system_nrf51.o
-                0x00000000000012b4                SystemCoreClockUpdate
-                0x00000000000012cc                SystemInit
- .text          0x00000000000013d8       0x54 _build/gcc_startup_nrf51.o
-                0x00000000000013d8                Reset_Handler
-                0x0000000000001420                NMI_Handler
-                0x0000000000001422                HardFault_Handler
-                0x0000000000001424                SVC_Handler
-                0x0000000000001426                PendSV_Handler
-                0x0000000000001428                SysTick_Handler
-                0x000000000000142a                SWI4_IRQHandler
-                0x000000000000142a                TEMP_IRQHandler
-                0x000000000000142a                QDEC_IRQHandler
-                0x000000000000142a                UART0_IRQHandler
-                0x000000000000142a                SWI5_IRQHandler
-                0x000000000000142a                TIMER0_IRQHandler
-                0x000000000000142a                SWI0_IRQHandler
-                0x000000000000142a                TIMER1_IRQHandler
-                0x000000000000142a                ECB_IRQHandler
-                0x000000000000142a                Default_Handler
-                0x000000000000142a                ADC_IRQHandler
-                0x000000000000142a                SWI3_IRQHandler
-                0x000000000000142a                CCM_AAR_IRQHandler
-                0x000000000000142a                WDT_IRQHandler
-                0x000000000000142a                SWI2_IRQHandler
-                0x000000000000142a                RNG_IRQHandler
-                0x000000000000142a                RTC1_IRQHandler
-                0x000000000000142a                TIMER2_IRQHandler
-                0x000000000000142a                SWI1_IRQHandler
-                0x000000000000142a                SPI0_TWI0_IRQHandler
-                0x000000000000142a                RTC0_IRQHandler
-                0x000000000000142a                GPIOTE_IRQHandler
-                0x000000000000142a                POWER_CLOCK_IRQHandler
-                0x000000000000142a                LPCOMP_IRQHandler
- .text          0x000000000000142c      0x1e0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/libgcc.a(_divsi3.o)
-                0x000000000000142c                __aeabi_idiv
-                0x000000000000142c                __divsi3
-                0x00000000000015f8                __aeabi_idivmod
- .text          0x000000000000160c        0x4 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/libgcc.a(_dvmd_tls.o)
-                0x000000000000160c                __aeabi_ldiv0
-                0x000000000000160c                __aeabi_idiv0
- .text          0x0000000000001610        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-exit.o)
- .text.exit     0x0000000000001610       0x20 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-exit.o)
-                0x0000000000001610                exit
- .text          0x0000000000001630        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-impure.o)
- .text          0x0000000000001630        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-init.o)
+ .text          0x00000000000007e0       0x5c _build/nrf_delay.o
+                0x0000000000000814                nrf_delay_ms
+ .text          0x000000000000083c      0x2c4 _build/spi.o
+                0x000000000000087c                spi_slave_event_handle
+                0x000000000000095c                spi_init
+                0x0000000000000a98                radio_spi_start
+ .text          0x0000000000000b00      0x118 _build/data_fifo.o
+                0x0000000000000b00                write_data
+                0x0000000000000b58                read_data
+                0x0000000000000bcc                unread_data
+                0x0000000000000c04                get_num_data
+ .text          0x0000000000000c18       0xc4 _build/command_fifo.o
+                0x0000000000000c18                write_command
+                0x0000000000000c68                finish_write_command
+                0x0000000000000c80                read_command
+ .text          0x0000000000000cdc      0x594 _build/spi_slave.o
+                0x0000000000000e0c                spi_slave_evt_handler_register
+                0x0000000000000e34                spi_slave_set_cs_pull_up_config
+                0x0000000000000e50                spi_slave_set_drive_config
+                0x0000000000000e6c                spi_slave_init
+                0x000000000000112c                spi_slave_buffers_set
+                0x00000000000011bc                SPI1_TWI1_IRQHandler
+ .text          0x0000000000001270      0x124 _build/system_nrf51.o
+                0x0000000000001270                SystemCoreClockUpdate
+                0x0000000000001288                SystemInit
+ .text          0x0000000000001394       0x54 _build/gcc_startup_nrf51.o
+                0x0000000000001394                Reset_Handler
+                0x00000000000013dc                NMI_Handler
+                0x00000000000013de                HardFault_Handler
+                0x00000000000013e0                SVC_Handler
+                0x00000000000013e2                PendSV_Handler
+                0x00000000000013e4                SysTick_Handler
+                0x00000000000013e6                SWI4_IRQHandler
+                0x00000000000013e6                TEMP_IRQHandler
+                0x00000000000013e6                QDEC_IRQHandler
+                0x00000000000013e6                UART0_IRQHandler
+                0x00000000000013e6                SWI5_IRQHandler
+                0x00000000000013e6                TIMER0_IRQHandler
+                0x00000000000013e6                SWI0_IRQHandler
+                0x00000000000013e6                TIMER1_IRQHandler
+                0x00000000000013e6                ECB_IRQHandler
+                0x00000000000013e6                Default_Handler
+                0x00000000000013e6                ADC_IRQHandler
+                0x00000000000013e6                SWI3_IRQHandler
+                0x00000000000013e6                CCM_AAR_IRQHandler
+                0x00000000000013e6                WDT_IRQHandler
+                0x00000000000013e6                SWI2_IRQHandler
+                0x00000000000013e6                RNG_IRQHandler
+                0x00000000000013e6                RTC1_IRQHandler
+                0x00000000000013e6                TIMER2_IRQHandler
+                0x00000000000013e6                SWI1_IRQHandler
+                0x00000000000013e6                SPI0_TWI0_IRQHandler
+                0x00000000000013e6                RTC0_IRQHandler
+                0x00000000000013e6                GPIOTE_IRQHandler
+                0x00000000000013e6                POWER_CLOCK_IRQHandler
+                0x00000000000013e6                LPCOMP_IRQHandler
+ .text          0x00000000000013e8      0x1e0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/libgcc.a(_divsi3.o)
+                0x00000000000013e8                __aeabi_idiv
+                0x00000000000013e8                __divsi3
+                0x00000000000015b4                __aeabi_idivmod
+ .text          0x00000000000015c8        0x4 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/libgcc.a(_dvmd_tls.o)
+                0x00000000000015c8                __aeabi_ldiv0
+                0x00000000000015c8                __aeabi_idiv0
+ .text          0x00000000000015cc        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-exit.o)
+ .text.exit     0x00000000000015cc       0x20 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-exit.o)
+                0x00000000000015cc                exit
+ .text          0x00000000000015ec        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-impure.o)
+ .text          0x00000000000015ec        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-init.o)
  .text.__libc_init_array
-                0x0000000000001630       0x48 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-init.o)
-                0x0000000000001630                __libc_init_array
- .text          0x0000000000001678        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-memset.o)
- .text.memset   0x0000000000001678       0x8c /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-memset.o)
-                0x0000000000001678                memset
- .text          0x0000000000001704        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__call_atexit.o)
+                0x00000000000015ec       0x48 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-init.o)
+                0x00000000000015ec                __libc_init_array
+ .text          0x0000000000001634        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-memset.o)
+ .text.memset   0x0000000000001634       0x8c /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-memset.o)
+                0x0000000000001634                memset
+ .text          0x00000000000016c0        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__call_atexit.o)
  .text.startup.register_fini
-                0x0000000000001704       0x18 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__call_atexit.o)
+                0x00000000000016c0       0x18 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__call_atexit.o)
  .text.__call_exitprocs
-                0x000000000000171c      0x108 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__call_atexit.o)
-                0x000000000000171c                __call_exitprocs
- .text          0x0000000000001824        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-atexit.o)
- .text.atexit   0x0000000000001824       0x10 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-atexit.o)
-                0x0000000000001824                atexit
- .text          0x0000000000001834        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-fini.o)
+                0x00000000000016d8      0x108 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__call_atexit.o)
+                0x00000000000016d8                __call_exitprocs
+ .text          0x00000000000017e0        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-atexit.o)
+ .text.atexit   0x00000000000017e0       0x10 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-atexit.o)
+                0x00000000000017e0                atexit
+ .text          0x00000000000017f0        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-fini.o)
  .text.__libc_fini_array
-                0x0000000000001834       0x34 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-fini.o)
-                0x0000000000001834                __libc_fini_array
- .text          0x0000000000001868        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__atexit.o)
+                0x00000000000017f0       0x34 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-fini.o)
+                0x00000000000017f0                __libc_fini_array
+ .text          0x0000000000001824        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__atexit.o)
  .text.__register_exitproc
-                0x0000000000001868       0xd4 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__atexit.o)
-                0x0000000000001868                __register_exitproc
- .text          0x000000000000193c        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtend.o
- .text          0x000000000000193c        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtn.o
- .text          0x000000000000193c        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libnosys.a(_exit.o)
- .text._exit    0x000000000000193c        0x4 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libnosys.a(_exit.o)
-                0x000000000000193c                _exit
+                0x0000000000001824       0xd4 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__atexit.o)
+                0x0000000000001824                __register_exitproc
+ .text          0x00000000000018f8        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtend.o
+ .text          0x00000000000018f8        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtn.o
+ .text          0x00000000000018f8        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libnosys.a(_exit.o)
+ .text._exit    0x00000000000018f8        0x4 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libnosys.a(_exit.o)
+                0x00000000000018f8                _exit
  *(.init)
- .init          0x0000000000001940        0x4 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crti.o
-                0x0000000000001940                _init
- .init          0x0000000000001944        0x8 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtn.o
+ .init          0x00000000000018fc        0x4 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crti.o
+                0x00000000000018fc                _init
+ .init          0x0000000000001900        0x8 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtn.o
  *(.fini)
- .fini          0x000000000000194c        0x4 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crti.o
-                0x000000000000194c                _fini
- .fini          0x0000000000001950        0x8 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtn.o
+ .fini          0x0000000000001908        0x4 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crti.o
+                0x0000000000001908                _fini
+ .fini          0x000000000000190c        0x8 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtn.o
  *crtbegin.o(.ctors)
  *crtbegin?.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o *crtend?.o) .ctors)
@@ -474,55 +208,55 @@ END GROUP
  *(SORT(.dtors.*))
  *(.dtors)
  *(.rodata*)
- .rodata        0x0000000000001958        0xe _build/main_gui.o
- *fill*         0x0000000000001966        0x2 
- .rodata        0x0000000000001968        0x9 _build/spi.o
- *fill*         0x0000000000001971        0x3 
- .rodata        0x0000000000001974       0x2a _build/spi_slave.o
- *fill*         0x000000000000199e        0x2 
+ .rodata        0x0000000000001914        0xe _build/main_gui.o
+ *fill*         0x0000000000001922        0x2 
+ .rodata        0x0000000000001924        0x9 _build/spi.o
+ *fill*         0x000000000000192d        0x3 
+ .rodata        0x0000000000001930       0x2a _build/spi_slave.o
+ *fill*         0x000000000000195a        0x2 
  .rodata.str1.4
-                0x00000000000019a0        0x4 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-impure.o)
+                0x000000000000195c        0x4 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-impure.o)
                                           0x2 (size before relaxing)
  .rodata._global_impure_ptr
-                0x00000000000019a4        0x4 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-impure.o)
-                0x00000000000019a4                _global_impure_ptr
+                0x0000000000001960        0x4 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-impure.o)
+                0x0000000000001960                _global_impure_ptr
  *(.eh_frame*)
- .eh_frame      0x00000000000019a8        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
- .eh_frame      0x00000000000019a8        0x4 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtend.o
+ .eh_frame      0x0000000000001964        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
+ .eh_frame      0x0000000000001964        0x4 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtend.o
 
-.glue_7         0x00000000000019ac        0x0
+.glue_7         0x0000000000001968        0x0
  .glue_7        0x0000000000000000        0x0 linker stubs
 
-.glue_7t        0x00000000000019ac        0x0
+.glue_7t        0x0000000000001968        0x0
  .glue_7t       0x0000000000000000        0x0 linker stubs
 
-.vfp11_veneer   0x00000000000019ac        0x0
+.vfp11_veneer   0x0000000000001968        0x0
  .vfp11_veneer  0x0000000000000000        0x0 linker stubs
 
-.v4_bx          0x00000000000019ac        0x0
+.v4_bx          0x0000000000001968        0x0
  .v4_bx         0x0000000000000000        0x0 linker stubs
 
-.iplt           0x00000000000019ac        0x0
+.iplt           0x0000000000001968        0x0
  .iplt          0x0000000000000000        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
 
-.ARM.extab      0x00000000000019ac        0x0
+.ARM.extab      0x0000000000001968        0x0
  *(.ARM.extab* .gnu.linkonce.armextab.*)
- .ARM.extab     0x00000000000019ac        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/crt0.o
- .ARM.extab     0x00000000000019ac        0x0 _build/gcc_startup_nrf51.o
-                0x00000000000019ac                __exidx_start = .
+ .ARM.extab     0x0000000000001968        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+ .ARM.extab     0x0000000000001968        0x0 _build/gcc_startup_nrf51.o
+                0x0000000000001968                __exidx_start = .
 
-.ARM.exidx      0x00000000000019ac        0x8
+.ARM.exidx      0x0000000000001968        0x8
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
- .ARM.exidx     0x00000000000019ac        0x8 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/crt0.o
- .ARM.exidx     0x00000000000019b4        0x0 _build/gcc_startup_nrf51.o
+ .ARM.exidx     0x0000000000001968        0x8 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/crt0.o
+ .ARM.exidx     0x0000000000001970        0x0 _build/gcc_startup_nrf51.o
                                           0x8 (size before relaxing)
-                0x00000000000019b4                __exidx_end = .
-                0x00000000000019b4                __etext = .
+                0x0000000000001970                __exidx_end = .
+                0x0000000000001970                __etext = .
 
-.rel.dyn        0x00000000000019b4        0x0
+.rel.dyn        0x0000000000001970        0x0
  .rel.iplt      0x0000000000000000        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
 
-.data           0x0000000020000000      0x444 load address 0x00000000000019b4
+.data           0x0000000020000000      0x444 load address 0x0000000000001970
                 0x0000000020000000                __data_start__ = .
  *(vtable)
  *(.data*)
@@ -582,10 +316,10 @@ END GROUP
                 0x0000000020000444                . = ALIGN (0x4)
                 0x0000000020000444                __data_end__ = .
 
-.igot.plt       0x0000000020000444        0x0 load address 0x0000000000001df8
+.igot.plt       0x0000000020000444        0x0 load address 0x0000000000001db4
  .igot.plt      0x0000000000000000        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
 
-.bss            0x0000000020000444     0x2b3c load address 0x0000000000001df8
+.bss            0x0000000020000444     0x2b44 load address 0x0000000000001db4
                 0x0000000020000444                . = ALIGN (0x4)
                 0x0000000020000444                __bss_start__ = .
  *(.bss*)
@@ -606,70 +340,71 @@ END GROUP
                 0x0000000020000480                data_fifo_bytes_write
                 0x0000000020000484                debug_radio_bytes
  .bss           0x0000000020000488        0x0 _build/nrf_delay.o
- .bss           0x0000000020000488       0xcd _build/spi.o
- *fill*         0x0000000020000555        0x3 
- .bss           0x0000000020000558        0x8 _build/data_fifo.o
-                0x0000000020000558                d_read_ptr
-                0x0000000020000559                d_write_ptr
-                0x000000002000055c                d_size
- .bss           0x0000000020000560        0x3 _build/command_fifo.o
-                0x0000000020000560                c_read_ptr
-                0x0000000020000561                c_write_ptr
-                0x0000000020000562                c_size
- *fill*         0x0000000020000563        0x1 
- .bss           0x0000000020000564       0x20 _build/spi_slave.o
- .bss           0x0000000020000584        0x0 _build/system_nrf51.o
- .bss           0x0000000020000584        0x0 _build/gcc_startup_nrf51.o
- .bss           0x0000000020000584        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/libgcc.a(_divsi3.o)
- .bss           0x0000000020000584        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/libgcc.a(_dvmd_tls.o)
- .bss           0x0000000020000584        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-exit.o)
- .bss           0x0000000020000584        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-impure.o)
- .bss           0x0000000020000584        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-init.o)
- .bss           0x0000000020000584        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-memset.o)
- .bss           0x0000000020000584        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__call_atexit.o)
- .bss           0x0000000020000584        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-atexit.o)
- .bss           0x0000000020000584        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-fini.o)
- .bss           0x0000000020000584        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__atexit.o)
- .bss           0x0000000020000584        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtend.o
- .bss           0x0000000020000584        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtn.o
- .bss           0x0000000020000584        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libnosys.a(_exit.o)
+ .bss           0x0000000020000488       0xd4 _build/spi.o
+                0x0000000020000558                spi_count
+ .bss           0x000000002000055c        0x8 _build/data_fifo.o
+                0x000000002000055c                d_read_ptr
+                0x000000002000055d                d_write_ptr
+                0x0000000020000560                d_size
+ .bss           0x0000000020000564        0x3 _build/command_fifo.o
+                0x0000000020000564                c_read_ptr
+                0x0000000020000565                c_write_ptr
+                0x0000000020000566                c_size
+ *fill*         0x0000000020000567        0x1 
+ .bss           0x0000000020000568       0x20 _build/spi_slave.o
+ .bss           0x0000000020000588        0x0 _build/system_nrf51.o
+ .bss           0x0000000020000588        0x0 _build/gcc_startup_nrf51.o
+ .bss           0x0000000020000588        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/libgcc.a(_divsi3.o)
+ .bss           0x0000000020000588        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/libgcc.a(_dvmd_tls.o)
+ .bss           0x0000000020000588        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-exit.o)
+ .bss           0x0000000020000588        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-impure.o)
+ .bss           0x0000000020000588        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-init.o)
+ .bss           0x0000000020000588        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-memset.o)
+ .bss           0x0000000020000588        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__call_atexit.o)
+ .bss           0x0000000020000588        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-atexit.o)
+ .bss           0x0000000020000588        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-fini.o)
+ .bss           0x0000000020000588        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__atexit.o)
+ .bss           0x0000000020000588        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtend.o
+ .bss           0x0000000020000588        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtn.o
+ .bss           0x0000000020000588        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libnosys.a(_exit.o)
  *(COMMON)
- COMMON         0x0000000020000584       0x14 _build/main_gui.o
-                0x0000000020000584                write_pointer
-                0x0000000020000588                length
-                0x000000002000058c                command
-                0x0000000020000591                i
-                0x0000000020000594                data
- COMMON         0x0000000020000598      0x19c _build/radio_config.o
-                0x0000000020000598                command_packet
-                0x0000000020000660                rec_packet1
-                0x0000000020000664                newPacketPtr
-                0x0000000020000668                rec_packet2
-                0x000000002000066c                overflow_packet
- COMMON         0x0000000020000734        0xc _build/spi.o
-                0x0000000020000734                spi_running
-                0x0000000020000738                rx_buf
-                0x000000002000073c                tx_buf
- COMMON         0x0000000020000740     0x280b _build/data_fifo.o
-                0x0000000020000740                data_fifo
- *fill*         0x0000000020002f4b        0x1 
- COMMON         0x0000000020002f4c       0x32 _build/command_fifo.o
-                0x0000000020002f4c                command_fifo
-                0x0000000020002f80                . = ALIGN (0x4)
- *fill*         0x0000000020002f7e        0x2 
-                0x0000000020002f80                __bss_end__ = .
+ COMMON         0x0000000020000588       0x18 _build/main_gui.o
+                0x0000000020000588                write_pointer
+                0x000000002000058c                length
+                0x0000000020000590                command
+                0x0000000020000595                i
+                0x0000000020000598                spi_data
+                0x000000002000059c                data
+ COMMON         0x00000000200005a0      0x19c _build/radio_config.o
+                0x00000000200005a0                command_packet
+                0x0000000020000668                rec_packet1
+                0x000000002000066c                newPacketPtr
+                0x0000000020000670                rec_packet2
+                0x0000000020000674                overflow_packet
+ COMMON         0x000000002000073c        0xc _build/spi.o
+                0x000000002000073c                spi_running
+                0x0000000020000740                rx_buf
+                0x0000000020000744                tx_buf
+ COMMON         0x0000000020000748     0x280b _build/data_fifo.o
+                0x0000000020000748                data_fifo
+ *fill*         0x0000000020002f53        0x1 
+ COMMON         0x0000000020002f54       0x32 _build/command_fifo.o
+                0x0000000020002f54                command_fifo
+                0x0000000020002f88                . = ALIGN (0x4)
+ *fill*         0x0000000020002f86        0x2 
+                0x0000000020002f88                __bss_end__ = .
 
-.heap           0x0000000020002f80      0x800
-                0x0000000020002f80                __end__ = .
-                0x0000000020002f80                end = __end__
+.heap           0x0000000020002f88      0x800
+                0x0000000020002f88                __end__ = .
+                0x0000000020002f88                end = __end__
  *(.heap*)
- .heap          0x0000000020002f80      0x800 _build/gcc_startup_nrf51.o
-                0x0000000020002f80                __HeapBase
-                0x0000000020003780                __HeapLimit = .
+ .heap          0x0000000020002f88      0x800 _build/gcc_startup_nrf51.o
+                0x0000000020002f88                __HeapBase
+                0x0000000020003788                __HeapLimit = .
 
-.stack_dummy    0x0000000020002f80      0x800
+.stack_dummy    0x0000000020002f88      0x800
  *(.stack*)
- .stack         0x0000000020002f80      0x800 _build/gcc_startup_nrf51.o
+ .stack         0x0000000020002f88      0x800 _build/gcc_startup_nrf51.o
                 0x0000000020004000                __StackTop = (ORIGIN (RAM) + 0x4000)
                 0x0000000020003800                __StackLimit = (__StackTop - SIZEOF (.stack_dummy))
                 0x0000000020004000                PROVIDE (__stack, __StackTop)
@@ -740,148 +475,13 @@ OUTPUT(_build/gui_radio_xxaa.out elf32-littlearm)
  .comment       0x0000000000000000       0x71 _build/spi_slave.o
  .comment       0x0000000000000000       0x71 _build/system_nrf51.o
 
-.debug_info     0x0000000000000000     0x2414
- .debug_info    0x0000000000000000      0x44a _build/main_gui.o
- .debug_info    0x000000000000044a      0x989 _build/radio_config.o
- .debug_info    0x0000000000000dd3       0xdd _build/nrf_delay.o
- .debug_info    0x0000000000000eb0      0x4b7 _build/spi.o
- .debug_info    0x0000000000001367      0x171 _build/data_fifo.o
- .debug_info    0x00000000000014d8      0x14e _build/command_fifo.o
- .debug_info    0x0000000000001626      0xb7c _build/spi_slave.o
- .debug_info    0x00000000000021a2      0x1b1 _build/system_nrf51.o
- .debug_info    0x0000000000002353       0xc1 _build/gcc_startup_nrf51.o
-
-.debug_abbrev   0x0000000000000000      0x917
- .debug_abbrev  0x0000000000000000      0x145 _build/main_gui.o
- .debug_abbrev  0x0000000000000145      0x16d _build/radio_config.o
- .debug_abbrev  0x00000000000002b2       0x80 _build/nrf_delay.o
- .debug_abbrev  0x0000000000000332      0x185 _build/spi.o
- .debug_abbrev  0x00000000000004b7       0xc3 _build/data_fifo.o
- .debug_abbrev  0x000000000000057a       0xa9 _build/command_fifo.o
- .debug_abbrev  0x0000000000000623      0x1ec _build/spi_slave.o
- .debug_abbrev  0x000000000000080f       0xf4 _build/system_nrf51.o
- .debug_abbrev  0x0000000000000903       0x14 _build/gcc_startup_nrf51.o
-
-.debug_aranges  0x0000000000000000      0x120
- .debug_aranges
-                0x0000000000000000       0x20 _build/main_gui.o
- .debug_aranges
-                0x0000000000000020       0x20 _build/radio_config.o
- .debug_aranges
-                0x0000000000000040       0x20 _build/nrf_delay.o
- .debug_aranges
-                0x0000000000000060       0x20 _build/spi.o
- .debug_aranges
-                0x0000000000000080       0x20 _build/data_fifo.o
- .debug_aranges
-                0x00000000000000a0       0x20 _build/command_fifo.o
- .debug_aranges
-                0x00000000000000c0       0x20 _build/spi_slave.o
- .debug_aranges
-                0x00000000000000e0       0x20 _build/system_nrf51.o
- .debug_aranges
-                0x0000000000000100       0x20 _build/gcc_startup_nrf51.o
-
-.debug_macro    0x0000000000000000     0xa4d6
- .debug_macro   0x0000000000000000      0x129 _build/main_gui.o
- .debug_macro   0x0000000000000129      0x83e _build/main_gui.o
- .debug_macro   0x0000000000000967       0x22 _build/main_gui.o
- .debug_macro   0x0000000000000989       0x44 _build/main_gui.o
- .debug_macro   0x00000000000009cd       0x58 _build/main_gui.o
- .debug_macro   0x0000000000000a25       0x22 _build/main_gui.o
- .debug_macro   0x0000000000000a47      0x1df _build/main_gui.o
- .debug_macro   0x0000000000000c26       0x22 _build/main_gui.o
- .debug_macro   0x0000000000000c48       0x34 _build/main_gui.o
- .debug_macro   0x0000000000000c7c       0x40 _build/main_gui.o
- .debug_macro   0x0000000000000cbc       0x1c _build/main_gui.o
- .debug_macro   0x0000000000000cd8       0x10 _build/main_gui.o
- .debug_macro   0x0000000000000ce8       0x22 _build/main_gui.o
- .debug_macro   0x0000000000000d0a       0x3a _build/main_gui.o
- .debug_macro   0x0000000000000d44       0x1f _build/main_gui.o
- .debug_macro   0x0000000000000d63      0x242 _build/main_gui.o
- .debug_macro   0x0000000000000fa5      0x1d2 _build/main_gui.o
- .debug_macro   0x0000000000001177     0x746b _build/main_gui.o
- .debug_macro   0x00000000000085e2      0x124 _build/main_gui.o
- .debug_macro   0x0000000000008706      0x976 _build/main_gui.o
- .debug_macro   0x000000000000907c       0x10 _build/main_gui.o
- .debug_macro   0x000000000000908c       0x8e _build/main_gui.o
- .debug_macro   0x000000000000911a       0x16 _build/main_gui.o
- .debug_macro   0x0000000000009130      0x11e _build/radio_config.o
- .debug_macro   0x000000000000924e       0x3a _build/radio_config.o
- .debug_macro   0x0000000000009288      0x1aa _build/nrf_delay.o
- .debug_macro   0x0000000000009432       0x58 _build/nrf_delay.o
- .debug_macro   0x000000000000948a       0x35 _build/nrf_delay.o
- .debug_macro   0x00000000000094bf       0x9c _build/nrf_delay.o
- .debug_macro   0x000000000000955b       0x16 _build/nrf_delay.o
- .debug_macro   0x0000000000009571       0x4a _build/nrf_delay.o
- .debug_macro   0x00000000000095bb       0x97 _build/nrf_delay.o
- .debug_macro   0x0000000000009652      0x29d _build/nrf_delay.o
- .debug_macro   0x00000000000098ef       0xef _build/nrf_delay.o
- .debug_macro   0x00000000000099de       0x10 _build/nrf_delay.o
- .debug_macro   0x00000000000099ee       0x52 _build/nrf_delay.o
- .debug_macro   0x0000000000009a40       0x16 _build/nrf_delay.o
- .debug_macro   0x0000000000009a56       0x43 _build/nrf_delay.o
- .debug_macro   0x0000000000009a99      0x180 _build/nrf_delay.o
- .debug_macro   0x0000000000009c19       0x10 _build/nrf_delay.o
- .debug_macro   0x0000000000009c29       0x22 _build/nrf_delay.o
- .debug_macro   0x0000000000009c4b       0xbe _build/nrf_delay.o
- .debug_macro   0x0000000000009d09       0x16 _build/nrf_delay.o
- .debug_macro   0x0000000000009d1f      0x197 _build/nrf_delay.o
- .debug_macro   0x0000000000009eb6       0x1c _build/nrf_delay.o
- .debug_macro   0x0000000000009ed2      0x113 _build/spi.o
- .debug_macro   0x0000000000009fe5      0x11e _build/spi.o
- .debug_macro   0x000000000000a103       0x1c _build/spi.o
- .debug_macro   0x000000000000a11f       0x6d _build/data_fifo.o
- .debug_macro   0x000000000000a18c       0x63 _build/command_fifo.o
- .debug_macro   0x000000000000a1ef       0x16 _build/command_fifo.o
- .debug_macro   0x000000000000a205      0x1df _build/spi_slave.o
- .debug_macro   0x000000000000a3e4       0x22 _build/spi_slave.o
- .debug_macro   0x000000000000a406       0xd0 _build/system_nrf51.o
-
-.debug_line     0x0000000000000000     0x1d30
- .debug_line    0x0000000000000000      0x3f5 _build/main_gui.o
- .debug_line    0x00000000000003f5      0x404 _build/radio_config.o
- .debug_line    0x00000000000007f9      0x3c4 _build/nrf_delay.o
- .debug_line    0x0000000000000bbd      0x417 _build/spi.o
- .debug_line    0x0000000000000fd4      0x251 _build/data_fifo.o
- .debug_line    0x0000000000001225      0x236 _build/command_fifo.o
- .debug_line    0x000000000000145b      0x4f8 _build/spi_slave.o
- .debug_line    0x0000000000001953      0x348 _build/system_nrf51.o
- .debug_line    0x0000000000001c9b       0x95 _build/gcc_startup_nrf51.o
-
-.debug_str      0x0000000000000000    0x3366b
- .debug_str     0x0000000000000000    0x2f57d _build/main_gui.o
-                                      0x2f743 (size before relaxing)
- .debug_str     0x000000000002f57d      0x5c0 _build/radio_config.o
-                                      0x2f22a (size before relaxing)
- .debug_str     0x000000000002fb3d     0x3084 _build/nrf_delay.o
-                                      0x31b1d (size before relaxing)
- .debug_str     0x0000000000032bc1      0x250 _build/spi.o
-                                      0x2c581 (size before relaxing)
- .debug_str     0x0000000000032e11       0x6d _build/data_fifo.o
-                                       0x3054 (size before relaxing)
- .debug_str     0x0000000000032e7e       0x5f _build/command_fifo.o
-                                       0x300e (size before relaxing)
- .debug_str     0x0000000000032edd      0x689 _build/spi_slave.o
-                                      0x2f99e (size before relaxing)
- .debug_str     0x0000000000033566      0x105 _build/system_nrf51.o
-                                      0x2eb70 (size before relaxing)
-
-.debug_frame    0x0000000000000000      0x6e4
- .debug_frame   0x0000000000000000       0x6c _build/main_gui.o
- .debug_frame   0x000000000000006c       0xd0 _build/radio_config.o
- .debug_frame   0x000000000000013c       0x50 _build/nrf_delay.o
- .debug_frame   0x000000000000018c       0xd0 _build/spi.o
- .debug_frame   0x000000000000025c       0x88 _build/data_fifo.o
- .debug_frame   0x00000000000002e4       0x6c _build/command_fifo.o
- .debug_frame   0x0000000000000350      0x170 _build/spi_slave.o
- .debug_frame   0x00000000000004c0       0x80 _build/system_nrf51.o
- .debug_frame   0x0000000000000540       0x20 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/libgcc.a(_divsi3.o)
- .debug_frame   0x0000000000000560       0x28 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-exit.o)
- .debug_frame   0x0000000000000588       0x2c /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-init.o)
- .debug_frame   0x00000000000005b4       0x2c /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-memset.o)
- .debug_frame   0x00000000000005e0       0x54 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__call_atexit.o)
- .debug_frame   0x0000000000000634       0x28 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-atexit.o)
- .debug_frame   0x000000000000065c       0x2c /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-fini.o)
- .debug_frame   0x0000000000000688       0x3c /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__atexit.o)
- .debug_frame   0x00000000000006c4       0x20 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libnosys.a(_exit.o)
+.debug_frame    0x0000000000000000      0x1a4
+ .debug_frame   0x0000000000000000       0x20 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/libgcc.a(_divsi3.o)
+ .debug_frame   0x0000000000000020       0x28 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-exit.o)
+ .debug_frame   0x0000000000000048       0x2c /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-init.o)
+ .debug_frame   0x0000000000000074       0x2c /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-memset.o)
+ .debug_frame   0x00000000000000a0       0x54 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__call_atexit.o)
+ .debug_frame   0x00000000000000f4       0x28 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-atexit.o)
+ .debug_frame   0x000000000000011c       0x2c /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-fini.o)
+ .debug_frame   0x0000000000000148       0x3c /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-__atexit.o)
+ .debug_frame   0x0000000000000184       0x20 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv6-m/libnosys.a(_exit.o)

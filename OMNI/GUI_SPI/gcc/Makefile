@@ -8,6 +8,7 @@ C_SOURCE_FILES += spi.c
 C_SOURCE_FILES += data_fifo.c
 C_SOURCE_FILES += command_fifo.c
 C_SOURCE_FILES += spi_slave.c
+# C_SOURCE_FILES += radio_fifo.c
 
 OUTPUT_FILENAME := gui_radio
 SDK_PATH = ../../../../
