@@ -33,16 +33,23 @@ void spi_slave_event_handle(spi_slave_evt_t event)
 		// nrf_gpio_pin_set(SPI_RTR_PIN);
 		if (event.tx_amount == COMMAND_SIZE)
 		{
-			// GUI was sending a command
-			if (rx_buf != full_read_buf)
+			if (rx_buf[0] == 0xAA)
 			{
-				// we received a command and it is now in the command fifo
-				finish_write_command();
+				flush_data();
 			}
-			rx_buf = write_command();
-			if (rx_buf == 0)
+			else
 			{
-				rx_buf = full_read_buf;
+				// GUI was sending a command
+				if (rx_buf != full_read_buf)
+				{
+					// we received a command and it is now in the command fifo
+					finish_write_command();
+				}
+				rx_buf = write_command();
+				if (rx_buf == 0)
+				{
+					rx_buf = full_read_buf;
+				}
 			}
 		}
 		else if(event.tx_amount == SPI_WRITE_LENGTH)

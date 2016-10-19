@@ -17,4 +17,6 @@ void unread_data(void);
 
 uint8_t get_num_data(void);			// used to read how many data elements are in fifo 
 
+void flush_data(void);
+
 #endif

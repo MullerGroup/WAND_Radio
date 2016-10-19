@@ -74,3 +74,10 @@ uint8_t get_num_data(void)
 {
 	return d_size;
 }
+
+void flush_data(void)
+{
+	d_read_ptr = 0;
+	d_write_ptr = 0;
+	d_size = 0;
+}

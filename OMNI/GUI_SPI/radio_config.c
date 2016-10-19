@@ -24,6 +24,7 @@ bool 	overflow1 = false;
 bool    overflow2 = false;
 uint8_t *rec_packet1;
 uint8_t *rec_packet2;
+bool    turnaround;
 
 int crc_count = 0;
 
@@ -138,13 +139,16 @@ void RADIO_IRQHandler(void)
 	if ((NRF_RADIO->EVENTS_END == 1) && (NRF_RADIO->INTENSET & RADIO_INTENSET_END_Msk))
     {
 
-        if(NRF_RADIO->CRCSTATUS != 1)
+        turnaround = ((rec_packet1[0] == PHASE_2) || (rec_packet1[0] == PHASE_2_ERROR));
+
+        if (NRF_RADIO->CRCSTATUS != 1)
         {
             crc_count++;
-            if (rec_packet1[1] == DATA_LENGTH)
-            {
-                rec_packet1[1] = DATA_CRC;
-            }
+            rec_packet1[0] = 0xFF;
+        }
+        else
+        {
+            rec_packet1[0] = 0x00;
         }
 
     	// finish fifo write if necessary
@@ -159,7 +163,7 @@ void RADIO_IRQHandler(void)
 
 
     	// check what type of packet it is
-    	if ((rec_packet1[0] == PHASE_2) || (rec_packet1[0] == PHASE_2_ERROR))
+    	if (turnaround)
     	{
             NVIC_DisableIRQ(RADIO_IRQn);
 
