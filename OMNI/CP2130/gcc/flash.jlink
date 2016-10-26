@@ -1,4 +1,0 @@
-loadbin _build/cp2130_xxaa.bin 00000000
-r
-g
-exit
