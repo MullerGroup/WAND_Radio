@@ -77,7 +77,8 @@ void radio_configure()
     // Initial Shortcuts: default to receive data, so ready-start and end-start
 
     NRF_RADIO->SHORTS = (RADIO_SHORTS_READY_START_Enabled << RADIO_SHORTS_READY_START_Pos) | 
-                        (RADIO_SHORTS_END_START_Enabled << RADIO_SHORTS_END_START_Pos);
+                        (RADIO_SHORTS_END_START_Enabled << RADIO_SHORTS_END_START_Pos) | 
+                        (RADIO_SHORTS_ADDRESS_RSSISTART_Enabled << RADIO_SHORTS_ADDRESS_RSSISTART_Pos);
 
     NRF_RADIO->INTENSET = (RADIO_INTENSET_END_Enabled << RADIO_INTENSET_END_Pos) |
                             (RADIO_INTENSET_READY_Enabled << RADIO_INTENSET_READY_Pos);
@@ -110,7 +111,7 @@ void RADIO_IRQHandler(void)
 	uint8_t i;
 	uint8_t command_index;
 	uint8_t command_count;
-    
+    uint32_t rssi;
 
 
     if ((NRF_RADIO->EVENTS_READY == 1) && (NRF_RADIO->INTENSET & RADIO_INTENSET_READY_Msk))
@@ -145,6 +146,23 @@ void RADIO_IRQHandler(void)
             {
                 rec_packet1[1] = DATA_CRC;
             }
+        }
+
+        if(NRF_RADIO->EVENTS_RSSIEND != 0)
+        {
+            rssi = NRF_RADIO->RSSISAMPLE;
+            rec_packet1[196] = (uint8_t) rssi & 0xFF;
+            rec_packet1[197] = (uint8_t) (rssi >> 8) & 0xFF;
+            rec_packet1[198] = (uint8_t) (rssi >> 16) & 0xFF;
+            rec_packet1[199] = (uint8_t) (rssi >> 24) & 0xFF;
+            NRF_RADIO->EVENTS_RSSIEND = 0;
+        }
+        else
+        {
+            rec_packet1[196] = 0;
+            rec_packet1[197] = 0;
+            rec_packet1[198] = 0;
+            rec_packet1[199] = 0;
         }
 
     	// finish fifo write if necessary
@@ -231,7 +249,8 @@ void RADIO_IRQHandler(void)
 
             // reset the shorts and interrupts we want for Rx
             NRF_RADIO->SHORTS = (RADIO_SHORTS_READY_START_Enabled << RADIO_SHORTS_READY_START_Pos) | 
-                        		(RADIO_SHORTS_END_START_Enabled << RADIO_SHORTS_END_START_Pos);
+                        		(RADIO_SHORTS_END_START_Enabled << RADIO_SHORTS_END_START_Pos) |
+                                (RADIO_SHORTS_ADDRESS_RSSISTART_Enabled << RADIO_SHORTS_ADDRESS_RSSISTART_Pos);
 
     		NRF_RADIO->INTENSET = (RADIO_INTENSET_END_Enabled << RADIO_INTENSET_END_Pos) |
                                     (RADIO_INTENSET_READY_Enabled << RADIO_INTENSET_READY_Pos);
