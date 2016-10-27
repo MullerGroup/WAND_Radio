@@ -78,7 +78,7 @@ int main(void)
             {
                 if (ecg)
                 {
-                    data[61] = 0xAA; // start of packet
+                    data[61] = 0xFF; // start of packet
                     data[66] = 0x55; // end of packet
                     spi_write(data+61, ECG_LENGTH);
                 }
