@@ -41,6 +41,7 @@ int main(void)
 	int x;
 	bool success;
   uint32_t good;
+  int counter;
 
 	init();
 
@@ -157,8 +158,10 @@ int main(void)
        	NRF_RADIO->SHORTS = (RADIO_SHORTS_READY_START_Enabled << RADIO_SHORTS_READY_START_Pos) |
         					(RADIO_SHORTS_END_DISABLE_Enabled << RADIO_SHORTS_END_DISABLE_Pos);
        	success = false;
-        while (success == false)
+        counter = 0;
+        while ((success == false) && (counter < 10))
         {
+          counter++;
         	// transmit
         	NRF_RADIO->PACKETPTR = (uint32_t)packet;
         	NRF_RADIO->EVENTS_DISABLED = 0;
@@ -196,6 +199,11 @@ int main(void)
        		}
        	}
 
+        if (!success)
+        {
+          radio_configure();
+          clear_packet();
+        }
        	// Done!
     }
 }
