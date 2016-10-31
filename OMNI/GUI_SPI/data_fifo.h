@@ -9,7 +9,7 @@
 #include <stdint.h>
 
 #define DATA_FIFO_SIZE 52			// size of fifo in data packets
-#define ECG_LENGTH 6
+#define ECG_LENGTH 8
 
 uint8_t *write_data(void);			// used to write data into the fifo
 void finish_write_data(void);
