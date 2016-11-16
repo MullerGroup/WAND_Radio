@@ -9,7 +9,8 @@ C_SOURCE_FILES += data_fifo.c
 C_SOURCE_FILES += command_fifo.c
 
 OUTPUT_FILENAME := gui_radio
-SDK_PATH = ../../../../
+#SDK_PATH = ../../../../../Subnets/CM/Eclipse_ARM/nrf51_sdk_v6_1_0_b2ec2e6/nrf51822/
+SDK_PATH = ~/Google\ Drive/Berkeley/Research/Subnets/CM/Eclipse_ARM/nrf51_sdk_v6_1_0_b2ec2e6/nrf51822/
 
 
 #Uncomment correct line if you have s110 programmed on the chip.
