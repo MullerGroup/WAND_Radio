@@ -84,7 +84,7 @@ void spi_slave_event_handle(spi_slave_evt_t event)
 
 		for (i=0;i<SPI_FIFO_BYTES;i++)
 		{
-			spi_out[199+i] = writeptr[i];
+			spi_out[SPI_DATA_LENGTH+1+i] = writeptr[i];
 		}
 
 		// now set the buffers
