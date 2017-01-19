@@ -153,13 +153,13 @@ void RADIO_IRQHandler(void)
         }
         if (NRF_RADIO->EVENTS_RSSIEND != 0)
         {
-            rec_packet1[196] = (uint8_t) (NRF_RADIO->RSSISAMPLE & 0xFF);
-            rec_packet1[197] = 0;
+            rec_packet1[DATA_LENGTH - 2] = (uint8_t) (NRF_RADIO->RSSISAMPLE & 0xFF);
+            rec_packet1[DATA_LENGTH - 1] = 0;
         }
         else
         {
-            rec_packet1[196] = 0;
-            rec_packet1[197] = 0;
+            rec_packet1[DATA_LENGTH - 2] = 0;
+            rec_packet1[DATA_LENGTH - 1] = 0;
         }
 
     	// finish fifo write if necessary
