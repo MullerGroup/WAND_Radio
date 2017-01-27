@@ -6,8 +6,8 @@
  #ifndef RADIO_CONFIG_H
  #define RADIO_CONFIG_H
 
- #define PACKET_SIZE 12
- #define DATA_LENGTH 10
+ #define PACKET_SIZE 20
+ #define DATA_LENGTH 18
  #define REG_LENGTH 4
  #define DATA_CRC 9
 
