@@ -31,14 +31,14 @@ turnaround          0x1               _build/radio_config.o
 rec_packet1         0x4               _build/radio_config.o
 newPacketPtr        0x4               _build/radio_config.o
 write_pointer       0x4               _build/main_gui.o
-data_fifo           0x42f             _build/data_fifo.o
+data_fifo           0x14eb            _build/data_fifo.o
 spi_running         0x1               _build/spi.o
 length              0x1               _build/main_gui.o
 command             0x5               _build/main_gui.o
 i                   0x1               _build/main_gui.o
 rec_packet2         0x4               _build/radio_config.o
 spi_data            0x4               _build/main_gui.o
-command_fifo        0x32              _build/command_fifo.o
+command_fifo        0x4fb             _build/command_fifo.o
 overflow_packet     0x14              _build/radio_config.o
 rx_buf              0x4               _build/spi.o
 data                0x4               _build/main_gui.o
@@ -321,7 +321,7 @@ END GROUP
 .igot.plt       0x0000000020000444        0x0 load address 0x0000000000001e14
  .igot.plt      0x0000000000000000        0x0 /Users/andyz/Research/OMNI/MarioRadio/gcc-arm-none-eabi-4_9-2015q2/bin/../lib/gcc/arm-none-eabi/4.9.3/armv6-m/crtbegin.o
 
-.bss            0x0000000020000444      0x550 load address 0x0000000000001e14
+.bss            0x0000000020000444     0x1ad4 load address 0x0000000000001e14
                 0x0000000020000444                . = ALIGN (0x4)
                 0x0000000020000444                __bss_start__ = .
  *(.bss*)
@@ -388,26 +388,26 @@ END GROUP
                 0x0000000020000524                spi_running
                 0x0000000020000528                rx_buf
                 0x000000002000052c                tx_buf
- COMMON         0x0000000020000530      0x42f _build/data_fifo.o
+ COMMON         0x0000000020000530     0x14eb _build/data_fifo.o
                 0x0000000020000530                data_fifo
- *fill*         0x000000002000095f        0x1 
- COMMON         0x0000000020000960       0x32 _build/command_fifo.o
-                0x0000000020000960                command_fifo
-                0x0000000020000994                . = ALIGN (0x4)
- *fill*         0x0000000020000992        0x2 
-                0x0000000020000994                __bss_end__ = .
+ *fill*         0x0000000020001a1b        0x1 
+ COMMON         0x0000000020001a1c      0x4fb _build/command_fifo.o
+                0x0000000020001a1c                command_fifo
+                0x0000000020001f18                . = ALIGN (0x4)
+ *fill*         0x0000000020001f17        0x1 
+                0x0000000020001f18                __bss_end__ = .
 
-.heap           0x0000000020000998      0x800
-                0x0000000020000998                __end__ = .
-                0x0000000020000998                end = __end__
+.heap           0x0000000020001f18      0x800
+                0x0000000020001f18                __end__ = .
+                0x0000000020001f18                end = __end__
  *(.heap*)
- .heap          0x0000000020000998      0x800 _build/gcc_startup_nrf51.o
-                0x0000000020000998                __HeapBase
-                0x0000000020001198                __HeapLimit = .
+ .heap          0x0000000020001f18      0x800 _build/gcc_startup_nrf51.o
+                0x0000000020001f18                __HeapBase
+                0x0000000020002718                __HeapLimit = .
 
-.stack_dummy    0x0000000020000998      0x800
+.stack_dummy    0x0000000020001f18      0x800
  *(.stack*)
- .stack         0x0000000020000998      0x800 _build/gcc_startup_nrf51.o
+ .stack         0x0000000020001f18      0x800 _build/gcc_startup_nrf51.o
                 0x0000000020004000                __StackTop = (ORIGIN (RAM) + 0x4000)
                 0x0000000020003800                __StackLimit = (__StackTop - SIZEOF (.stack_dummy))
                 0x0000000020004000                PROVIDE (__stack, __StackTop)

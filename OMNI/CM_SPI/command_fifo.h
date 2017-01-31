@@ -10,7 +10,7 @@
 #include "radio_config.h"
 
 #define COMMAND_SIZE 5				// size of each command in bytes
-#define COMMAND_FIFO_SIZE 5		// size of the fifo in commands
+#define COMMAND_FIFO_SIZE 200		// size of the fifo in commands
 #define MAX_COMMANDS 2				// PACKET_SIZE/5
 
 uint8_t *write_command(void);		// used to write command into the fifo

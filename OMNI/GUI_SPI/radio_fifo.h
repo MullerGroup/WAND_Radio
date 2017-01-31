@@ -8,7 +8,7 @@
 
 #include <stdint.h>
 
-#define RADIO_FIFO_SIZE 5			// size of fifo in data packets
+#define RADIO_FIFO_SIZE 200			// size of fifo in data packets
 
 uint8_t *write_radio(void);			// used to write data into the fifo
 void finish_write_radio(void);
