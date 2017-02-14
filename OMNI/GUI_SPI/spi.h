@@ -18,7 +18,7 @@
 #define DEF_CHARACTER		0xAA
 #define ORC_CHARACTER		0x55
 
-#define SPI_WRITE_LENGTH	20
+#define SPI_WRITE_LENGTH	12
 #define SPI_THRESHOLD		5
 
 

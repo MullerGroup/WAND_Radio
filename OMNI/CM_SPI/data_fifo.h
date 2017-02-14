@@ -8,7 +8,7 @@
 
 #include <stdint.h>
 
-#define DATA_FIFO_SIZE 255			// size of fifo in data packets
+#define DATA_FIFO_SIZE 890			// size of fifo in data packets
 
 uint8_t *write_data(void);			// used to write data into the fifo
 void finish_write_data(void);

@@ -15,9 +15,6 @@ uint8_t full_read_buf[PACKET_SIZE];
 uint8_t *tx_buf;
 uint8_t *rx_buf;
 
-uint32_t debug_data_bytes = 0;
-uint32_t debug_spi_bytes = 0;
-
 void spi_slave_event_handle(spi_slave_evt_t event)
 {
 	uint32_t err_code;
@@ -32,10 +29,6 @@ void spi_slave_event_handle(spi_slave_evt_t event)
 		// SPI has completed, so we need to check if we actually wrote any valid data to the rx buffer
 		// Only need to do this if the fifo was actually involved
 
-		if (rx_buf[1] == SPI_DATA)
-		{
-			debug_spi_bytes = debug_spi_bytes + SPI_DATA_LENGTH;
-		}
 
 		if (rx_buf != full_read_buf)
 		{
@@ -44,7 +37,6 @@ void spi_slave_event_handle(spi_slave_evt_t event)
 				if (rx_buf[1] == SPI_DATA)
 				{
 					rx_buf[1] = SPI_DATA_LENGTH;
-					debug_data_bytes = debug_data_bytes + SPI_DATA_LENGTH;
 				}
 				else
 				{

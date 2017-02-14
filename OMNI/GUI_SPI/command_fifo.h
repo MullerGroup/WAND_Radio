@@ -9,7 +9,7 @@
 #include <stdint.h>
 
 #define COMMAND_SIZE 5				// size of each command in bytes
-#define COMMAND_FIFO_SIZE 255		// size of the fifo in commands
+#define COMMAND_FIFO_SIZE 50		// size of the fifo in commands
 #define MAX_COMMANDS 2				// PACKET_SIZE/5
 
 uint8_t *write_command(void);		// used to write command into the fifo

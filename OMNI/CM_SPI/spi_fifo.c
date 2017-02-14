@@ -7,9 +7,9 @@
 #include <stdint.h>
 
 uint8_t spi_fifo[SPI_FIFO_SIZE][SPI_FIFO_BYTES];
-uint8_t s_read_ptr = 0;
-uint8_t s_write_ptr = 0;
-uint8_t s_size = 0;
+uint16_t s_read_ptr = 0;
+uint16_t s_write_ptr = 0;
+uint16_t s_size = 0;
 
 uint8_t *write_spi_fifo(void)
 {
