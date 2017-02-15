@@ -6,7 +6,8 @@
 #ifndef TIMER_H
 #define TIMER_H
 
-#define PHASE_1_LENGTH 128
+#define PHASE_1_LENGTH 10
+#define PHASE_1_STREAM 500
 
 
 #include "timer.h"
