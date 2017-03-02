@@ -13,6 +13,7 @@
 
 bool error;
 uint8_t empty_packet[PACKET_SIZE];
+bool stream;
 
 
 // Sets up the timer to interrupt on compare events
@@ -132,22 +133,33 @@ void TIMER0_IRQHandler(void)
 
         	// check the outcome of receive with timeout
 
-        	if (timeout >= 0)
-        	{
-        		// did not time out
-        		if (NRF_RADIO->CRCSTATUS == 1)
-        		{
-        			// got CRC match, receive was good
-        			error = false;
-        			finish_write_command();
-        		}
-        		else
-        		{
-        			// no CRC match, don't want the received data, allow to overwrite
-        			error = true;
+            if (timeout >= 0)
+            {
+                // did not time out
+                if (NRF_RADIO->CRCSTATUS == 1)
+                {
+                    // got CRC match, receive was good
+                    error = false;
+                    finish_write_command();
+                    if ((receive_packet[0] != 0) && (receive_packet[1] == 0xFF))
+                    {
+                        if ((receive_packet[5] >> 5) & 0x01)
+                        {
+                            stream = true;
+                        }
+                        else if ((receive_packet[5] >> 4) & 0x01)
+                        {
+                            stream = false;
+                        }
+                    }
+                }
+                else
+                {
+                    // no CRC match, don't want the received data, allow to overwrite
+                    error = true;
                     reset_write_command();
-        		}
-        	}
+                }
+            }
         	else
         	{
         		// did timeout, need to re-request data next time
@@ -199,7 +211,13 @@ void TIMER0_IRQHandler(void)
                 }
             }
         }
-
-        start_timeout(PHASE_1_LENGTH);
+        if (stream)
+        {
+            start_timeout(PHASE_1_STREAM);
+        }
+        else
+        {
+            start_timeout(PHASE_1_LENGTH);
+        }
     }
 }
