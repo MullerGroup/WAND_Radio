@@ -26,9 +26,6 @@ uint8_t *rec_packet1;
 uint8_t *rec_packet2;
 bool    turnaround;
 
-
-// for debugging, checking if packet is correct
-
 void radio_configure()
 {
 
@@ -156,9 +153,6 @@ void RADIO_IRQHandler(void)
         //     rec_packet1[DATA_LENGTH - 2] = 0;
         //     rec_packet1[DATA_LENGTH - 1] = 0;
         // }
-
-
-
 
     	// check what type of packet it is
     	if (turnaround)

@@ -7,7 +7,6 @@
 #include "spi_slave.h"
 #include "command_fifo.h"
 #include "data_fifo.h"
-#include "radio_fifo.h"
 #include "boards.h"
 #include "app_error.h"
 #include "radio_config.h"
@@ -22,7 +21,6 @@ static uint8_t full_read_buf[COMMAND_SIZE];
 uint8_t *tx_buf;
 uint8_t *rx_buf;
 bool spi_running;
-int spi_count = 0;
 
 void spi_slave_event_handle(spi_slave_evt_t event)
 {
@@ -54,7 +52,6 @@ void spi_slave_event_handle(spi_slave_evt_t event)
 		}
 		else if(event.tx_amount == SPI_WRITE_LENGTH)
 		{
-			spi_count++;
 			// GUI was reading back data (or registers, but same number of actual bytes)
 			// we know that we just successfully sent out a data packet, so get the next one
 			// if (tx_buf != empty_write_buf)

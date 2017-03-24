@@ -26,13 +26,6 @@ uint8_t *rec_packet1;
 uint8_t *rec_packet2;
 bool    turnaround;
 
-int crc_count = 0;
-
-// for debugging, checking if packet is correct
-uint32_t packets_received = 0;
-uint32_t data_fifo_bytes_write = 0;
-uint32_t debug_radio_bytes = 0;
-
 void radio_configure()
 {
 
@@ -144,7 +137,6 @@ void RADIO_IRQHandler(void)
 
         if (NRF_RADIO->CRCSTATUS != 1)
         {
-            crc_count++;
             rec_packet1[0] = 0xFF;
         }
         else
@@ -161,18 +153,7 @@ void RADIO_IRQHandler(void)
             rec_packet1[196] = 0;
             rec_packet1[197] = 0;
         }
-
-    	// finish fifo write if necessary
-    	if (overflow1 != true)
-    	{
-            data_fifo_bytes_write = data_fifo_bytes_write + rec_packet1[1];
-    	}
-
-        debug_radio_bytes = debug_radio_bytes + rec_packet1[1];
         
-        packets_received = packets_received + 1;
-
-
     	// check what type of packet it is
     	if (turnaround)
     	{

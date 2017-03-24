@@ -43,22 +43,5 @@ int main(void)
 
 	while (true) 
     {
-        // data = read_data();
-        // if (data != 0)
-        // {
-        //     spi_data = write_radio();
-        //     if (spi_data != 0)
-        //     {
-        //         for(i=0;i<PACKET_SIZE+1;i++)
-        //         {
-        //             spi_data[i] = data[i];
-        //         }
-        //         finish_write_radio();
-        //     }
-        //     else
-        //     {
-        //         unread_data();
-        //     }
-        // }
     }
 }

@@ -10,7 +10,7 @@
 uint8_t data_fifo[DATA_FIFO_SIZE][PACKET_SIZE+1];		// data fifo
 uint16_t d_read_ptr = 0;								// head of fifo
 uint16_t d_write_ptr = 0;								// tail of fifo
-int 	d_size = 0;									// number of data elements in fifo
+uint16_t d_size = 0;									// number of data elements in fifo
 
 // gets pointer of element to write data into
 uint8_t *write_data(void)
