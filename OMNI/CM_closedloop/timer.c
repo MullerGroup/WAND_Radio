@@ -133,14 +133,14 @@ void TIMER0_IRQHandler(void)
 
         	// check the outcome of receive with timeout
 
-        	if (timeout >= 0)
-        	{
-        		// did not time out
-        		if (NRF_RADIO->CRCSTATUS == 1)
-        		{
-        			// got CRC match, receive was good
-        			error = false;
-        			finish_write_command();
+            if (timeout >= 0)
+            {
+                // did not time out
+                if (NRF_RADIO->CRCSTATUS == 1)
+                {
+                    // got CRC match, receive was good
+                    error = false;
+                    finish_write_command();
                     if ((receive_packet[0] != 0) && (receive_packet[1] == 0xFF))
                     {
                         if ((receive_packet[5] >> 5) & 0x01)
@@ -152,14 +152,14 @@ void TIMER0_IRQHandler(void)
                             stream = false;
                         }
                     }
-        		}
-        		else
-        		{
-        			// no CRC match, don't want the received data, allow to overwrite
-        			error = true;
+                }
+                else
+                {
+                    // no CRC match, don't want the received data, allow to overwrite
+                    error = true;
                     reset_write_command();
-        		}
-        	}
+                }
+            }
         	else
         	{
         		// did timeout, need to re-request data next time
@@ -211,7 +211,7 @@ void TIMER0_IRQHandler(void)
                 }
             }
         }
-
+        
         if (stream)
         {
             start_timeout(PHASE_1_STREAM);

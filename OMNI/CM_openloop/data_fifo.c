@@ -9,10 +9,9 @@
 #include <stdint.h>
 
 uint8_t data_fifo[DATA_FIFO_SIZE][PACKET_SIZE];		// data fifo
-uint8_t d_read_ptr = 0;								// head of fifo
-uint8_t d_write_ptr = 0;							// tail of fifo
-uint8_t d_size = 0;									// number of data elements in fifo
-uint32_t d_full_count = 0;
+uint16_t d_read_ptr = 0;								// head of fifo
+uint16_t d_write_ptr = 0;							// tail of fifo
+uint16_t d_size = 0;									// number of data elements in fifo
 
 // gets pointer of element to write data into
 uint8_t *write_data(void)
@@ -20,13 +19,12 @@ uint8_t *write_data(void)
 	uint8_t *write_pointer;
 
 
-		if (d_size < (DATA_FIFO_SIZE - 5))
+		if (d_size < (DATA_FIFO_SIZE - 3))
 		{
 			// fifo is not full
 			write_pointer = data_fifo[d_write_ptr];
 			if ((uint32_t)write_pointer == NRF_RADIO->PACKETPTR)
 			{
-				d_full_count++;
 				return 0;
 			}
 			else

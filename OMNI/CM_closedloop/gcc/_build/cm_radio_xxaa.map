@@ -367,18 +367,18 @@ END GROUP
                 0x0000000020000460                d_read_ptr
                 0x0000000020000462                d_write_ptr
                 0x0000000020000464                d_size
- .bss           0x0000000020000466        0x5 _build/command_fifo.o
+ .bss           0x0000000020000466        0x6 _build/command_fifo.o
                 0x0000000020000466                c_read_ptr
                 0x0000000020000468                c_write_ptr
                 0x000000002000046a                c_size
- .bss           0x000000002000046b        0x1 _build/timer.o
-                0x000000002000046b                stream
- .bss           0x000000002000046c        0x0 _build/spi.o
- .bss           0x000000002000046c        0x6 _build/spi_fifo.o
-                0x000000002000046c                s_read_ptr
-                0x000000002000046e                s_write_ptr
-                0x0000000020000470                s_size
- *fill*         0x0000000020000472        0x2 
+ .bss           0x000000002000046c        0x1 _build/timer.o
+                0x000000002000046c                stream
+ .bss           0x000000002000046d        0x0 _build/spi.o
+ *fill*         0x000000002000046d        0x1 
+ .bss           0x000000002000046e        0x6 _build/spi_fifo.o
+                0x000000002000046e                s_read_ptr
+                0x0000000020000470                s_write_ptr
+                0x0000000020000472                s_size
  .bss           0x0000000020000474       0x20 _build/spi_slave.o
  .bss           0x0000000020000494        0x0 _build/system_nrf51.o
  .bss           0x0000000020000494        0x0 _build/gcc_startup_nrf51.o

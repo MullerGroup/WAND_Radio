@@ -7,7 +7,6 @@
 #define COMMAND_FIFO_H
 
 #include <stdint.h>
-#include "radio_config.h"
 
 #define COMMAND_SIZE 5				// size of each command in bytes
 #define COMMAND_FIFO_SIZE 15		// size of the fifo in commands

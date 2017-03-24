@@ -29,7 +29,6 @@ void spi_slave_event_handle(spi_slave_evt_t event)
 		// SPI has completed, so we need to check if we actually wrote any valid data to the rx buffer
 		// Only need to do this if the fifo was actually involved
 
-
 		if (rx_buf != full_read_buf)
 		{
 			if ((rx_buf[1] == SPI_DATA) || (rx_buf[1] == SPI_REGISTER))

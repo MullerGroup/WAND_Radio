@@ -12,8 +12,8 @@
 #include <stdbool.h>
 
 bool error;
+bool stream = false;
 uint8_t empty_packet[PACKET_SIZE];
-bool stream;
 
 
 // Sets up the timer to interrupt on compare events
@@ -211,6 +211,7 @@ void TIMER0_IRQHandler(void)
                 }
             }
         }
+        
         if (stream)
         {
             start_timeout(PHASE_1_STREAM);

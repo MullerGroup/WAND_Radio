@@ -10,7 +10,7 @@
 uint8_t command_fifo[COMMAND_FIFO_SIZE][PACKET_SIZE];	// command fifo
 uint16_t c_read_ptr = 0;									// head of fifo
 uint16_t c_write_ptr = 0;								// tail of fifo
-uint8_t c_size = 0;										// number of commands in fifo
+uint16_t c_size = 0;										// number of commands in fifo
 
 // gets pointer of element to write command into
 uint8_t *write_command(void)

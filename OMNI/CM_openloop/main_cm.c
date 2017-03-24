@@ -67,7 +67,7 @@ int main(void)
 			//	written to the spi fifo, or there were no commands in the packet
 			success = false;
 			// first byte contains # of bytes in command packet
-			length = commands[0]/5; // number of commands
+			length = commands[0]/COMMAND_SIZE; // number of commands
 			
 			if (length != 0)
 			{
@@ -83,12 +83,12 @@ int main(void)
 						if (spi_packet != 0)
 						{
 							spi_packet[0] = COMMAND_VALID;
-							for (j=0;j<5;j++)
+							for (j=0;j<COMMAND_SIZE;j++)
 							{
 								spi_packet[j+1] = commands[c + j];
 							}
 							finish_write_spi_fifo();
-							c = c + 5;
+							c = c + COMMAND_SIZE;
 						}
 					}
 					success = true;
