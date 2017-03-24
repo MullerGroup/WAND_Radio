@@ -8,6 +8,7 @@
 
 #include <stdint.h>
 #include <stdbool.h>
+#include "radio_config.h"
 
 #define SPI_SCK_PIN			20
 #define SPI_MOSI_PIN		21
@@ -18,7 +19,7 @@
 #define DEF_CHARACTER		0xAA
 #define ORC_CHARACTER		0x55
 
-#define SPI_WRITE_LENGTH	200
+#define SPI_WRITE_LENGTH	(PACKET_SIZE)
 #define SPI_THRESHOLD		5
 
 

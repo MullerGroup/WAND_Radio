@@ -7,7 +7,7 @@
 #define TIMER_H
 
 #define PHASE_1_LENGTH 10
-#define PHASE_1_STREAM 1000
+#define PHASE_1_STREAM 500
 
 #include "timer.h"
 #include "nrf.h"
