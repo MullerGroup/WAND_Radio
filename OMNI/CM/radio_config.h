@@ -10,6 +10,7 @@
  #define RADIO_CONFIG_H
 
  #define PACKET_SIZE 	200
+ #define CL_PACKET_SIZE 12
 
  #define PHASE_1 		0
  #define PHASE_2 		1

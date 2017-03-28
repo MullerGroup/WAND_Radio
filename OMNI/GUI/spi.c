@@ -50,7 +50,7 @@ void spi_slave_event_handle(spi_slave_evt_t event)
 				}
 			}
 		}
-		else if(event.tx_amount == SPI_WRITE_LENGTH)
+		else if ((event.tx_amount == SPI_WRITE_LENGTH) || (event.tx_amount == CL_SPI_WRITE_LENGTH))
 		{
 			// GUI was reading back data (or registers, but same number of actual bytes)
 			// we know that we just successfully sent out a data packet, so get the next one

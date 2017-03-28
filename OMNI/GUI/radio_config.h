@@ -7,6 +7,7 @@
  #define RADIO_CONFIG_H
 
  #define PACKET_SIZE 200
+ #define CL_PACKET_SIZE 12
  #define DATA_LENGTH (PACKET_SIZE - 2)
  #define REG_LENGTH 4
  #define DATA_CRC (PACKET_SIZE - 3)
