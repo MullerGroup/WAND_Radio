@@ -10,11 +10,19 @@
 #include <stdbool.h>
 #include "radio_config.h"
 
+// NRF51822 EK (green board)
 #define SPI_SCK_PIN			20
 #define SPI_MOSI_PIN		21
 #define SPI_MISO_PIN		22
 #define SPI_CSN_PIN			23
 #define SPI_RTR_PIN			24
+
+// // NRF51 DK (blue board board)
+// #define SPI_SCK_PIN			12
+// #define SPI_MOSI_PIN		13
+// #define SPI_MISO_PIN		14
+// #define SPI_CSN_PIN			15
+// #define SPI_RTR_PIN			16
 
 #define DEF_CHARACTER		0xAA
 #define ORC_CHARACTER		0x55
